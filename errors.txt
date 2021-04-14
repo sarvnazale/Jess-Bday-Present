@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 182: expecting name after dot.
+    jc. "Period 1… Math class. Second floor, all right."
+        ^
+
+Ren'Py Version: Ren'Py 7.4.2.1292
+Wed Apr 14 11:12:45 2021
