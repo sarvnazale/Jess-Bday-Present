@@ -1,4 +1,10 @@
 init python:
+    # boolean for Brennan Lee Mulligan route
+    boolean brennanRoute = False
+
+    #boolean about whether Jess chose to do some of Maggie's assignments
+    boolean maggieHwk = False
+
     class Person:
         def __init__(self, character, name, trust = 0):
             self.c = character
@@ -24,8 +30,6 @@ transform heart_pos:
 
 image heart_fill = "heart_fill.png"
 image heart_empty = "heart_empty.png"
-# boolean for Brennan Lee Mulligan route
-boolean brennanRoute = False
 
 # The game starts here.
 
@@ -507,7 +511,7 @@ label cafday1:
             show argha mad
             a.c "You're not getting that ten-dollar reward though, and I'm still mad at you. Now leave before I push you down the stairs."
             "You decide to take his advice and leave, since you have to go to English class soon anyway."
-            jump engday1
+            jump engclass1
         "Decide to help Arghawan.":
             j.c "Here, perhaps I can help you. Let's look for it together!"
             $ a.trust_ch(1)
@@ -589,6 +593,35 @@ label blmstartfail:
     jump engclass1
 
 label engclass1:
+    scene classroom
+    with fade
+    Jessica finds maggie reading a classic in the back
+    “Man. This book sucks. Hate women more why dont u ray.” she jots notes down.
+    Jessica notices this isn’t a book their class was reading
+    Maggie is in English class, she is doing someone else’s assignment because she wants to be hella rich when she reincarnates. She is very behind on her rehabilitation because she keeps being greedy as fuck.
+    Jessica approaches maggie and asks what she’s doing, maggie explains that she does assignments for other souls because they're lazy af
+    “Oh, can you do my assignment for me too?”     -1 AFFECTION
+    Maggie respond by saying yes, but exhaustedly
+    Jessica: If it’s too much work I can do it myself!
+    Maggie feels cheated of potential income
+
+
+    “I can do that assignment for you!” +1 AFFECTION Sidenote : BUT CAN TANK YOU BY LIKE 5 later on (at end of day, make note, coder girls)
+    When you go to your room, after the event ends, you have to answer a bunch of random questions. Whether or not, you answer the questions you are forced to answer correctly will determine the amount of affection you gain. Between +2, +1, or -1
+
+label bioday1:
+    scene hall
+    with fade
+    "English class being over, you head to \“Don’t shit near near your food\” class, aka biology."
+    scene classroom
+    with fade
+    "You arrive, sitting in your seat. So much has already happened? You feel drained and naturally sleep through class."
+    scene classroom
+    with fade
+    "By the time you wake, class has ended and it is time for lunch."
+
+    ""
+
 
 
 
