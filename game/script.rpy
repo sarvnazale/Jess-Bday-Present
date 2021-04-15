@@ -399,7 +399,7 @@ label cafeteria:
 
     j.c "You draw?"
 
-    d.c "Oh! Yes! So sorry this must be strange for you. My name is Doris, I’m a fungal nymph! Oh would you like to see the picture?"
+    d.c "Oh! Yes! So sorry this must be strange for you. My name is Doris, I’m a fungal nymph! Would you like to see the picture?"
     $ d = Person(Character("Doris"), "Doris")
     "Doris flips around her sketchpad to show you a sketching of the bird, alongside a flattering image of you sitting on the bench. For a second, you forgot you were a monkey-person."
 
@@ -433,7 +433,7 @@ label dormchoice:
 
     menu:
         "Cassidy":
-            "Cassidy may have been cold and slightly off putting, but something about her icy presence felt so warm"
+            "Cassidy may have been cold and slightly off putting, but something about her icy presence felt so warm."
             $ c.trust_ch(1)
             jump day1
         "Arghawan":
@@ -473,7 +473,7 @@ label cafday1:
     scene lunchroom
     with fade
     "You are busy eating your hashbrowns when you spot a familiar face outside in the courtyard. Arghawan!
-    You hear the bell ring, summoning you to class, but you also notice he looks distraught.
+    You hear the bell ring, telling you class will start soon, but you also notice he looks distraught.
     He seems to be running about. Perhaps he's looking for something?"
     #idk if this will work, but i want to see if I can edit the narration slightly depending on how much characters trust Jess
     #let me know if this is a bad idea, Sarv.
@@ -484,29 +484,111 @@ label cafday1:
     scene outside
     with fade
 
-    a.c "Help! Has anyone seen my $5? $10 reward!"
-    a.c "You! From yesterday! Could you please help me look for my $5? I need it for lunch!"
+    show argha sad blink
+    a.c "Help! Has anyone seen my 5 dollars? 10 dollar reward!"
+    show argha neutral
+    a.c "You! From yesterday! Could you please help me look for my 5 dollars? I need it for lunch!"
+    show argha sad
     a.c "Even though I have been offering a $10 reward, I have had no luck so far."
 
     menu:
+        "Laugh at Arghawan":
+            "You laugh at Arghawan's stupidity"
+            show argha mad
+            j.c "This is quite entertaining"
+            show argha mad blink
+            a.c "Thanks for nothing!"
+            a.trust_ch(-1)
+            show argha mad
+            a.c "You know what? I'm gonna say it. UR ASS FLAT /SRS"
+            j.c "NOOO! You know what? Here, have five dollars."
+            show argha mad blink
+            a.c "Normally i wouldn't need your pity, but right now i kinda need that money."
+            show argha mad
+            a.c "You're not getting that ten-dollar reward though, and I'm still mad at you. Now leave before I push you down the stairs."
+            "You decide to take his advice and leave, since you have to go to English class soon anyway."
+            jump engday1
         "Decide to help Arghawan.":
             j.c "Here, perhaps I can help you. Let's look for it together!"
             $ a.trust_ch(1)
+            scene outside
+            with fade
+            "Despite your best efforts and a few minutes of your time, you do not end up finding the $5."
+            "You instead decide to lend him $5."
+            a.c "Since this isn't my 5 dollars, I'm not going to give you 10 dollars."
+            j.c "About that... You know that if you provide that reward, it's like you didn't actually find the money at all?"
+            a.c "oh. I still feel like I owe you something though..."
+            a.c "I know another way to repay you! You can decide what I should have for breakfast! This is one of the best rewards I can offer..."
+            menu:
+                "Tell him to get pizza":
+                    j.c "You should have the pizza!"
+                    a.trust_ch(-1)
+                    a.c "meh. Pizza is ok."
+                    #note from amy: i love pizza so much that typing that sentence was painful
+                    a.c "Thank you for everything though! See you around!"
+                    "You realize that English class is about to start, and decide that you do not want to be late."
+                    j.c "No problem! I do have to go now though. See you around!"
+                    jump engclass1
+                "Tell him to get hamburgers"
+                    j.c "You should have some hamburgers!"
+                    a.c "HAMBURGERS ARE MY FAVOURITE! YOU'RE THE BEST UR ASS FAT/SRS"
+                    a.trust_ch(1)
+                    "You realize that English class is about to start, and decide that you do not want to be late."
+                    j.c "SO TRUE! I have to go to English class, though this has been really fun! See you around!"
+                    jump engclass1
 
-    Jessica has the choice to either help him, laugh at him, or lend him $5
-    “Let’s look for it together.” +1 AFFECTION
-    Jessica doesn’t end up finding the $5, but lends Chad $5
-    Chad feels financially indebted towards Jessica
-    “That’s pretty funny.” -1 AFFECTION
-    CHAD ROBS YOU AND TAKES $5 FROM YOU /J
-    Guilts you into giving him money
+label blmstart:
+    scene hall
+    with fade
+    "You walk down the hallway, when you see the headmaster, Brennan Lee Mulligan."
+    show brennan neutral
+    "Brennan spots you and initiates a conversation."
+    b.c "How are you liking the school?"
+    menu:
+        "Tell him about how awesome one of the other people you've met is.":
+            j.c "This new life has been confusing, but a friend has been making my stay here wonderful."
+            b.c "Amazing! What's their name?"
+            menu:
+                "Cassidy":
+                    j.c "Her name is Cassidy! She can seem quite cold, but she's really nice to hang out with."
+                    c.trust_ch(1)
+                    jump blmstartfail
+                "Arghawan":
+                    j.c "Their name is Arghawan! He is very interesting and entertaining, and I think they will be a good friend."
+                    a.trust_ch(1)
+                    jump blmstartfail
+                "Doris":
+                    j.c "Her name is Doris! Her drawing skills are amazing, and she knows a lot of cool things."
+                    d.trust_ch(1)
+                    jump blmstartfail
+                "Maggie":
+                    j.c "Her name is Maggie! She's very assertive and competitive, and I find that that is a good match for me."
+                    m.trust_ch(1)
+                    jump blmstartfail
 
+        "Tell him about how lonely you are, how you're not getting along with anyone, and about how he seems nice.":
+            $ brennanRoute = True
+            j.c "To be honest, i've been having a tough time adapting. Furthermore, I've been quite lonely these past few days, since I don't really feel comfortable around anyone I've met so far."
+            show brennan sad
+            j.c "Except you."
+            show brennan happy blink
+            b.c "While I'm sad that you're having a tough time adapting, I'm happy you feel comfortable around me!"
+            show brennan happy
+            b.c "Feel free to head by my office if you need anything, from help to company. I'll do what I can to make your stay around here more enjoyable."
+            j.c "Thank you so much!"
+            show brennan happy blink
+            j.c "I do have to get to english class though. Bye, Brennan Lee Mulligan!"
+            b.c "Bye!"
+            jump engclass1
 
-    ONLY IF SHE SELECTED TO HELP:After resolving the issue of $5, Chad asks her what she thinks he should have for breakfast. According to him, this is the best reward he can offer.
-    “Pizza” -1 AFFECTION
-    “Hamburgers” +1 AFFECTION
-    “How did you know that was my favourite food?!”
+label blmstartfail:
+    show brennan happy blink
+    b.c "I'm glad you're getting along with someone! See you around!"
+    j.c "Bye! Thanks for the talk!"
+    "You get the sense that an option is no longer accessible. No matter. You head to English class."
+    jump engclass1
 
+label engclass1:
 
 
 
