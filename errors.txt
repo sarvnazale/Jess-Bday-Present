@@ -2,9 +2,25 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 182: expecting name after dot.
-    jc. "Period 1… Math class. Second floor, all right."
-        ^
+File "game/script.rpy", line 427: expected statement.
+    c.trust_ch(1)
+                 ^
+
+File "game/script.rpy", line 431: expected statement.
+    a.trust_ch(1)
+                 ^
+
+File "game/script.rpy", line 435: expected statement.
+    m.trust_ch(1)
+                 ^
+
+File "game/script.rpy", line 439: expected statement.
+    d.trust_ch(1)
+                 ^
+
+File "game/script.rpy", line 443: expected statement.
+    b.trust_ch(1)
+                 ^
 
 Ren'Py Version: Ren'Py 7.4.2.1292
-Wed Apr 14 11:12:45 2021
+Wed Apr 14 22:13:22 2021

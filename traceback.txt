@@ -1,50 +1,28 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 173, in script
-    scene hall
-  File "renpy/common/000window.rpy", line 111, in _window_auto_callback
-    _window_hide(auto=True)
-  File "renpy/common/000window.rpy", line 101, in _window_hide
-    renpy.with_statement(trans)
-IOError: Couldn't find file 'Door.mp3'.
+  File "game/script.rpy", line 263, in script
+    if int(answer2) == 3:
+  File "game/script.rpy", line 263, in <module>
+    if int(answer2) == 3:
+ValueError: invalid literal for int() with base 10: ''
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 173, in script
-    scene hall
-  File "/Users/sarvenazalemohammad/Desktop/renpy-7.4.2-sdk/renpy/ast.py", line 1277, in execute
-    statement_name("scene")
-  File "/Users/sarvenazalemohammad/Desktop/renpy-7.4.2-sdk/renpy/ast.py", line 46, in statement_name
-    i(name)
-  File "renpy/common/000window.rpy", line 111, in _window_auto_callback
-    _window_hide(auto=True)
-  File "renpy/common/000window.rpy", line 101, in _window_hide
-    renpy.with_statement(trans)
-  File "/Users/sarvenazalemohammad/Desktop/renpy-7.4.2-sdk/renpy/exports.py", line 1637, in with_statement
-    return renpy.game.interface.do_with(trans, paired, clear=clear)
-  File "/Users/sarvenazalemohammad/Desktop/renpy-7.4.2-sdk/renpy/display/core.py", line 2546, in do_with
-    clear=clear)
-  File "/Users/sarvenazalemohammad/Desktop/renpy-7.4.2-sdk/renpy/display/core.py", line 3007, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs)
-  File "/Users/sarvenazalemohammad/Desktop/renpy-7.4.2-sdk/renpy/display/core.py", line 3700, in interact_core
-    renpy.audio.audio.periodic()
-  File "/Users/sarvenazalemohammad/Desktop/renpy-7.4.2-sdk/renpy/audio/audio.py", line 1101, in periodic
-    raise_(exc[0], exc[1], exc[2])
-  File "/Users/sarvenazalemohammad/Desktop/renpy-7.4.2-sdk/renpy/audio/audio.py", line 1079, in periodic_thread_main
-    periodic_pass()
-  File "/Users/sarvenazalemohammad/Desktop/renpy-7.4.2-sdk/renpy/audio/audio.py", line 1021, in periodic_pass
-    c.periodic()
-  File "/Users/sarvenazalemohammad/Desktop/renpy-7.4.2-sdk/renpy/audio/audio.py", line 487, in periodic
-    topf = load(self.file_prefix + filename + self.file_suffix)
-  File "/Users/sarvenazalemohammad/Desktop/renpy-7.4.2-sdk/renpy/audio/audio.py", line 69, in load
-    rv = renpy.loader.load(fn)
-  File "/Users/sarvenazalemohammad/Desktop/renpy-7.4.2-sdk/renpy/loader.py", line 798, in load
-    raise IOError("Couldn't find file '%s'." % name)
-IOError: Couldn't find file 'Door.mp3'.
+  File "game/script.rpy", line 263, in script
+    if int(answer2) == 3:
+  File "/Users/sarvenazalemohammad/Desktop/renpy-7.4.2-sdk/renpy/ast.py", line 1852, in execute
+    if renpy.python.py_eval(condition):
+  File "/Users/sarvenazalemohammad/Desktop/renpy-7.4.2-sdk/renpy/python.py", line 2249, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "/Users/sarvenazalemohammad/Desktop/renpy-7.4.2-sdk/renpy/python.py", line 2242, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script.rpy", line 263, in <module>
+    if int(answer2) == 3:
+ValueError: invalid literal for int() with base 10: ''
 
 Darwin-19.6.0-x86_64-i386-64bit
 Ren'Py 7.4.2.1292
 Jess Bday Present 1.0
-Wed Apr 14 11:13:23 2021
+Wed Apr 14 22:15:29 2021
