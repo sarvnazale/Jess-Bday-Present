@@ -24,6 +24,8 @@ transform heart_pos:
 
 image heart_fill = "heart_fill.png"
 image heart_empty = "heart_empty.png"
+# boolean for Brennan Lee Mulligan route
+boolean brennanRoute = False
 
 # The game starts here.
 
@@ -249,7 +251,7 @@ label library:
 
     a.c "hNnhn… are you *sniff*… the tutor? Bro you’re like.. Thirty two minutes late.. You were supposed to be here at 1:00…"
 
-    j.c "Um, well, no I’m not your tutor, and its 1:13 it has definitely not been thirty two minutes…"
+    j.c "Um, well, no I’m not your tutor, and its 1:13 so it has definitely not been thirty two minutes…"
 
     menu:
         "Can I help you?":
@@ -288,11 +290,11 @@ label library:
 
                 jump gym
 
-        "Well, I hope your tutor comes in soon.":
-            "You grimace at the mathwork. You do NOT want to remember horrible memories from when you were alive. You try to make up an excuse, until all of a sudden Arghawan shoots up from his seat."
-            $ a = Person(Character("Arghawan"), "Arghawan")
+            "Well, I hope your tutor comes in soon.":
+                "You grimace at the mathwork. You do NOT want to remember horrible memories from when you were alive. You try to make up an excuse, until all of a sudden Arghawan shoots up from his seat."
+                $ a = Person(Character("Arghawan"), "Arghawan")
 
-            jump gym
+                jump gym
 label gym:
     a.c "Oh shit homie! I gotta run! Class is almost starting. I’ll catch you tomorrow!"
     "Arghawan interrupts you, then runs off to his next class. You check your schedule and see what class to head to next."
@@ -335,7 +337,7 @@ label gym:
             hide maggie sad
             m.c "HEY! You!"
             "You stop"
-            "You let me win the game huh? Not cool. I don’t need your handout, jackass. My name is Maggie, but I don’t encourage you to talk to me again if you’re as much of a coward as you seem."
+            m.c "You let me win the game huh? Not cool. I don’t need your handout, jackass. My name is Maggie, but I don’t encourage you to talk to me again if you’re as much of a coward as you seem."
             $ m = Person(Character("Maggie"), "Maggie")
             "Maggie coldly shoves the ball back into your hands and it hits your stomach. She walks into the girls change room."
             jump cafeteria
@@ -453,6 +455,60 @@ label dormchoice:
 
 label day1:
     "Satisfied with your decision for the night, you lay your head down against the cool hatsune miku pillow and close your heavy eyes. Tomorrow is going to be crazy…"
+    #will this work?
+    scene dorm
+    with fade
+    #where day 1 actually begins
+    "You wake up refreshed and get ready for school, but find you still have some time before the first class starts.
+    You figure you have enough time to either get breakfast at the cafeteria or explore the school, but not both."
+    menu:
+        "Get food at the cafeteria":
+            "You decide that you are hungry and could go for some hashbrowns."
+            jump cafday1
+        "Explore the school":
+            "You decide to find out more about this place you have ended up in."
+            jump blmstart
+
+label cafday1:
+    scene lunchroom
+    with fade
+    "You are busy eating your hashbrowns when you spot a familiar face outside in the courtyard. Arghawan!
+    You hear the bell ring, summoning you to class, but you also notice he looks distraught.
+    He seems to be running about. Perhaps he's looking for something?"
+    #idk if this will work, but i want to see if I can edit the narration slightly depending on how much characters trust Jess
+    #let me know if this is a bad idea, Sarv.
+    if a.trust >= 0:
+        "You decide to go investigate, because knowing Arghawan, they will probably need help. Either way, you have no doubt you'll be entertained."
+    else:
+        "You decide to go investigate, because perhaps Arghawan will have done something stupid and funny."
+    scene outside
+    with fade
+
+    a.c "Help! Has anyone seen my $5? $10 reward!"
+    a.c "You! From yesterday! Could you please help me look for my $5? I need it for lunch!"
+    a.c "Even though I have been offering a $10 reward, I have had no luck so far."
+
+    menu:
+        "Decide to help Arghawan.":
+            j.c "Here, perhaps I can help you. Let's look for it together!"
+            $ a.trust_ch(1)
+
+    Jessica has the choice to either help him, laugh at him, or lend him $5
+    “Let’s look for it together.” +1 AFFECTION
+    Jessica doesn’t end up finding the $5, but lends Chad $5
+    Chad feels financially indebted towards Jessica
+    “That’s pretty funny.” -1 AFFECTION
+    CHAD ROBS YOU AND TAKES $5 FROM YOU /J
+    Guilts you into giving him money
+
+
+    ONLY IF SHE SELECTED TO HELP:After resolving the issue of $5, Chad asks her what she thinks he should have for breakfast. According to him, this is the best reward he can offer.
+    “Pizza” -1 AFFECTION
+    “Hamburgers” +1 AFFECTION
+    “How did you know that was my favourite food?!”
+
+
+
 
 
 
