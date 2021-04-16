@@ -1,38 +1,21 @@
-Wed Apr 14 22:38:12 2021
+Fri Apr 16 10:48:43 2021
 Darwin-19.6.0-x86_64-i386-64bit
 Ren'Py 7.4.2.1292
  
 
-Bootstrap to the start of init.init took 0.15s
-Early init took 0.00s
-Loader init took 0.03s
+Bootstrap to the start of init.init took 0.13s
+Early init took 0.01s
+Loader init took 0.02s
 Loading error handling took 0.05s
-Loading script took 0.26s
+Loading script took 0.58s
 Loading save slot metadata. took 0.03s
 Loading persistent took 0.00s
-Importing _renpysteam: ImportError('No module named _renpysteam',)
-Running init code took 0.09s
-Loading analysis data took 0.03s
-Analyze and compile ATL took 0.00s
-Index archives took 0.00s
-Dump and make backups. took 0.11s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc. took 0.04s
+
+File "game/script.rpy", line 902: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation.
+    "Yes":
+    ^
 DPI scale factor: 1.000000
-Creating interface object took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.08s
-Build styles took 0.01s
-Load screen analysis took 0.04s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
-Prepare screens took 0.13s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.00s
-Running _start took 0.00s
-Performance test:
-Interface start took 0.49s
+Interface start took 0.51s
 
 Initializing gl renderer:
 primary display bounds: (0, 0, 1440, 900)
@@ -190,11 +173,4 @@ Texture testing:
 Screen sizes: virtual=(1280, 720) physical=(1280, 720) drawable=(1280, 720)
 Root FBO is: 0
 FBO Maximum Texture Size: 2048
-Total time until interface ready: 2.05272483826s
-Cleaning stores took 0.00s
-Init translation took 0.01s
-Build styles took 0.01s
-Load screen analysis took 0.04s
-Analyze screens took 0.00s
-Prepare screens took 0.00s
-Running _start took 0.00s
+Total time until interface ready: 1.64784908295s
