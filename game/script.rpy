@@ -623,7 +623,7 @@ label mathday1:
 
 label maggiestart:
     show maggie happy
-    $ maggieRoute = True
+    $ m = Person(Character("Maggie"), "Maggie", route = True)    
     m.c "That would be awesome! I really fucking suck at math, so I could really use your help on this one."
     "Jesus fucking christ how did you get stuck doing MORE MATH?!"
     j.c "Oh.. Math. Fun."
