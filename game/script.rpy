@@ -343,9 +343,11 @@ label gym:
             "You stop"
             m.c "You let me win the game huh? Not cool. I don’t need your handout, jackass. My name is Maggie, but I don’t encourage you to talk to me again if you’re as much of a coward as you seem."
             $ m = Person(Character("Maggie"), "Maggie")
+            hide maggie
             "Maggie coldly shoves the ball back into your hands and it hits your stomach. She walks into the girls change room."
             jump cafeteria
-        "Win the game fair and square.":
+        #changed it to "play" from "win" here... I feel there is no guarantee that you will win agaionst a new foe
+        "Play the game fair and square.":
             "You assume this is the kind of person who likes a fight.
             So a fight you’ll give her. Back and forth, like it’s more intense than just trying to slap someone with a ball,
             the game goes on, but eventually you reign victorious."
@@ -363,9 +365,11 @@ label gym:
             m.c " My name is Maggie, and rest assured, next time, I’ll win."
             $ m = Person(Character("Maggie"), "Maggie")
             $ m.trust_ch(1)
-            "she pats you on the back. Rough. A little too rough.
+            "She pats you on the back. Rough. A little too rough.
             So rough in fact that when you try to feign sportsmanship the inside you feel nothing but a burning pain.
             Holy shit why did that hurt so much."
+            #sarv you forgot to jump to the cafeteria here... was this intentional?
+            jump cafeteria
 
 label cafeteria:
     "After an afternoon of terrible, terrible classes, you decide to grab a bite to eat in the cafeteria,
@@ -413,6 +417,7 @@ label cafeteria:
             d.c "Oh… I’m sorry then.. um … I guess I’ll get going then.."
             show doris sad blink
             $ d.trust_ch(-1)
+            hide doris
             "You see small tears well up in her eyes, but before you can stop her, she’s run away to God knows where, doing God knows what."
             jump dormchoice
         "That looks incredible!":
@@ -425,6 +430,7 @@ label cafeteria:
             d.c "OH! Like umm… ahh.. That pretty bracelet you have right there! Ahh what is that? Silver?"
             "Doris’ quick change in demeanor gave you whiplash as you coughed and looked down on your wrist."
             j.c "Um actually I think its some sort of bone-"
+            hide doris
             "but by the time you look back up to respond to Doris’ question, she’s gone drawing pictures of some other creature."
             jump dormchoice
 label dormchoice:
@@ -502,7 +508,7 @@ label cafday1:
             j.c "This is quite entertaining"
             show argha mad blink
             a.c "Thanks for nothing!"
-            a.trust_ch(-1)
+            $ a.trust_ch(-1)
             show argha mad
             a.c "You know what? I'm gonna say it. UR ASS FLAT /SRS"
             j.c "NOOO! You know what? Here, have five dollars."
@@ -510,6 +516,7 @@ label cafday1:
             a.c "Normally i wouldn't need your pity, but right now i kinda need that money."
             show argha mad
             a.c "You're not getting that ten-dollar reward though, and I'm still mad at you. Now leave before I push you down the stairs."
+            hide argha
             "You decide to take his advice and leave, since you have to go to English class soon anyway."
             jump engclass1
         "Decide to help Arghawan.":
@@ -526,7 +533,7 @@ label cafday1:
             menu:
                 "Tell him to get pizza":
                     j.c "You should have the pizza!"
-                    a.trust_ch(-1)
+                    $ a.trust_ch(-1)
                     a.c "meh. Pizza is ok."
                     #note from amy: i love pizza so much that typing that sentence was painful
                     a.c "Thank you for everything though! See you around!"
@@ -536,7 +543,7 @@ label cafday1:
                 "Tell him to get hamburgers"
                     j.c "You should have some hamburgers!"
                     a.c "HAMBURGERS ARE MY FAVOURITE! YOU'RE THE BEST UR ASS FAT/SRS"
-                    a.trust_ch(1)
+                    $ a.trust_ch(1)
                     "You realize that English class is about to start, and decide that you do not want to be late."
                     j.c "SO TRUE! I have to go to English class, though this has been really fun! See you around!"
                     jump engclass1
@@ -555,19 +562,19 @@ label blmstart:
             menu:
                 "Cassidy":
                     j.c "Her name is Cassidy! She can seem quite cold, but she's really nice to hang out with."
-                    c.trust_ch(1)
+                    $ c.trust_ch(1)
                     jump blmstartfail
                 "Arghawan":
                     j.c "Their name is Arghawan! He is very interesting and entertaining, and I think they will be a good friend."
-                    a.trust_ch(1)
+                    $ a.trust_ch(1)
                     jump blmstartfail
                 "Doris":
                     j.c "Her name is Doris! Her drawing skills are amazing, and she knows a lot of cool things."
-                    d.trust_ch(1)
+                    $ d.trust_ch(1)
                     jump blmstartfail
                 "Maggie":
                     j.c "Her name is Maggie! She's very assertive and competitive, and I find that that is a good match for me."
-                    m.trust_ch(1)
+                    $ m.trust_ch(1)
                     jump blmstartfail
 
         "Tell him about how lonely you are, how you're not getting along with anyone, and about how he seems nice.":
@@ -619,15 +626,32 @@ label engclass1:
             #the eyes are too much but i think a middle finger is appropriate
             #the sad sprites don't really fit
             m.c "I'll take that to mean you aren't offering me anything."
-            m.trust_ch(-1)
+            $ m.trust_ch(-1)
             "*awkward silence*"
             m.c "Fine, I'l do your assignemt for you. For free. Just this once though, don't expect any handouts in the future..."
             m.c "I hope you're happy; I was already swamped and this isn't helping."
+            hide maggie
+            "Soon, the bell rings, signifying the end of English class."
             jump bioday1
-    “Oh, can you do my assignment for me too?”     -1 AFFECTION
-    Maggie respond by saying yes, but exhaustedly
-    Jessica: If it’s too much work I can do it myself!
-    Maggie feels cheated of potential income
+        "Offer to help her with some of her work":
+            show maggie happy
+            j.c "Would you like me to help you with some of that homework?"
+            show maggie blush
+            m.c "That's... that's very kind of you! Here's some stuff you can do that isn't too urgent."
+            "Maggie hands you some homework."
+            $ m.trust_ch(1)
+            $ maggieHwk = True
+            show maggie neutral
+            m.c "You're not getting anything in return though."
+            show maggie happy
+            m.c "Still, thank you for the help!"
+            j.c "No problem!"
+            hide maggie
+            "You part ways, both of you happy with how that interaction went."
+            "You see that there are only a few seconds left in English class, meaning you'll have to do this work on your own time...
+            You get the sense that Maggie will be very unhappy if you do not do the work, or if you do it badly."
+            "The bell, signifying the end of your class, interrupts your thoughts."
+            jump bioday1
 
 
     “I can do that assignment for you!” +1 AFFECTION Sidenote : BUT CAN TANK YOU BY LIKE 5 later on (at end of day, make note, coder girls)
