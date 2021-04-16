@@ -1,4 +1,4 @@
-init python:
+doorsfxinit python:
     #integer of how many of Maggie's math questions Jess gets correct
     maggieqs = 0
 
@@ -183,14 +183,14 @@ label exposition:
 label library:
     "After an odd encounter with a wraith, you run up the stairs and look around for your math classroom.
     Nervous, you enter, and all of a sudden think; how the hell will math help with making me a better person?"
-    play sound "audio/Doorsfx.mp3"
+    play sound "audio/doorsfx.mp3"
 
     scene bg hall
     with fade
     "Class goes by fast, but let’s be honest. You weren’t really listening. You decide to head over to the library, which took you a really long time to find."
     scene bg library
     with fade
-    play sound "audio/Doorsfx.mp3"
+    play sound "audio/doorsfx.mp3"
 
     "You start looking around, but your attention is quickly averted to the large sobbing man sitting
     alone among a pile of math sheets and textbooks."
@@ -250,7 +250,7 @@ label gym:
     "Arghawan interrupts you, then runs off to his next class. You check your schedule and see what class to head to next."
     stop music
     j.c "UGH are you fucking kidding me?! Gym? Again, what does any of this have to do with rehabilitation?"
-    play sound "audio/Doorsfx.mp3"
+    play sound "audio/doorsfx.mp3"
     scene bg hall
     with dissolve
     "You leave the library and head towards the gym class. Along the way you take a good look at all the strange yet very attractive people around.. How were you supposed to just choose one? Maybe one of the people you’d already met…"
@@ -728,6 +728,8 @@ label postlunchday1:
             "Doris glares at you as she puts the fork down on the plate and closes her eyes in frustration."
             show doris mad at right
             d.c "Whatever. It’s not my body anyways."
+            #is there a reason u got rid of this command?
+            hide doris
 
 label dormday1:
     "You head back to your room and start to rest."
