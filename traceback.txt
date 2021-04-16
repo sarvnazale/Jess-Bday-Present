@@ -1,24 +1,28 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 726, in script
-    
-SyntaxError: invalid syntax (script.rpy, line 726)
+  File "game/script.rpy", line 721, in script
+    if maggieRoute == False:
+  File "game/script.rpy", line 721, in <module>
+    if maggieRoute == False:
+NameError: name 'maggieRoute' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 726, in script
-    
+  File "game/script.rpy", line 721, in script
+    if maggieRoute == False:
   File "/Users/sarvenazalemohammad/Desktop/renpy-7.4.2-sdk/renpy/ast.py", line 1852, in execute
     if renpy.python.py_eval(condition):
-  File "/Users/sarvenazalemohammad/Desktop/renpy-7.4.2-sdk/renpy/python.py", line 2247, in py_eval
-    code = py_compile(code, 'eval')
-  File "/Users/sarvenazalemohammad/Desktop/renpy-7.4.2-sdk/renpy/python.py", line 835, in py_compile
-    raise e
-SyntaxError: invalid syntax (script.rpy, line 726)
+  File "/Users/sarvenazalemohammad/Desktop/renpy-7.4.2-sdk/renpy/python.py", line 2249, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "/Users/sarvenazalemohammad/Desktop/renpy-7.4.2-sdk/renpy/python.py", line 2242, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script.rpy", line 721, in <module>
+    if maggieRoute == False:
+NameError: name 'maggieRoute' is not defined
 
 Darwin-19.6.0-x86_64-i386-64bit
 Ren'Py 7.4.2.1292
 Jess Bday Present 1.0
-Fri Apr 16 09:35:31 2021
+Fri Apr 16 10:51:59 2021

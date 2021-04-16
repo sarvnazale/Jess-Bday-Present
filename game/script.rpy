@@ -665,7 +665,7 @@ label lunchday1:
             jump postlunchday1
         "Doris, sitting on the windowsill like a housecat.":
             $ d.trust_ch(1)
-            show Doris blush blink
+            show doris blush
             "Doris isn’t much for talking, but the two of you enjoy sitting together, bathing in the warm orange sun permeating through the window."
             jump postlunchday1
         "Arghawan, sitting next to heaps of people with a single empty seat next to him.":
@@ -718,7 +718,7 @@ label dormday1:
     stop music
     scene dorm
     with fade
-    if maggieRoute == False:
+    if m.route == False:
         jump day2start
 
     else:
@@ -839,7 +839,7 @@ label day2start:
     scene bg dorm
     with fade
 
-    scene dorm
+    scene bg dorm
     with dissolve
     "Once again, you wake up, finding yourself in your dorm. You stretch to relieve yourself of fatigue, and get ready for the day."
 
@@ -898,10 +898,10 @@ label day2start:
             d.c "It’s nothing… Don’t worry about it."
             " Doris coughs nervously and tenses up, as if she’s working up to ask you an important question. You stare at her, wondering what she’s going to say next."
             d.c "Would you… maybe want to… forage some with me later?"
-            #menu:
+            menu:
                 "Yes":
                     #Doris route unlocked
-                    $ d = Person(Character("Brennan Lee Mulligan"), "Brennan Lee Mulligan", route = True)
+                    $ d = Person(Character("Doris"), "Doris", route = True)
                     j.c "Are you kidding? Of course, I’d love to!"
                     "Doris’ posture instantly relaxes and she shoots you a stellar smile that makes you feel warm all over."
                     show doris happy
@@ -1026,6 +1026,8 @@ label maggieargha:
     "The rest of your school day passes by without any problems, and before you know it, you’re finally done for the day. "
     "You eagerly make your way towards your dorm when you pause midway after hearing Arghawan and Maggie both arguing."
     "The two of them are both sitting down in the hallways, both holding phones. That’s certainly a duo you wouldn’t have expected to see...."
+    show maggie mad at left
+    show argha mad at right
     a.c "Dude, enough with the ROKI ROKI, I’ve fucking had it with that song."
     m.c "Shut the hell up. If not Roki, then what? Your gay ass RAD DOGS? FRAGILE?! No way, asshole, no fucking way"
     a.c "First of all, I’m not gay!"
@@ -1041,11 +1043,11 @@ label maggieargha:
             jump argdone
         "Arghawan, stop being such a little pussy bitch.":
             m.c "There! See! Nothing wrong with wanting to listen to the same song. That's just who I am… "
-            show maggie sad
+            show maggie sad at left
             "Maggie fakes crying."
             m.c "And if you can’t accept me for who I am, I guess this just won’t work out.."
-            show argha mad
-            show maggie neutral
+            show argha mad at right
+            show maggie neutral at left
             a.c "I’LL SHOW YOU WHAT ‘WON’T WORK OUT"
             jump argdone
 label argdone:
