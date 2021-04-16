@@ -5,6 +5,9 @@ init python:
     #boolean about whether Jess chose to do some of Maggie's assignments
     boolean maggieRoute = False
 
+    #integer of how many of Maggie's math questions Jess gets correct
+    int maggieqs = 0
+
     class Person:
         def __init__(self, character, name, trust = 0):
             self.c = character
@@ -53,36 +56,23 @@ label start:
 
     #add brennan lee mulligan intro song
     "A strange figure stands tall in front of you. The body odd, yet the face seems.. Familiar."
-
     b.c "Hello there!"
-
     $ b = Person(Character("Brennan Lee Mulligan"), "Brennan Lee Mulligan")
-
     j.c "B-Brennan lee mulligan?!?"
-
     show brennan blush
-
     b.c "Well.. My name is Headmaster Dean, but if you’d like, you can refer to me as Brennan Lee mulligan."
-
     show brennan neutral
-
     j.c "Wh… Why do you.. Look like that? Where am I?"
-
-    "You look down"
-
+    "You look down."
     show brennan happy
-
     b.c "Oh! Well that is a lot of interesting questions all at once.
     You see, you are in purgatory. You humans have a very weak perception of the afterlife
     you know. Unlike your heaven and hell, some people are given second chances!
     Welcome to that place."
-
     b.c "Also, The reason I appear like this, is because
     I assume the figure of the person you trusted most in your past life.
     I assume for you that would be.. Brennan Lee Mulligan on a Kaonashi’s body…"
-
     j.c "O..Oh… Okay.. So I’m in hell."
-
     b.c "Ah well, no you are not, that… doesn’t exist."
 
 default option1 = False
@@ -101,7 +91,6 @@ label soul:
 
     b.c "Similarly to how I become the person who you are the most comfortable with,
     You also assume a sprite. You resemble what your SOUL appears to be."
-
     b.c "You are… well… a monkey queen. Present in many different kinds of mythology.
     You’ll find some other mythological creatures, maybe some Satyrs, nymphs, what nots."
     if option1:
@@ -118,46 +107,28 @@ label death:
     People who get sent to purgatory are… well they died the most pathetic deaths."
     j.c "I died a pathetic death?"
     b.c "Ah.. yes… quite so…"
-
     "The headmaster opens a drawer and looks through a file. He grimaces."
-
     b.c "Oh dear.."
-
     j.c "What is it?"
-
     b.c "Are you sure you want to know?"
-
     j.c "Yes?!? Obviously."
-
     "The headmaster takes a deep breath and looks closer."
-
-    b.c "It appears that your… abundance of domesticated creatures, decided to take a nap on you. While you were suffocating, you began to scream, alas no one came to your aid because… they were too used to your screams.."
-
+    b.c "It appears that your… abundance of domesticated creatures, decided to take a nap on you. While you were suffocating, you began to scream, alas no one came to your aid because… they were too used to your screams..."
     "He slowly closes the file and you look down, ashamed."
-
     show brennan happy
-
     b.c "Glad to know you’ve earned your place. Welcome aboard!"
-
     show brennan neutral
-
-    b.c "Oh yes! The bonfire. Let me explain"
-
+    b.c "Oh yes! The bonfire. Let me explain!"
     b.c "At the end of this week we have our bonfire.
     You see, the purpose of this realm is to rehabilitate those pathetic individuals,
     and reincarnate them back to earth.
     Yet, every single person is supposed to go back to earth with their soulmate…"
-
     b.c "Usually this is a romantic soulmate, but this school has been known
     to see the platonic soul mate or two. Anyways, When you discover who your soulmate is,"
-
     b.c "you have to help each other rehabilitate, so you are respawned at the exact same time.
-    They will probably give you an item. Maybe a hair clip or something, if you throw it into the fire, and the fire changes colour,"
-
+    They will probably give you an item, maybe a hair clip or something. If you throw it into the fire, and the fire changes colour..."
     show brennan blush
-
-    b.c "voila. You’ve met your match."
-
+    b.c "...voila. You’ve met your match."
     show brennan neutral
     #check to see if this option was chosen first, if yes, give user chance to choose the other option
     if option2:
@@ -170,38 +141,28 @@ label death:
 label exposition:
     b.c "Alright so, I’m a very busy headmaster. I trust that you won’t get into trouble if you look around on your own.
     Class starts in a half hour, you best not be late!"
-
-    'Trembling, you get up from the chair, still shaken up, you head towards the door and murmur a weak \"alrighty then.\"'
-
-    play sound "audio/Door.mp3"
+    "Trembling, you get up from the chair, still shaken up, you head towards the door and murmur a weak \"alrighty then.\""
+    play sound "audio/door.mp3"
     scene bg hall
     with dissolve
-
     #add hallway music later
-
     play music "audio/ambient noise.mp3" fadeout 1.0 fadein 1.0
-
     j.c "How the hell am I supposed to know what class to go to? That creepy guy didn’t even give me a schedule…"
     "You realize, while you may be some… monkey beast… you are wearing a school uniform.
     Quickly, you check your pockets and pull out a slip of paper, somehow, it appears to be untouched,
     even though it was just shoved in your pocket.."
-
     j.c "Period 1… Math class. Second floor, all right."
-
     stop music
 
     scene bg staircase
     with dissolve
 
     "You locate the staircase, and start to walk up, but you see a panting figure."
-
     show cassidy neutral blink
-
     j.c "whoa! Are you okay?! You’re so out of breath! Is someone chasing you?"
-
     show cassidy mad
-    play music "audio/cassidy theme.mp3" fadeout 1.0 fadein 1.0
 
+    play music "audio/cassidy theme.mp3" fadeout 1.0 fadein 1.0
     "The girl glares slightly at you."
 
     c.c "Yes, I’m fine. I just.. Have difficulty walking up stairs sometimes.
@@ -248,13 +209,9 @@ label library:
     show argha mad
 
     a.c "FUCK! 9 x 4??? Since when did we go back to X meaning you times it! Oh god why is that little two so small and so close to the 3? Aw fuck.."
-
     "You slide into the seat across from the crying creature and he looks up, wiping snot from his nose."
-
     show argha sad blink
-
     a.c "hNnhn… are you *sniff*… the tutor? Bro you’re like.. Thirty two minutes late.. You were supposed to be here at 1:00…"
-
     j.c "Um, well, no I’m not your tutor, and its 1:13 so it has definitely not been thirty two minutes…"
 
     menu:
@@ -263,11 +220,11 @@ label library:
             a.c "Really? You can?! Aw yeah! Thank you! Arghawan’s the name, and Charming ladies is the game."
             "Arghawan winks at you and you blush."
             $ a = Person(Character("Arghawan"), "Arghawan")
-            j.c "Ah ahem.. Uh yes so, let's take a look at this first problem. Oh easy, first question so what is 9 x 12?"
+            j.c "Ah ahem.. Uh yes so, let's take a look at this first problem. Oh easy, first question: what is 9 x 12?"
             $ answer1 = renpy.input("Enter an answer: ", "", allow="0123456789")
             if int(answer1) == 108:
                 show argha happy
-                a.c "All right! Thanks! Now, what’s next… oh, hey, do you know how to find the value of the numerator of cos A, if the value of tan A is 4/3?"
+                a.c "All right! Thanks! Now, what’s next… oh, hey, do you know how to find the value of the numerator of cos A, if the value of tan A is 4/3 and we assume cos A is positive?"
                 "You gulp."
                 j.c "What the hell? This went from 0-100 way too fast."
                 $ answer2 = renpy.input("Enter an answer: ", "", allow="0123456789")
@@ -278,7 +235,7 @@ label library:
                     $ a.trust_ch(1)
                     jump gym
                 else:
-                    a.c "Bro… this doesn’t look right.. Damn and I have a test today..this better be right and my judgement is failing me! Or we’re both in deep shit.."
+                    a.c "Bro… this doesn’t look right... Are you sure it's not 3? Damn and I have a test today... this better be right and my judgement is failing me! Or we’re both in deep shit.."
                     show argha sad
                     a.c "Not to be rude, but i think you should seriously reevaluate your dream of being an educator."
                     "You look frazzled."
@@ -291,44 +248,33 @@ label library:
                 show argha sad
                 a.c "Are you sure about that? I may be dumb, but I know at least that much…"
                 $ a = Person(Character("Arghawan"), "Arghawan")
-
                 jump gym
 
             "Well, I hope your tutor comes in soon.":
                 "You grimace at the mathwork. You do NOT want to remember horrible memories from when you were alive. You try to make up an excuse, until all of a sudden Arghawan shoots up from his seat."
                 $ a = Person(Character("Arghawan"), "Arghawan")
-
                 jump gym
 label gym:
     a.c "Oh shit homie! I gotta run! Class is almost starting. I’ll catch you tomorrow!"
     "Arghawan interrupts you, then runs off to his next class. You check your schedule and see what class to head to next."
     stop music
     j.c "UGH are you fucking kidding me?! Gym? Again, what does any of this have to do with rehabilitation?"
-
     play sound "audio/Door.mp3"
     scene bg hall
     with dissolve
-
     "You leave the library and head towards the gym class. Along the way you take a good look at all the strange yet very attractive people around.. How were you supposed to just choose one? Maybe one of the people you’d already met…"
-
     scene bg gym
     with dissolve
     m.c "HEY YOU"
-
-    play music "audio/maggie theme.mp3" fadeout 1.0 fadein 1.0
-
+    play music "audio/maggie.mp3" fadeout 1.0 fadein 1.0
     "You sharply turn around to see someone pointing their hand at you.
     All of a sudden you realize you’ve changed, entered the gym glass, and started playing a game of dodgeball."
-
     "Somehow you have survived an entire game of dodgeball until it was just you and some other person across the room from you."
     #make maggie angry
     show maggie happy
     m.c "I DOUBT YOU’RE A WORTHY OPPONENT, BE PREPARED TO FEEL MY WRATH"
-
     "She whips a dodgeball towards you, hurling towards your face. Quickly you duck. Holy shit this chick is crazy."
-
     m.c "WHATS WRONG? TOO CHICKEN TO THROW THE BALL?"
-
     "You decide between winning the game or just letting her have it. Maybe its a chance for you to make some friends."
 
     menu:
@@ -357,11 +303,8 @@ label gym:
             m.c "HEY!"
             "you stop in your tracks."
             m.c ".. Good game out there. Glad to see you aren’t a pussy like the rest of these chumps."
-
             "The girl who you know now to be a tiefling jerks her head at a bunch of kids to freak them out."
-
             show maggie happy
-
             m.c "My name is Maggie, and rest assured, next time, I’ll win."
             $ m = Person(Character("Maggie"), "Maggie")
             $ m.trust_ch(1)
@@ -381,32 +324,19 @@ label cafeteria:
     play music "audio/ambient noise.mp3" fadeout 1.0 fadein 1.0
 
     "Scanning the area to make sure no one sees you eat alone like a loser, you meander your way over to a bench. Plopping yourself down, you unwrap your sandwich and take a bite."
-
     j.c "God.. This sucks"
-
     "You settle the sandwich on your lap and look at it in disgust. All of a sudden, a bird sits down right in front of you."
-
     "You rip off a small piece of bread and throw it onto the floor for it to eat."
-
     j.c "There you go buddy... I hope you don’t have… taste buds."
-
     "You watch the bird as it gobbles up the sandwich, when all of a sudden, you hear a squeal."
-
     d.c "Holy shit! Holy shit holy shit!"
     show doris neutral
-
     play music "audio/doris theme.mp3" fadeout 1.0 fadein 1.0
-
     "You stare at the stranger in amazement, as to how she was comfortable with yelling next to a stranger."
-
     d.c "That’s an Opal-Tit Boobyfoot! It’s so rare in these parts!"
-
     "Her eyes twinkle in amazement as she examines the species. She pulls out a pad of paper and a pencil to quickly sketch a picture."
-
     "Eventually the sandwich is done and the bird flies away. Doris gets up off the ground and smiles in amazement at her picture."
-
     j.c "You draw?"
-
     d.c "Oh! Yes! So sorry this must be strange for you. My name is Doris, I’m a fungal nymph! Would you like to see the picture?"
     $ d = Person(Character("Doris"), "Doris")
     "Doris flips around her sketchpad to show you a sketching of the bird, alongside a flattering image of you sitting on the bench. For a second, you forgot you were a monkey-person."
@@ -662,296 +592,258 @@ label mathday1:
     scene bg classroom
     with fade
     Classroom
-    Class_sounds.mp3
-
-    "From afar you can see who else but Maggie furiously jots down notes and mumbles under her breath.
-
-    Maggie_mad
-
-    Maggie: "Ray Bradbury…. Sexist piece of shit why don’t you suck my-"
-
-    "You interrupt her before she can go any further, afraid she may implode.
-
-    j.c Heya Maggie, what are you reading?
-
-    Maggie_happy
-
-    "She looks up and her expression softens a bit. She shows you the cover cover of the book and groans.
-
-    Maggie: Possibly the worst novel one of these white guys have ever written. Its called Fahrenheit 451.
-
-    "You nod slowly in agreeance, more curious as to why she is reading the book if she hates it so much.
-
-    j.c So why are you reading it if you hate it so much?
-
-    "She looks around for the teacher and leans in. A small bit too close for your liking.
-
-    Maggie: You see, I have this… extremely lucrative business. Some of these assholes really want to get out of this whole… purgatory joint. So they pay me to do their work for them. Of course, they owe me. It can be money… favours…. Anything.
-
-    "Maggie laughs heartily.
-    Maggie_happy_blink
-
-    Maggie: And what these stupid bastards don’t even realize, is that the universe KNOWS I’m doing it for them! It’s not helping them one bit… so every bonfire they come crawling back, begging for me to do more!
-
-    "You stare blankly for a bit, realizing why she was still sitting in purgatory, tired, but working away.
-
-    j.c You don’t… want to leave?
-
-    "She freezes for a second.
-
-    Maggie: Nah, not for a while. I’m kinda comfy here, ya know? They make this place too nice for us. A lot of people just end up staying for a really long time.
+    # this real? Class_sounds.mp3
+    "From afar you can see who else but Maggie furiously jots down notes and mumbles under her breath."
+    show maggie mad
+    m.c "Ray Bradbury…. Sexist piece of shit why don’t you suck my-"
+    "You interrupt her before she can go any further, afraid she may implode."
+    j.c "Heya Maggie, what are you reading?""
+    show maggie happy
+    "She looks up and her expression softens a bit. She shows you the cover cover of the book and groans."
+    m.c "Possibly the worst novel one of these white guys have ever written. Its called Fahrenheit 451."
+    "You nod slowly in agreeance, more curious as to why she is reading the book if she hates it so much."
+    j.c "So why are you reading it if you hate it so much?"
+    "She looks around for the teacher and leans in. A small bit too close for your liking."
+    m.c "You see, I have this… extremely lucrative business. Some of these assholes really want to get out of this whole… purgatory joint. So they pay me to do their work for them. Of course, they owe me. It can be money… favours…. Anything."
+    "Maggie laughs heartily."
+    show maggie ahppy blink
+    m.c "And what these stupid bastards don’t even realize, is that the universe KNOWS I’m doing it for them! It’s not helping them one bit… so every bonfire they come crawling back, begging for me to do more!"
+    "You stare blankly for a bit, realizing why she was still sitting in purgatory, tired but working away."
+    j.c "You don’t… want to leave?"
+    "She freezes for a second."
+    m.c "Nah, not for a while. I’m kinda comfy here, ya know? They make this place too nice for us. A lot of people just end up staying for a really long time."
 
     menu:
-    Can I help you out with some of that?
-    Can you do one for me?
-
-    1.
-     Maggie_happy
-
-    UNLOCK MAGGIE ROUTE
-
-    Maggie: That would be awesome! I really fucking suck at math, so I could really use your help on this one.
-
-    "Jesus fucking christ how did you get stuck doing MORE MATH?!"
-
-    j.c Oh.. Math. Fun.
-
-    Maggie_happy_blink
-
-    Maggie: Glad you think so! You can bring it to my room at night so I can give it to those stupid assholes tomorrow morning.
-
-    X:She grumbles.
-
-    Maggie-angry
-
-    Maggie: Maybe they’ll finally pay me this time.
-
-    "Maggie hands you a sheet of paper, a name poorly scribbled at the top read ARGHAWAN. You sigh and smile to yourself as you shove the paper into your bag to do later tonight.
-
-    Maggie-neutral
-
-    j.c You seem tired, though, are you getting enough sleep?
-
-    Maggie_sad_blink
-
-    "Maggie sighs and continues to read. Jotting down notes as she goes along.
-
-    Maggie_sad
-
-    Maggie: I mean do I need much sleep? It’s not like I can die here anyways.
-
-    "Maggie mumbles.
-
-    "You furrow your brows, frustrated at her deflection towards your concern.
-
-    j.c We both know that's not the point of this place, it’s to become a better person.
-
-    "Maggie seems to be a bit more frustrated than before.
-
-    Maggie: I didn’t ask for your therapy or your concern. Take your interrogation to someone who’s more desperate for attention, like Arghawan.
-
-    "Taken aback by her comment, and slightly offended on Arghawan’s behalf, you mutter a \"fine\" and sit back into the chair, ignoring her for the rest of the class.
-
-    "Peeking at her once, you see her face muddled with guilt. Your expression softens too, yet you sit in each other’s silence. It's not unpleasant.
-
-    2.
-    m.trust_ch(-1)
-
-    Maggie: Are you an actual idiot? Didn’t I just explain to you what happens to those dumbasses when they ask me for help?
-
-    "Your face heats up in embarrassment as you feel the hammer of judgement BONK you on the head.
-
-    Maggie: Out of respect for you, and for my fine establishment, absolutely the fuck not.
-
-    "Hey, at least she respects you.
-
-
-
-    "Class ends and hoards of students head down towards the cafeteria to grab a bite to eat.
-
-    Lunchroom
-    Cafeteria_noises.mp3
-
-    "Who do you want to sit with?
-
-    Maggie, sitting alone like a normal person.
-    Doris, sitting on the windowsill like a housecat.
-    Arghawan, sitting next to heaps of people with a single empty seat next to him.
-    Cassidy, who isn’t actually sitting, but seems to be lying down on the dirty floor and moaning in pain, wailing "my back, my back."
-
-    1.
-    m.trust_ch(1)
-    Maggie_neutral
-    "You sit with Maggie. The awkwardness from class seems to have melt, and you share smalltalk about the class while she does some work.
-
-    2.
-    d.trust_ch(1)
-    Doris blush blink
-    "Doris isn’t much for talking, but the two of you enjoy sitting together, bathing in the warm orange sun permeating through the window.
-
-    3.
-    a.trust_ch(1)
-    Arghawan happy
-    "Sitting next to Arghawan and his group of friends is almost too loud and exciting. Bonus points, because he put his arm around you."
-
-    4.
-    c.trust_ch(1)
-    cassidy_happy_blink
-    "You lie on the floor next to Cassidy and offer to give her one of your life-changing massages. It’s kind of weird, and a bit pointless, since she’s cursed with a bad back, but she appreciates the effort.
-
-
-
-    Hallway
-
-    "You finish off the rest of your classes with nothing interesting happening in any of them. You head towards you dorm to rest, when you run into Cassidy and Doris arguing.
-
-    D: Cassidy, you have to eat vegetables! To get big and strong! You can’t just be eating dino nuggies for the rest of eternity, can you?
-
-    C: I can, and honestly neither of us will be surprised if I do. Hey! Jessica!
-
-    "Cassidy shoots her hand up and waves it to grab your attention. You walk up to them.
-
-    C: Doris here thinks that I should eat more vegetables so I can stay healthy. I’m already dead Doris! I can’t die more!
-
-    D: And CASSIDY here doesn’t understand that while it may not save her from death, It’ll make her existence here just that much easier. Cassidy, you already have a bad back, save yourself from literally every other disease as well!
-
-    OPTION:
-    Cassidy, just eat the veggies. They’ll make you feel so much better, trust me.
-    Hey Doris! Don’t crump her vibe! Let her have her nuggies, like she said, she can’t be any more dead.
-
-    1.
-    CASSIDY -1 AFFECTION | DORIS +1 AFFECTION
-    J: Doris is right Cassidy. You already have a hard time getting up the stairs. Some vegetables won’t hurt you. It’ll probably do the exact opposite.
-
-    "Cassidy grumbles as Doris force feeds her a head of broccoli. The sight is both horrific and oddly majestic.
-
-    2.
-    DORIS -1 AFFECTION | CASSIDY +1 AFFECTION
-
-    C: Yeah man! Just let me eat whatever I want! Why do you care anyways?
-
-    "Doris glares at you as she puts the fork down on the plate and rolls her eyes.
-
-    D: Whatever. It’s not my body anyways.
-
-
-
-
-    "You head back to your room and start to rest.
-
-    DAY ENDS HERE IF MAGGIE ROUTE IS LOCKED.
-
-    IF JESSICA HAS UNLOCKED THE MAGGIE ROUTE:
-
-    "You quickly remember that you had some work to do for Maggie, and take out your pen and the sheet of paper and get to work.
-
-    QUESTION ONE: what is 1x3
-    QUESTION TWO: What is (amy please insert a moderately difficult math question here)
-    QUESTION THREE: (amy please insert a harder math question here)
-
-    "Satisfied with your work, you head over to Maggie’s dorm to hand in the work.
-    BLACK SCREEN
-
-    "You nervously knock at what you assume to be her door, (it has a pentagram carved into it), and await for a response.
-
-    "Slowly she opens the door, taking a peek as to who her visitor was before pulling the door open more.
-
-    DOOR CLICK SOUND
-    Maggie Dorm
-    Maggie sad
-
-    m.c "Took you long enough. Lemme take a look
-
-    Maggie sad blink
-    If she gets at least one wrong:
-    $ m.trust_ch(2))
-    m.c "Hey, not bad for a novice. Maybe you have a career in plagiarism.
-
-    If she gets all right:
-    $ m.trust_ch(-1)
+        "Can I help you out with some of that work?":
+            jump maggiestart
+        "Can you do one for me?":
+            m.trust_ch(-1)
+            m.c "Are you an actual idiot? Didn’t I just explain to you what happens to those dumbasses when they ask me for help?"
+            "Your face heats up in embarrassment as you feel the hammer of judgement BONK you on the head."
+            m.c "Out of respect for you, and for my fine establishment, absolutely the fuck not."
+            "Hey, at least she respects you."
+            hide maggie
+            jump lunchday1
+
+label maggiestart:
     show maggie happy
-    m.c "Hey, this is pretty good. Better than anything I could do. Nice job.
+    $ maggieRoute = True
+    m.c "That would be awesome! I really fucking suck at math, so I could really use your help on this one."
+    "Jesus fucking christ how did you get stuck doing MORE MATH?!"
+    j.c "Oh.. Math. Fun."
+    show maggie happy blink
+    m.c "Glad you think so! You can bring it to my room at night so I can give it to those stupid assholes tomorrow morning."
+    "She grumbles."
+    show maggie angry
+    m.c "Maybe they’ll finally pay me this time."
+    "Maggie hands you a sheet of paper, a name poorly scribbled at the top read ARGHAWAN. You sigh and smile to yourself as you shove the paper into your bag to do later tonight."
+    show maggie neutral
+    j.c "You seem tired, though, are you getting enough sleep?"
+    show maggie sad blink
+    "Maggie sighs and continues to read, jotting down notes as she goes along."
+    show maggie sad
+    m.c "I mean, do I need much sleep? It’s not like I can die here anyways."
+    "Maggie mumbles."
+    "You furrow your brows, frustrated at her deflection towards your concern."
+    j.c "We both know that's not the point of this place. It’s to become a better person."
+    "Maggie seems to be a bit more frustrated than before."
+    m.c "I didn’t ask for your therapy or your concern. Take your interrogation to someone who’s more desperate for attention, like Arghawan."
+    "Taken aback by her comment, and slightly offended on Arghawan’s behalf, you mutter a \"fine\" and sit back into the chair, ignoring her for the rest of the class."
+    "Peeking at her once, you see her face muddled with guilt. Your expression softens too, yet you sit in each other’s silence. It's not unpleasant."
+    hide maggie
+    jump lunchday1
 
-    "Closest thing you’ll get to a compliment from her, you assume. You blush.
+label lunchday1
+    "Class ends and hoards of students head down towards the cafeteria to grab a bite to eat."
 
-    If she gets all wrong"
-    .trust_ch(1)
+    scene bg lunchroom
+    with fade
+    #Cafeteria_noises.mp3
+
+    "You decide you want to sit with..."
+    menu:
+        "Maggie, sitting alone like a normal person.":
+            m.trust_ch(1)
+            Maggie_neutral
+            "You sit with Maggie. The awkwardness from class seems to have melt, and you share smalltalk about the class while she does some work."
+            jump postlunchday1
+        "Doris, sitting on the windowsill like a housecat.":
+            d.trust_ch(1)
+            Doris blush blink
+            "Doris isn’t much for talking, but the two of you enjoy sitting together, bathing in the warm orange sun permeating through the window."
+            jump postlunchday1
+        "Arghawan, sitting next to heaps of people with a single empty seat next to him.":
+            a.trust_ch(1)
+            Arghawan happy
+            "Sitting next to Arghawan and his group of friends is almost too loud and exciting. Bonus points, because he put his arm around you."
+            jump postlunchday1
+        "Cassidy, who isn’t actually sitting, but seems to be lying down on the dirty floor and moaning in pain, wailing \"my back, my back.\"":
+            c.trust_ch(1)
+            cassidy_happy_blink
+            "You lie on the floor next to Cassidy and offer to give her one of your life-changing massages. It’s kind of weird, and a bit pointless, since she’s cursed with a bad back, but she appreciates the effort."
+            jump postlunchday1
+
+label postlunchday1:
+    scene bg hallway
+    "You finish off the rest of your classes with nothing interesting happening in any of them. You head towards you dorm to rest, when you run into Cassidy and Doris arguing."
+    show doris mad at left
+    show cassidy blink mad at right
+    d.c "Cassidy, you have to eat vegetables! To get big and strong! You can’t just be eating dino nuggies for the rest of eternity, can you?"
+    show cassidy mad at right
+    c.c "I can, and honestly neither of us will be surprised if I do. Hey! Jessica!"
+    "Cassidy shoots her hand up and waves it to grab your attention. You walk up to them."
+    c.c "Doris here thinks that I should eat more vegetables so I can stay healthy. I’m already dead Doris! I can’t die more!"
+    show doris mad blink at left
+    d.c "And CASSIDY here doesn’t understand that while it may not save her from death, It’ll make her existence here just that much easier. Cassidy, you already have a bad back, save yourself from literally every other disease as well!"
+
+    menu:
+        "Cassidy, just eat the veggies. They’ll make you feel so much better, trust me.":
+            show doris happy at left
+            show cassidy mad at right
+            $ d.trust_ch(1)
+            $ c.trust_ch(-1)
+            j.c "Doris is right Cassidy. You already have a hard time getting up the stairs. Some vegetables won’t hurt you. It’ll probably do the exact opposite."
+            show cassidy mad blink at right
+            "Cassidy grumbles as Doris force feeds her a head of broccoli. The sight is both horrific and oddly majestic."
+            jump dormday1
+        "Hey Doris! Don’t crump her vibe! Let her have her nuggies, like she said, she can’t be any more dead.":
+            show doris mad at left
+            show cassidy happy at right
+            $ d.trust_ch(-1)
+            $ c.trust_ch(1)
+            c.c "Yeah man! Just let me eat whatever I want! Why do you care anyways?"
+            doris mad blink at left
+            "Doris glares at you as she puts the fork down on the plate and closes her eyes in frustration."
+            doris mad at right
+            d.c "Whatever. It’s not my body anyways.
+
+label dormday1:
+    "You head back to your room and start to rest.
+    stop music
+    scene dorm
+    with fade
+
+    if (!maggieRoute):
+        jump day2start
+
+    else:
+        "You quickly remember that you had some work to do for Maggie, and so you take out your pen and the sheet of paper and get to work."
+
+        "The first problem reads: \"What is 1 X 3?\""
+        $ answer3 = renpy.input("Enter an answer: ", "", allow="0123456789")
+        python:
+         if (answer3==3):
+             maggieqs++
+
+        "The second problem reads: \"If x^2 - 7x + 10 = 0, what is one possible value of x?\""
+        $ answer4 = renpy.input("Enter an answer: ", "", allow="0123456789")
+        python:
+         if (answer4==2 or answer4==5):
+             maggieqs++
+
+        "The final problem reads: \"What is the value of the numerator of cos A, if the value of tan A is 4/3 and we assume cos A is positive?\"
+        You feel that you have seen this exact problem before..."
+        $ answer5 = renpy.input("Enter an answer: ", "", allow="0123456789")
+        python:
+         if (answer5==3):
+             maggieqs++
+
+        "Satisfied with your work, you head over to Maggie’s dorm to hand in the work."
+
+        scene bg hall
+        with fade
+        "You nervously knock at what you assume to be her door, (it has a pentagram carved into it), and await for a response."
+        show maggie neutral
+        "Slowly she opens the door, taking a peek as to who her visitor was before pulling the door open more."
+
+        DOOR CLICK SOUND
+
+        "You step into her dorm, closing the door behind you."
+        scene dormMaggie
+        with fade
+        show maggie sad
+        m.c "Took you long enough. Lemme take a look!"
+        show maggie sad blink
+
+        if (maggieqs==3):
+            $ m.trust_ch(3)
+            show maggie happy
+            m.c "Hey, this is pretty good. Better than anything I could do. Nice job."
+            "Closest thing you’ll get to a compliment from her, you assume. You blush."
+            jump maggos
+
+        #does elif work in renpy?
+        else:
+            if (maggieqs==0):
+                $ m.trust_ch(1)
+                show maggie neutral blink
+                m.c "Hahahah, man this is pretty dumb. You didn’t do so well but at least I can get a laugh out of this."
+                jump maggos
+
+            else:
+                $ m.trust_ch(2))
+                m.c "Hey, not bad for a novice. Maybe you have a career in plagiarism."
+                jump maggos
+
+label maggos:
+    show maggie neutral
+    "Maggie settles the test down on her desk, and sits down. She looks you up and down."
+    m.c "So, what are you… some kinda monkey?"
+    j.c "The monkey queen, actually."
     show maggie neutral blink
-    m.c "Hahahah, man this is pretty dumb. You didn’t do so well but at least I can get a laugh out of this."
+    "You tease, curtseying. Maggie laughs and gets up, bowing."
+    m.c "Your highness~"
+    show maggie neutral
+    "She teases, sitting back down on her chair, and takes a sip out of her juicebox. An idea comes to mind."
+    j.c "So now since we’re.. In somewhere more private, can I ask you a question?"
+    m.c "Shoot."
+    #when i read this for the first time i was expecting smth dirtier (or at least more forward) tbh /srs
+    j.c "We both know you’re lying about the reason why you’re still here. Why do you do assignments for people when you know it won’t get you anywhere?"
+    show maggie sad blink
+    m.c "…"
+    j.c "I mean, you laugh at the kids who come to you for help, but in the end, you’re in the exact same cycle as they are. What’s the point?"
+    "Maggie sighs and gets up from her chair, glaring at you."
+    m.c "Are you serious, Monkey Queen? Just take a fucking look at me? We’re supposed to get \"reincarnated into something that perfectly matches our essence on earth\", and I’m literally half a demon. The only reason I’m not in hell right now is because I died so stupidly."
+    m.c "You know, on earth, I was actually kind of a big shot. Huge fucking cult leader. Jonestown type big. Killed hundreds of people."
+    m.c "The only reason I’m here right now, is because I drank the wrong fucking cup of Koolaid. That's right. I died, because I drank a purple Kool Aid instead of a Koolaid jammer."
+    m.c "You must be as naive as you look. There’s no getting better for people like me. I’ve been stuck here and I’m going to be stuck here for way longer than you and your dumb little soulmate will be. So get out of here while you still can. Maybe my \"evil\" is contagious."
+    "She sits back in her chair and rests her head in her hands."
+    m.c "{i}There’s no getting better…{/i}"
+    "You sit yourself down on her bed, staying put."
+    j.c "I’m not leaving."
+    m.c "Don’t be difficult-"
+    j.c "No. We’re both here. Aren’t we? The universe believes that you can get better, Maggie. You aren’t here by freak chance or coincidence, so why do you act like this?"
+    m.c "I-"
+    j.c "Don’t give me some bullshit fucking excuse. Yeah. You were a bad person. You did bad things, and you hurt good people, but you’ve been given something that so few people are. A second chance."
+    j.c "You’re bad for killing people, but what makes you evil is taking up this spot, for having another chance, and refusing to take it. That's what’s shitty."
 
+    show maggie mad
+    "Maggie stands up, a fire burning in her eyes. You feel like she’s ready to strike you down."
+    #Romance music start here
+    show maggie sad blink
+    "But instead, she breaks down crying. She wraps her arms tightly around your waist and pulls you in close, resting her head softly on your shoulder."
+    "You hesitate for a second, in absolute shock because of how uncharacteristic she was acting, believing for a second that it could be manipulation, but you cast all doubts aside and wrap your arms around her, knowing that in that moment, her walls had been shut down, and she was vulnerable."
+    m.c "Fuck..."
+    "She wipes the tears from her eyes, embarrassed that she shared such a moment with someone like- well really anybody."
+    show maggie blush
+    "Maggie sits on the ground against her bedframe and you follow shortly after. You chat silently about nothing in particular, when she absentmindedly grabs ahold of your hand and draws small and short circles on the inside of your palm."
+    "You lay your head on her shoulder. She smiles warmly at the gesture. She believed that there was no possible way of seeing a moment of her weakness, yet you caught a glimpse. The night falls silent."
+    scene dormMaggie
+    show maggie
+    with fade
+    "Time passes and eventually you decide to part ways and go to bed."
+    hide maggie
+    with dissolve
+    play music doorsfx.mp3
+    scene dorm
+    with fade
+    jump day2start
 
-
-    Maggie neutral
-    "Maggie settles the test down on her desk, and sits down. She looks you up and down.
-
-    m.c "So, what are you… some kinda monkey?
-
-    J: The monkey queen, actually.
-
-    Maggie neutral blink
-
-    "You tease, curtseying. Maggie laughs and gets up, bowing.
-
-    m.c "Your highness~
-
-    Maggie neutral
-
-    "She teases, sitting back down on her chair, and takes a sip out of her juicebox. An idea comes to mind.
-
-    J: So now since we’re.. In somewhere more private, can I ask you a question?"
-
-    m.c "Shoot.
-
-    J: We both know you’re lying about the reason why you’re still here. Why do you do assignments for people when you know it won’t get you anywhere?
-
-    Maggie sad blink
-    m.c "…
-
-    J: I mean, you laugh at the kids who come to you for help, but in the end, you’re in the exact same cycle as they are. What’s the point?
-
-    "Maggie sighs and gets up from her chair, glaring at you.
-
-    m.c "Are you serious, Monkey Queen? Just take a fucking look at me? We’re supposed to get ‘reincarnated into something that perfectly matches our essence on earth,’ I’m literally half a demon. The only reason I’m not in hell right now is because I died so stupidly.
-
-    m.c "You know, on earth, I was actually kind of a big shot. Huge fucking cult leader. Jonestown type big. Killed hundreds of people.
-
-    m.c "The only reason I’m here right now, is because I drank the wrong fucking cup of Koolaid. That's right. I died, because I drank a purple Kool Aid instead of a Koolaid jammer.
-
-    m.c "You must be as naive as you look. There’s no getting better for people like me. I’ve been stuck here and I’m going to be stuck here for way longer than you and your dumb little soulmate will be. So get out of here while you still can. Maybe my ‘evil’ is contagious.
-
-    "She sits back in her chair and rests her head in her hands.
-
-    m.c "(in italics) There’s no getting better…
-
-    "You sit yourself down on her bed, staying put.
-
-    J: I’m not leaving.
-
-    m.c "Don’t be difficult-
-
-    J: No. We’re both here. Aren’t we? The universe believes that you can get better, Maggie. You aren’t here by freak chance or coincidence, so why do you act like this?
-
-    m.c "I-
-
-    J: Don’t give me some bullshit fucking excuse. Yeah. You were a bad person. You did bad things, and you hurt good people, but you’ve been given something that so few people are given the chance to do. To have a second chance. You’re bad for killing people, but what makes you evil is taking up this spot, for having another chance, and refusing to take it. That's what’s shitty.
-
-    Maggie mad
-    "Maggie stands up, a fire burning in her eyes. You feel like she’s ready to strike you down.
-
-    Romance music start here
-    Maggie sad blink
-
-    "But instead, she breaks down crying. She wraps her arms tightly around your waist and pulls you in close, resting her head softly on your shoulder. You hesitate for a second, in absolute shock because of how uncharacteristic she was acting, believing for a second that it could be manipulation, but you cast all doubts aside and wrap your arms around her, knowing that in that moment, her walls had been shut down, and she was vulnerable.
-
-    m.c "Fuck..
-
-    X; She wipes the tears from her eyes, embarrassed that she shared such a moment with someone like- well really anybody.
-
-    Maggie blush
-
-    "Maggie sits on the ground against her bedframe and you follow shortly after. You chat silently about nothing in particular, when she absent mindedly grabs a hold of your hand and draws small and short circles on the inside of your palm. You lay your head on her shoulder and she smiles warmly at the gesture, believing there was no possible way of seeing the moment of weakness, yet you caught a glimpse, and the night falls silent.
-
-    DAY END.
+label day2start:
+    #day 2 stuff here
+    "You drift off to sleep, awaiting the next day..."
+    scene dorm
+    with fade
 
 # This ends the game.
 return
