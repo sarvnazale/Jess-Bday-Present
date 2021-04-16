@@ -784,19 +784,15 @@ label dormday1:
             m.c "Hey, this is pretty good. Better than anything I could do. Nice job."
             "Closest thing you’ll get to a compliment from her, you assume. You blush."
             jump maggos
-
-        #does elif work in renpy? yes it does
+        elif (maggieqs==0):
+            $ m.trust_ch(1)
+            show maggie neutral blink
+            m.c "Hahahah, man this is pretty dumb. You didn’t do so well but at least I can get a laugh out of this."
+            jump maggos
         else:
-            if (maggieqs==0):
-                $ m.trust_ch(1)
-                show maggie neutral blink
-                m.c "Hahahah, man this is pretty dumb. You didn’t do so well but at least I can get a laugh out of this."
-                jump maggos
-
-            else:
-                $ m.trust_ch(2)
-                m.c "Hey, not bad for a novice. Maybe you have a career in plagiarism."
-                jump maggos
+            $ m.trust_ch(2)
+            m.c "Hey, not bad for a novice. Maybe you have a career in plagiarism."
+            jump maggos
 
 label maggos:
     show maggie neutral
