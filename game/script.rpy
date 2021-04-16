@@ -1,4 +1,4 @@
-doorsfxinit python:
+init python:
     #integer of how many of Maggie's math questions Jess gets correct
     maggieqs = 0
 
@@ -44,19 +44,19 @@ label start:
     scene bg blmoffice
     with dissolve
 
-    "Hello? Hello! Can you hear me? Ah you’re awake."
+    "Hello? Hello! Can you hear me? Ah you’re awake."4
     show brennan neutral
     with dissolve
 
     #add brennan lee mulligan intro song
-    "A strange figure stands tall in front of you. The body odd, yet the face seems.. Familiar."
+    "A strange figure stands tall in front of you. The body odd, yet the face seems… Familiar."
     b.c "Hello there!"
-    $ b = Person(Character("Brennan Lee Mulligan"), "Brennan Lee Mulligan")
+    $ b = Person(Character("Brennan Lee Mulligan"), "Brennan Lee Mulligan", False)
     j.c "B-Brennan lee mulligan?!?"
     show brennan blush
-    b.c "Well.. My name is Headmaster Dean, but if you’d like, you can refer to me as Brennan Lee mulligan."
+    b.c "Well… My name is Headmaster Dean, but if you’d like, you can refer to me as Brennan Lee mulligan."
     show brennan neutral
-    j.c "Wh… Why do you.. Look like that? Where am I?"
+    j.c "Wh… Why do you… Look like that? Where am I?"
     "You look down."
     show brennan happy
     b.c "Oh! Well that is a lot of interesting questions all at once.
@@ -65,8 +65,8 @@ label start:
     Welcome to that place."
     b.c "Also, The reason I appear like this, is because
     I assume the figure of the person you trusted most in your past life.
-    I assume for you that would be.. Brennan Lee Mulligan on a Kaonashi’s body…"
-    j.c "O..Oh… Okay.. So I’m in hell."
+    I assume for you that would be… Brennan Lee Mulligan on a Kaonashi’s body…"
+    j.c "O…Oh… Okay… So I’m in hell."
     b.c "Ah well, no you are not, that… doesn’t exist."
 
 default option1 = False
@@ -100,14 +100,14 @@ label death:
     b.c "Well… you see, most people don’t like my answer to this.
     People who get sent to purgatory are… well they died the most pathetic deaths."
     j.c "I died a pathetic death?"
-    b.c "Ah.. yes… quite so…"
+    b.c "Ah… yes… quite so…"
     "The headmaster opens a drawer and looks through a file. He grimaces."
-    b.c "Oh dear.."
+    b.c "Oh dear…"
     j.c "What is it?"
     b.c "Are you sure you want to know?"
     j.c "Yes?!? Obviously."
     "The headmaster takes a deep breath and looks closer."
-    b.c "It appears that your… abundance of domesticated creatures, decided to take a nap on you. While you were suffocating, you began to scream, alas no one came to your aid because… they were too used to your screams..."
+    b.c "It appears that your… abundance of domesticated creatures, decided to take a nap on you. While you were suffocating, you began to scream, alas no one came to your aid because… they were too used to your screams…"
     "He slowly closes the file and you look down, ashamed."
     show brennan happy
     b.c "Glad to know you’ve earned your place. Welcome aboard!"
@@ -120,9 +120,9 @@ label death:
     b.c "Usually this is a romantic soulmate, but this school has been known
     to see the platonic soul mate or two. Anyways, When you discover who your soulmate is,"
     b.c "you have to help each other rehabilitate, so you are respawned at the exact same time.
-    They will probably give you an item, maybe a hair clip or something. If you throw it into the fire, and the fire changes colour..."
+    They will probably give you an item, maybe a hair clip or something. If you throw it into the fire, and the fire changes colour…"
     show brennan blush
-    b.c "...voila. You’ve met your match."
+    b.c "…voila. You’ve met your match."
     show brennan neutral
     #check to see if this option was chosen first, if yes, give user chance to choose the other option
     if option2:
@@ -144,7 +144,7 @@ label exposition:
     j.c "How the hell am I supposed to know what class to go to? That creepy guy didn’t even give me a schedule…"
     "You realize, while you may be some… monkey beast… you are wearing a school uniform.
     Quickly, you check your pockets and pull out a slip of paper, somehow, it appears to be untouched,
-    even though it was just shoved in your pocket.."
+    even though it was just shoved in your pocket."
     j.c "Period 1… Math class. Second floor, all right."
     stop music
 
@@ -158,7 +158,7 @@ label exposition:
 
     play music "audio/cassidy.mp3" fadeout 1.0 fadein 1.0
     "The girl glares slightly at you."
-    c.c "Yes, I’m fine. I just.. Have difficulty walking up stairs sometimes.
+    c.c "Yes, I’m fine. I just… Have difficulty walking up stairs sometimes.
     Its normal this is a normal thing for people with normal bodies to do."
 
     menu:
@@ -171,7 +171,7 @@ label exposition:
             "Unfortunately for the two of you, neither of you have any whisky on hand, but you feel content that you may have made your first friend."
             stop music
             jump library
-        "It's… just a flight of stairs.. This shouldn’t be hard for you.":
+        "It's… just a flight of stairs… This shouldn’t be hard for you.":
             show cassidy mad
             c.c "Yes. It is just a flight of stairs. *grumbles* You are also just a bitch. Funny how things workout that way. My name is Cassidy, but I doubt we’ll see each other often."
             "Cassidy storms away, you fear you’ve made a bad choice."
@@ -199,10 +199,10 @@ label library:
     "You look away, not wanting to make him uncomfortable, but his sobs and whimpers fill the library, and you feel obligated to help."
     play music "audio/argha.mp3" fadeout 1.0 fadein 1.0
     show argha mad
-    a.c "FUCK! 9 x 4??? Since when did we go back to X meaning you times it! Oh god why is that little two so small and so close to the 3? Aw fuck.."
+    a.c "FUCK! 9 x 4??? Since when did we go back to X meaning you times it! Oh god why is that little two so small and so close to the 3? Aw fuck…"
     "You slide into the seat across from the crying creature and he looks up, wiping snot from his nose."
     show argha sad blink
-    a.c "hNnhn… are you *sniff*… the tutor? Bro you’re like.. Thirty two minutes late.. You were supposed to be here at 1:00…"
+    a.c "hNnhn… are you *sniff*… the tutor? Bro you’re like… Thirty two minutes late… You were supposed to be here at 1:00…"
     j.c "Um, well, no I’m not your tutor, and it's 1:13. It has definitely not been thirty two minutes…"
 
     menu:
@@ -211,7 +211,7 @@ label library:
             a.c "Really? You can?! Aw yeah! Thank you! Arghawan’s the name, and Charming ladies is the game."
             "Arghawan winks at you and you blush."
             $ a = Person(Character("Arghawan"), "Arghawan")
-            j.c "Ah ahem.. Uh yes so, let's take a look at this first problem. Oh easy, first question: what is 9 x 12?"
+            j.c "Ah ahem… Uh yes so, let's take a look at this first problem. Oh easy, first question: what is 9 x 12?"
             $ answer1 = renpy.input("Enter an answer: ", "", allow="0123456789")
             if int(answer1) == 108:
                 show argha happy
@@ -226,7 +226,7 @@ label library:
                     $ a.trust_ch(1)
                     jump gym
                 else:
-                    a.c "Bro… this doesn’t look right... Are you sure it's not 3? Damn and I have a test today... this better be right and my judgement is failing me! Or we’re both in deep shit.."
+                    a.c "Bro… this doesn’t look right… Are you sure it's not 3? Damn and I have a test today… this better be right and my judgement is failing me! Or we’re both in deep shit…"
                     show argha sad
                     a.c "Not to be rude, but i think you should seriously reevaluate your dream of being an educator."
                     "You look frazzled."
@@ -253,7 +253,7 @@ label gym:
     play sound "audio/doorsfx.mp3"
     scene bg hall
     with dissolve
-    "You leave the library and head towards the gym class. Along the way you take a good look at all the strange yet very attractive people around.. How were you supposed to just choose one? Maybe one of the people you’d already met…"
+    "You leave the library and head towards the gym class. Along the way you take a good look at all the strange yet very attractive people around… How were you supposed to just choose one? Maybe one of the people you’d already met…"
     scene bg gym
     with dissolve
     m.c "HEY YOU"
@@ -286,7 +286,7 @@ label gym:
             stop music
             play sound "audio/doorsfx.mp3"
             jump cafeteria
-        #changed it to "play" from "win" here... I feel there is no guarantee that you will win agaionst a new foe
+        #changed it to "play" from "win" here… I feel there is no guarantee that you will win agaionst a new foe
         "Play the game fair and square.":
             "You assume this is the kind of person who likes a fight.
             So a fight you’ll give her. Back and forth, like it’s more intense than just trying to slap someone with a ball,
@@ -296,7 +296,7 @@ label gym:
             show maggie neutral
             m.c "HEY!"
             "you stop in your tracks."
-            m.c ".. Good game out there. Glad to see you aren’t a pussy like the rest of these chumps."
+            m.c "… Good game out there. Glad to see you aren’t a pussy like the rest of these chumps."
             "The girl who you know now to be a tiefling jerks her head at a bunch of kids to freak them out."
             show maggie happy
             m.c "My name is Maggie, and rest assured, next time, I’ll win."
@@ -305,7 +305,7 @@ label gym:
             "She pats you on the back. Rough. A little too rough.
             So rough in fact that when you try to feign sportsmanship the inside you feel nothing but a burning pain.
             Holy shit why did that hurt so much."
-            #sarv you forgot to jump to the cafeteria here... was this intentional?
+            #sarv you forgot to jump to the cafeteria here… was this intentional?
             play sound "audio/doorsfx.mp3"
             jump cafeteria
 
@@ -319,10 +319,10 @@ label cafeteria:
     play music "audio/beforeclass.mp3" fadeout 1.0 fadein 1.0
 
     "Scanning the area to make sure no one sees you eat alone like a loser, you meander your way over to a bench. Plopping yourself down, you unwrap your sandwich and take a bite."
-    j.c "God.. This sucks"
+    j.c "God… This sucks"
     "You settle the sandwich on your lap and look at it in disgust. All of a sudden, a bird sits down right in front of you."
     "You rip off a small piece of bread and throw it onto the floor for it to eat."
-    j.c "There you go buddy... I hope you don’t have… taste buds."
+    j.c "There you go buddy… I hope you don’t have… taste buds."
     "You watch the bird as it gobbles up the sandwich, when all of a sudden, you hear a squeal."
     d.c "Holy shit! Holy shit holy shit!"
     show doris neutral
@@ -339,7 +339,7 @@ label cafeteria:
     menu:
         "That’s … kind of creepy":
             show doris sad
-            d.c "Oh… I’m sorry then.. um … I guess I’ll get going then.."
+            d.c "Oh… I’m sorry then… um … I guess I’ll get going then…"
             show doris sad blink
             $ d.trust_ch(-1)
             hide doris
@@ -347,13 +347,13 @@ label cafeteria:
             "You see small tears well up in her eyes, but before you can stop her, she’s run away to God knows where, doing God knows what."
             jump dormchoice
         "That looks incredible!":
-            d.c "..."
+            d.c "…"
             show doris blush
-            d.c "th.. Thank you. Well you know, these birds are only attracted to beautiful things…"
+            d.c "th… Thank you. Well you know, these birds are only attracted to beautiful things…"
             show doris blush blink
             $ d.trust_ch(1)
             show doris neutral
-            d.c "OH! Like umm… ahh.. That pretty bracelet you have right there! Ahh what is that? Silver?"
+            d.c "OH! Like umm… ahh… That pretty bracelet you have right there! Ahh what is that? Silver?"
             "Doris’ quick change in demeanor gave you whiplash as you coughed and looked down on your wrist."
             j.c "Um actually I think its some sort of bone-"
             hide doris
@@ -374,7 +374,7 @@ label dormchoice:
             $ c.trust_ch(1)
             jump day1
         "Arghawan":
-            "Arghawan seems like the classic heartbreaker, but something about him is just so magnetic.. It’s probably the muscles, no yeah, it’s at least 47 percent the muscles."
+            "Arghawan seems like the classic heartbreaker, but something about him is just so magnetic… It’s probably the muscles, no yeah, it’s at least 47 percent the muscles."
             $ a.trust_ch(1)
             jump day1
         "Maggie":
@@ -385,8 +385,8 @@ label dormchoice:
             "Doris is the classic nerd, shy and antsy, but you can’t help but want to hear her go on for hours about her discoveries that day."
             $ d.trust_ch(1)
             jump day1
-        "Brennan lee mulligan....":
-            "What about that Brennan Lee Mulligan guy... "
+        "Brennan Lee Mulligan…":
+            "What about that Brennan Lee Mulligan guy… "
             $ b.trust_ch(1)
             jump day1
 
@@ -395,6 +395,8 @@ label day1:
     #will this work?
     scene bg dorm
     with fade
+    #just gonna set argha's boolean to true don't mind me
+    $ a = Person(Character("Arghawan"), "Arghawan", route = True)
     #where day 1 actually begins
     "You wake up in your dorm, only slightly ready to begin a new day. The day prior had knocked you out well."
     "Reluctantly, you get out of your cozy bed, looking around your room for the textbooks needed for your class today. When you’re all prepared, you leave the room, hoping to run into some of the new friends you’ve made."
@@ -404,7 +406,7 @@ label day1:
     "As you walk down the halls, your stomach growls, reminding you that you have to eat something before you properly begin the day, but there’s also so much of the school you haven’t seen yet… what should you do?"
 
     menu:
-        "Go to the Cafeteria for some food":
+        "Go to the Cafeteria for some food":44
             jump breakfastday1
         "Explore the school":
             jump blmstart
@@ -428,7 +430,7 @@ label breakfastday1:
     a.c "Thank God you’re here, bro!"
     show argha sad
     a.c "Dude, I’ve been looking for my 5 dollar bill all morning… Have you seen it?"
-    j.c "...Can’t say that I have."
+    j.c "…Can’t say that I have."
     a.c "Yeah, neither has anyone else in the school. It’s kinda sus…"
 
     menu:
@@ -437,7 +439,7 @@ label breakfastday1:
         "You’re kind of a scatterbrain, huh?":
             show argha neutral
             $a.trust_ch(-1)
-            a.c "Aw man.. That sucks… Oh well, math class starts now anyways. You should get going."
+            a.c "Aw man… That sucks… Oh well, math class starts now anyways. You should get going."
             hide argha
             stop music
             play sound "audio/doorsfx.mp3"
@@ -447,12 +449,12 @@ label arghabrekkie:
     $ a.trust_ch(1)
     show argha happy
     a.c "Seriously!? Thank you so much!"
-    "And so, the two of you walk around the school, looking for Arghawan’s missing $5 bill. However..."
+    "And so, the two of you walk around the school, looking for Arghawan’s missing $5 bill. However…"
     show argha mad
     a.c "Man, are you serious?! We looked everywhere! It’s totally gone."
     show argha mad blink
     a.c "Someone stole it, I bet."
-    "Arghawan sighs in frustration, and almost as if in sync, your stomachs both growled. You looked at eachother sheepishly..."
+    "Arghawan sighs in frustration, and almost as if in sync, your stomachs both growled. You looked at eachother sheepishly…"
     show argha blush
     a.c "Sorry… I’m pretty hungry."
     "You sigh heavily"
@@ -477,13 +479,13 @@ label arghabrekkie:
     j.c "Well, I guess you can go with…"
 
     menu:
-        "...pizza.":
+        "…pizza.":
             $ a.trust_ch(-1)
             show argha neutral
             a.c "Meh, I don’t really feel like it. I’m just gonna go for a sub instead."
             jump day1brekkie
 
-        "...subway":
+        "…subway":
             $ a.trust_ch(1)
             show argha happy
             a.c "Totally! It’s such a Subway kind of day."
@@ -504,7 +506,7 @@ label day1brekkie:
     "Instantly your heart flutters with empathy and you have the sudden urge to reach out to him, but you stop yourself and look down."
     j.c "Well, I like you! Wait,"
     show argha happy
-    j.c "I mean, not like that. I like you but I don’t LIKE like you.. Like I like you as a friend, even more than that!"
+    j.c "I mean, not like that. I like you but I don’t LIKE like you… Like I like you as a friend, even more than that!"
     "You realize what you just said."
     j.c "AGhhhh I mean like a good friend! Like a really good friend. Am I coming across clear or hahahah…"
     "You nervously laugh and shakily grab ahold of the drink on your table, chugging it to calm yourself down."
@@ -639,7 +641,7 @@ label maggiestart:
     $ m = Person(Character("Maggie"), "Maggie", route = True)
     m.c "That would be awesome! I really fucking suck at math, so I could really use your help on this one."
     "Jesus fucking christ how did you get stuck doing MORE MATH?!"
-    j.c "Oh.. Math. Fun."
+    j.c "Oh… Math. Fun."
     show maggie happy blink
     m.c "Glad you think so! You can bring it to my room at night so I can give it to those stupid assholes tomorrow morning."
     "She grumbles."
@@ -670,7 +672,7 @@ label lunchday1:
     with fade
     play music "audio/cafeteriasfx.mp3" fadeout 1.0 fadein 1.0
 
-    "You decide you want to sit with..."
+    "You decide you want to sit with…"
     menu:
         "Maggie, sitting alone like a normal person.":
             $ m.trust_ch(1)
@@ -736,7 +738,8 @@ label dormday1:
     stop music
     scene dorm
     with fade
-    if m.route == False:
+    #unless i'm missing smth, == False is just not but slower
+    if (not m.route):
         jump day2start
 
     else:
@@ -754,7 +757,7 @@ label dormday1:
          if (answer4==2 or answer4==5):
              maggieqs += 1
         "The final problem reads: \"What is the value of the numerator of cos A, if the value of tan A is 4/3 and we assume cos A is positive?\"
-        You feel that you have seen this exact problem before..."
+        You feel that you have seen this exact problem before…"
         $ answer5 = renpy.input("Enter an answer: ", "", allow="0123456789")
         python:
          if (answer5==3):
@@ -804,7 +807,7 @@ label maggos:
     m.c "Your highness~"
     show maggie neutral
     "She teases, sitting back down on her chair, and takes a sip out of her juicebox. An idea comes to mind."
-    j.c "So now since we’re.. In somewhere more private, can I ask you a question?"
+    j.c "So now since we’re… In somewhere more private, can I ask you a question?"
     m.c "Shoot."
     #when i read this for the first time i was expecting smth dirtier (or at least more forward) tbh /srs LOL THAT'S FUNNY
     j.c "We both know you’re lying about the reason why you’re still here. Why do you do assignments for people when you know it won’t get you anywhere?"
@@ -833,7 +836,7 @@ label maggos:
     show maggie sad blink
     "But instead, she breaks down crying. She wraps her arms tightly around your waist and pulls you in close, resting her head softly on your shoulder."
     "You hesitate for a second, in absolute shock because of how uncharacteristic she was acting, believing for a second that it could be manipulation, but you cast all doubts aside and wrap your arms around her, knowing that in that moment, her walls had been shut down, and she was vulnerable."
-    m.c "Fuck..."
+    m.c "Fuck…"
     "She wipes the tears from her eyes, embarrassed that she shared such a moment with someone like- well really anybody."
     show maggie blush
     "Maggie sits on the ground against her bedframe and you follow shortly after. You chat silently about nothing in particular, when she absentmindedly grabs ahold of your hand and draws small and short circles on the inside of your palm."
@@ -852,7 +855,7 @@ label maggos:
 
 label day2start:
     #day 2 stuff here
-    "You drift off to sleep, awaiting the next day..."
+    "You drift off to sleep, awaiting the next day…"
     scene bg dorm
     with fade
 
@@ -881,7 +884,7 @@ label day2start:
             d.c "What the hell?!"
             "Doris looks at you, furiously. You jump, slightly out of fear. This wasn’t the reaction you were hoping for."
             d.c "That was a vanishroom! Gah! It took me forever to find one of those!"
-            j.c "I-I thought those were... poisonous...?"
+            j.c "I-I thought those were… poisonous…?"
             d.c "This isn’t Earth, the plants are different! Besides, we’re already dead, Jessica!"
             "You gulp audibly, that was a good point…"
             show doris sad
@@ -1003,7 +1006,7 @@ label classendd2:
                     c.c "When I used to be a human, all those stupid fancy tooth doctors would always nag me. They’d sigh in frustration whenever I walked into their office, like hey pal, I don’t wanna be here either!"
                     "You find yourself laughing and for a while Cassidy stares at you blankly, before joining you."
                     c.c "You know, you might not be as bad as I originally thought you were. We seem to have a lot in common."
-                    j.c "R-Really...? I feel the same way about you, I-"
+                    j.c "R-Really…? I feel the same way about you, I-"
                     c.c "Aaand, you’ve already ruined it."
                     "Before you can respond, Cassidy closes the cabinet door, leaving you standing there, dumbfounded."
                     jump musicendd2
@@ -1018,7 +1021,7 @@ label musicendd2:
     scene bg lunchroom
     "You hurry and make your way to the Cafeteria, wanting to get a good seat. When you finally arrive, you’re presented with 3 options"
     menu:
-        "MAGGIE, who is sitting with CASSIDY. They seem to be arguing about something":
+        "Maggie, who is sitting with Cassidy. They seem to be arguing about something":
             show maggie mad at left
             show cassidy mad at right
             "You silently take a seat next to Maggie and Cassidy, they both quiet down when they see you and pause whatever argument they were having when they notice you. The three of you sit in awkward silence, save for the sound of Cassidy’s concerning breathing patterns."
@@ -1026,23 +1029,32 @@ label musicendd2:
             show maggie neutral at left
             $ m.trust_ch(1)
             $ c.trust_ch(1)
+            #no more blm route
+            $ b = Person(Character("Brennan Lee Mulligan"), "Brennan Lee Mulligan", False)
             jump maggieargha
 
-        "ARGHAWAN, who’s flirting with DORIS.":
+        "Arghawan, who’s flirting with Doris.":
             "You butt your way in between the way of Doris and Arghawan, the two of them both smile when they see you, Doris’ being one of relief. Arghawan shifts his focus onto you, it’s weird of course, but it feels nice getting some attention from him."
             $ a.trust_ch(1)
             $ d.trust_ch(1)
+            $ b = Person(Character("Brennan Lee Mulligan"), "Brennan Lee Mulligan", False)
             jump maggieargha
 
-        "BRENNAN LEE MULLIGAN…?":
+        "Brennan Lee Mulligan…?" if b.route:
             "Slowly and shyly you peek into Brennan Lee Mulligan’s office."
+            $ b.trust_ch(1)
             show brennnan happy
             jump maggieargha
 
 label maggieargha:
+    #i feel a black screen would be appropriate here
+    scene bg black
+    with fade
     "The rest of your school day passes by without any problems, and before you know it, you’re finally done for the day. "
     "You eagerly make your way towards your dorm when you pause midway after hearing Arghawan and Maggie both arguing."
-    "The two of them are both sitting down in the hallways, both holding phones. That’s certainly a duo you wouldn’t have expected to see...."
+    scene bg hall
+    with fade
+    "The two of them are both sitting down in the hallways, both holding phones. That’s certainly a duo you wouldn’t have expected to see…"
     show maggie mad at left
     show argha mad at right
     a.c "Dude, enough with the ROKI ROKI, I’ve fucking had it with that song."
@@ -1062,7 +1074,7 @@ label maggieargha:
             m.c "There! See! Nothing wrong with wanting to listen to the same song. That's just who I am… "
             show maggie sad at left
             "Maggie fakes crying."
-            m.c "And if you can’t accept me for who I am, I guess this just won’t work out.."
+            m.c "And if you can’t accept me for who I am, I guess this just won’t work out…"
             show argha mad at right
             show maggie neutral at left
             a.c "I’LL SHOW YOU WHAT ‘WON’T WORK OUT"
@@ -1094,13 +1106,13 @@ label dorisdate:
     show doris happy blink
     "Carefully, Doris reaches to pick some up and place them in her basket. She invites you to do the same."
     "After a few minutes, the mushrooms start to vanish again. Doris smiles warmly and examines her harvest."
-    d.c "So many this time around.. They seem to like you."
+    d.c "So many this time around… They seem to like you."
     show doris blush blink
     "this time, it’s the both of you blushing. You both sit, you’re leaning against a tree hugging one leg while the other one lays straight, and she sits still, quite far from you."
     j.c "Why are you sitting so far away?"
     "Doris’ eyes light up and she scoots a bit closer. Not close enough though."
     "You pester for her to come closer, and she scoots all the way next to you. Her blush intensifies."
-    d.c "Sorry.. It’s just, I’m not used to people sitting so close. Or I guess, I’m the one sitting close to you."
+    d.c "Sorry… It’s just, I’m not used to people sitting so close. Or I guess, I’m the one sitting close to you."
     j.c "Why’s that?"
     d.c "Well, when we were on Earth, my family and I lived… far from society. There weren’t many people close by, so I never really got close to anyone. The few times I did go into the city, people always… "
     show doris sad
@@ -1124,13 +1136,16 @@ label dorisdate:
     You push a loose strand of hair behind her ear. Now her eyes are set straight onto yours.
     She pulls away abruptly, probably because she noticed how little distance there was between the two of you."
     "Though, she yawned and rested her head gently on your lap. You didn’t mind though, because for once that night, she seemed to be at ease. Her typically shaky smile was in a serene line, lips parted softly as she drowned into the night, and transported herself into a land of dreams."
-    scene bg dorm with dissolve
+    scene bg dorm
+    with dissolve
 
 
 label day3:
     #this is actually end of day 2 rn sorry ames for the confusion
+    #dis ames, it ok
     "Before you go to bed that night, you reach over and grab a Vanishroom. You lay back as a memory rolls back into your mind."
-    #SHOW BLACK BACKGROUND HERE
+    scene bg black
+    with fade
     "Jess! I haven't known you for too long but it's been awesome talking to you when I do.
     Your manic energy is delightful and I hope we get to meet in human land one day soon
     (along with the rest of the server of course). I really hope you like the present,"
@@ -1141,9 +1156,457 @@ label day3:
     "ellie / luna / elizabeth / L.e / more / names / for / comedic / effect / uwu"
 
     scene bg dorm
+    #transition here? idk
+    with dissolve
     "Slowly you fall asleep, and hear strange words coming into your head."
     "A voice you can remember to be your good friend Joe’s booms through your ears."
     "Joe: Oof. Can’t believe THAT’s how she dies, huh. Welp, rest in peace I guess."
+
+    scene bg dorm
+    with fade
+
+    "The morning comes and you wake up in your bedroom. There’s a strange taste in your mouth after eating that vanishroom, but you feel warm after remembering the message your friend left to you on your birthday.
+    "The schedule has changed again, but you’re flexible, it’s no big deal.
+
+    scene bg hall
+    with fade
+
+    "You head to your first class, biology, excited to see Doris."
+
+    scene bg classroom
+    with fade
+
+    "However, when you enter the classroom, Doris is nowhere to be found."
+    "You suck it up and take a seat by the window. After a while, you notice a strange figure running around, chasing birds. Imagine your surprise when you notice that the figure was actually Doris."
+    "You watch her for a while, a little bewildered and for a minute, that’s all Doris seems to do but then she secretly takes a look around her and enters the same place she brought you yesterday."
+    #adding fade to same place to signify time passing
+    scene bg classroom
+    with fade
+    "Eventually, the bell rings and you head to your next class, Music with Cassidy."
+    "But much like Doris, Cassidy is off doing her own thing and doesn't seem very interested in conversation. She’s hunched over on her seat, intensely doing her music theory homework, which should’ve been done yesterday."
+    "You decide not to comment on her awful posture today and just focus on the lesson your teacher is giving today."
+    #here too
+    scene bg classroom
+    with fade
+    "After what seemed like hours, the bell finally rang for English class."
+    "After making your way there, you sit down next to Maggie in the middle of an argument she was having with her teacher about some sexist old white guy.
+
+    show maggie mad
+    m.c "Bro, this guy is clearly a dickhead! Why are we even examining his work in this class about REHABILITATION?"
+
+    #new character go brr
+    "Teacher" "Please, just let us move onto the next lesson."
+    "Much to your demise, you had been looking forward to today's lesson, which was all about Milfs."
+
+    menu:
+        "Side with the teacher and just move on with the lesson.":
+            $ m.trust_ch(-1)
+            j.c "Let’s just move on to the next lesson. This isn’t worth fighting against"
+            show maggie sad
+            m.c "What the hell bro, why didn’t you take my side? Now we just have to sit here and look at tits. Good job."
+            "Although she was bitter, you can’t help but feel you did do a good job. Unfortunately, Maggie definitely didn’t feel the same way."
+            jump engday3end
+        "Side with Maggie and fight with the teacher.":
+            $ m.trust_ch(1)
+            show maggie happy
+            m.c "Yeah sir! See! She agrees! I’m done with this archaic bullshit, and move onto a new dawn of feminism-"
+            "Maggie’s speech is long and drawn out and no one in the class seems to be enjoying this, well, at least accept for her. And by proxy you."
+            show maggie blush
+            "Maggie sits back down in her chair and turns to you."
+            m.c "Thanks for taking my side! Man, I sure do love yelling at people early in the morning."
+            #NOT A THING! (i'll leave it here anyway though, in this comment)
+            #show maggie blush blink
+            "She turns back into her seat, and listens to the lesson on MILFs with you. You both make compelling arguments to your cases, but both agree that the best milf is Izuku’s mother from BNHA."
+            jump engday3end
+
+label engday3end:
+    "Class ends, and after looking at a bunch of milfs, you’re ready to wind down with some lunch. You head to the cafeteria."
+
+    scene bg lunchroom
+    with fade
+
+    "You choose to sit with…"
+    menu:
+        "Maggie and Arghawan, who are playing games on their consoles \"SPIRITgame™\"":
+            show maggie neutral left
+            show arghawan neutral right
+            $ m.trust_ch(1)
+            $ a.trust_ch(1)
+            $ b = Person(Character("Brennan Lee Mulligan"), "Brennan Lee Mulligan", False)
+            "You take a seat next to the two of them, they acknowledge your presence for a quick second before focusing all their attention onto the game."
+            show maggie happy at left
+            show arghawan sad at right
+            "Eventually, Arghawan sighs in what seems like defeat and Maggie laughs hysterically. She must have won whatever game they were playing."
+            jump lunchend
+        "Doris and Cassidy, who are talking about someone they don’t like.":
+            $ b = Person(Character("Brennan Lee Mulligan"), "Brennan Lee Mulligan", False)
+            show doris neutral at left
+            show cassidy neutral at right
+            "After witnessing how Maggie and Arghawan acted yesterday over games, you decided it would be safer to sit with Doris and Cassidy. The three of you partake in some civilized conversation."
+            jump lunchend
+        "Brennan Lee Mulligan." if b.route:
+            scene bg blmoffice
+            with fade
+            show brennan happy
+            $ b.trust_ch(1)
+            "You head over to Brennan Lee Mulligan's office to enjoy some lunch with him.
+            The two of you chat about schoolwork and personal lives. He gives you half of his cranberry muffin and you bond over some soap opera from when you were alive."
+            scene bg hall
+            with fade
+            "After your lunch, you decide to wander around the school. You take special care to avoid the cafeteria, with all of the strange people…"
+            jump postarg
+
+label lunchend
+    scene bg hall
+    with fade
+    "Lunch ends, and you take a step out of the cafeteria into the hall. But barely after leaving the cafeteria, you hear Doris and Cassidy get into another fight."
+    "You walk back in to hear what they are shouting about.
+    scene bg lunchroom
+    with fade
+    show cassidy mad blink at right
+    show doris mad at left
+    c.c "OBVIOUSLY the metaphor is to outline their love for eachother! Why else would he violently proclaim his love in a physical way?"
+    show cassidy mad at right
+    d.c "Violently proclaim his love? Cassidy, this is abuse. This is an abusive relationship."
+    show doris mad blink at left
+    c.c "Doris, you have to look past the nuance. Maybe physicality isn’t what needs to be looked at here but rather the motive behind it!"
+    show cassidy mad blink at right
+    d.c "Motive? Behind what, throwing a limited edition Hatsune Miku figure at your wife!"
+    show doris mad at left
+    c.c "See! When you say it out loud it doesn’t sound too bad."
+    show cassidy mad at right
+    "Seeing the heated discussion unfold, you decide to participate and make your opinion on this book clear."
+
+    menu:
+        "Maybe the relationship itself being abusive is a metaphor for something!":
+            show cassidy happy at right
+            show doris sad at left
+            c.trust_ch(1)
+            d.trust_ch(-1)
+            c.c "See! There’s a girl who understands nuance! I’m not justifying anything but you need to read between the lines missy."
+            "Doris groans and leaves the room, throwing the book in the trash on her way out."
+            hide doris
+            c.c "I count that as a win."
+            "Cassidy huffs and walks away."
+            "After the chaos of that argument, you decide to take a break but get the sudden urge to see how Arghawan was doing."
+            jump postarg
+        "What the hell kind of books are you guys reading?":
+            d.trust_ch(1)
+            c.trust_ch(-1)
+            show doris mad blink at left
+            d.c "Good question! Cassidy, why the hell are you choosing such garbage books for our bookclub?"
+            show cassidy mad blink at right
+            c.c "You keep telling me you, and I quote, \"I don’t care, it’s up to you\", and so I chose! What else do you want me to do?"
+            show doris mad at left
+            d.c "You’re a control freak! Every time I say I wanna read a book, you whine until I agree to give you what you want instead!"
+            show cassidy neutral
+            "Giving up, Cassidy groaned."
+            c.c "Alright! You’re choosing next time!
+            show doris happy
+            "Doris turns her head to look back at you and she smiles, winking because she finally got what she wanted."
+            scene bg hallway
+            with fade
+            "You leave quickly before there is amy more trouble"
+            "When you finally manage to escape the chaos of the argument Doris and Cassidy were having, you get the sudden urge to see how Arghawan was doing."
+            jump postarg
+
+label postarg:
+    scene bg outside
+    with fade
+    "You walk around the school, aimlessly for a while until you finally see Arghawan taking a nap… on the courtyard bench?
+    show argha sad blink
+    "You wince, that surely mustn’t be good for his back. Not wanting another Cassidy to deal with, you walk over and gently nudge his shoulder, telling him to wake up."
+    "Arghawan stirs, mumbling something you can’t quite catch. You shake his shoulder again."
+    j.c "Arghawan, if you sleep on there, your back will hurt later on."
+    show argha sad blink
+    a.c "Nngh… Shut up…"
+    "Arghawan doesn’t budge, and it doesn’t feel right just leaving him there, so you take a seat beside his resting body and wait."
+    "The two of you relax there peacefully, and it gets a little boring at times, but it’s kind of funny seeing Arghawan snore and drool."
+    scene bg outside
+    show argha sad blink
+    with fade
+    "After what seemed like an hour, Arghawan shifts again and slowly gets up, yawning."
+    j.c "Good morning…"
+    show argha sad
+    a.c "…"
+    "Arghawan blinks once, twice, and frowns."
+    show argha mad
+    a.c "What are you doing here…?"
+    j.c "Well, I was trying to wake you up."
+    a.c "Classes are over! I can sleep for however long I want!"
+    j.c "Sorry… but why are you sleeping on some bench anyways? You have a bed."
+    "He doesn’t respond for a minute, and his attempts at avoiding eye contact are obvious, but after a while, he finally speaks up."
+    show argha sad
+    a.c "…I mean, I kind of sleep all over the school. I don’t like sleeping on my bed."
+    j.c "Well, surely you can just sort that out with Brennan Lee Mulligan."
+    a.c "Who?"
+    j.c "The Headmaster?"
+    show argha happy
+    a.c "Oh, you mean the dilf dude who runs the place? I like that guy, he gives nice hugs."
+    "Before you question him again, you remember Brennan mentioning something about how he takes the form of the figure you trusted the most in your past life. Huh, interesting."
+    j.c "Oh… yeah, sure, let’s go with that. Anyways, why don’t you ask the- er- Dilf dude, for a better bed?"
+    show argha sad blink
+    "Arghawan sighs and shakes his head."
+    a.c "No, the bed itself isn’t the problem. I just… dislike beds in general. They kind of… scare me."
+    "You blink in bewilderment. Sure, you’ve seen Arghawan in some vulnerable positions before, but this felt… different from the other times. This time it didn’t seem so funny.
+    show argha sad
+    a.c "I know, it’s a really stupid fear."
+    j.c "No, I don’t think that at all."
+    show argha sad blink
+    a.c "Every time I close my eyes and lay in a bed, I can feel the horrible sensation of suffocation all over again."
+    j.c "Suffocation?"
+    show argha neutral
+    a.c "Haha, I guess I’ll have to give you a little explanation, huh?"
+    show argha happy
+    a.c "Back when I was alive and human, I was a bit of a ladies man, y’know, flirting with ladies, breaking their hearts. I messed around a lot. I know, totally different from what I’m like now, huh?"
+    "You can’t tell if he’s being serious or not, but decide not to comment."
+    show argha sad
+    a.c "I was… a real jerk. An asshole, honestly. I never considered how my actions would have hurt others. To me, it was like a game… and for a while, I was winning, but then I never had the chance to complete it."
+    a.c "You see, these girls, they uh… I guess they had about enough of me, so they decided to kill me."
+    a.c "I don’t know if they did it on purpose. If it was, I wouldn’t blame them."
+    show argha happy blink
+    a.c "They lured me into a bedroom, and… gosh, this is gonna sound really embarrassing, but I thought we were gonna have an orgy."
+    a.c "I know, that’s stupid! But I was a bit of an idiot back then… well, I guess I still kind of am, huh?"
+    a.c "They tied me onto a bed, and like the dumbass I was, I thought \"wow, they’re into some real kinky shit!\""
+    show argha sad
+    a.c "Then they suffocated me to death… No matter how much I tried to beg them to stop, that I was sorry, they didn’t care. It was too late."
+    show argha happy blink
+    a.c "Hahah, sorry for talking your ear off."
+    j.c "No… I understand."
+    a.c "You do?"
+    j.c "Well, not the whole… multiple girlfriends thing but… I was suffocated on a bed too."
+    show argha sad
+    a.c "Holy shit, for real?"
+    j.c "Haha, my story is a little more stupider than yours though."
+    j.c "I was sleeping and then my cats kinda… decided to take a nap on my face? I couldn’t breathe, so I kinda died."
+    show argha mad
+    a.c "Wha… Why didn’t anyone help you?!"
+    j.c "Well, according to the Headmaster, everyone in my family was just so used to hearing me scream, that they kind of ignored me."
+    show argha happy
+    a.c "Okay, that’s a little funny."
+    "The two of you both laugh together before you remember the whole reason why you were having this whole conversation in the first place.
+    j.c "Hey, even if you can’t sleep on a bed, surely there must be something more comfortable than a rock hard bench."
+    show argha sad
+    a.c "Are you sure? I would hate to burden you like that."
+    j.c "Arghawan, I wouldn’t be offering in the first place if it was a burden."
+    show argha happy blink
+    "Arghawan smiles and together, the two of you go to Brennan’s office and explain the situation."
+
+    scene bg blmoffice
+    show brennan neutral at left
+    show argha neutral at right
+    with fade
+
+    b.c "So, what you’re saying is that Arghawan needs a new sleeping area that’s not a bed?"
+    a.c "If it’s not too much trouble… sir…"
+    b.c "Well, of course I’d do anything I can to help but… I’m afraid all I have to offer is this old couch I found in the dump."
+    "With the snap of his fingers, a couch flies out of what seems to be nowhere and lands gracefully in front of both you and Arghawan."
+    "Almost instantly, you and Arghawan clutch your nose, hoping to block out the awful stench coming from the couch."
+    show argha sad at right
+    "For a moment, you see Arghawan’s face fall before he plasters a smile onto his face."
+    show argha happy at right
+    a.c "Don’t worry sir, that works perfectly for me."
+    b.c "Are you sure? I-"
+    a.c "Of course! Thank you so much."
+
+    scene bg hall
+    with fade
+
+    "Quietly, the two of you leave the office."
+
+    show argha mad
+    a.c "No way am I sleeping on… whatever that was. Oh fuck, why does it smell like that?!"
+    j.c "I think it’d be safer to sleep in the woods than on that."
+
+    if (not d.route):
+        jump nowoods
+    else:
+        "All of a sudden your mind wanders where it shouldn’t…"
+        j.c "Wait, that’s it!"
+        show argha sad
+        a.c "Huh?"
+        "You suddenly remember the large clearing Doris showed you the other day. It’d be perfect for Arghawan!"
+        "But you also remember Doris asking you to keep it a secret. Surely, if you tell Arghawan about the area, Doris wouldn’t trust you anymore. But she’ll get over it. Probably. Right?"
+        "You’re gonna have to choose…"
+        menu:
+            "Tell Arghawan about the area.":
+                jump arghaday3
+            "Keep Doris' secret.":
+                jump keepdoris
+
+label arghaday3
+    $ a.trust_ch(2)
+    $ d.trust_ch(-1)
+    j.c "There’s some place I want to show you, c’mon!"
+    a.c "Wha- Huh? Hold on!"
+    "But there’s no time. You grab his hand and run down the hallway. Arghawan, helpless to stop you, has no choice but to follow you."
+    scene bg outside
+    show argha sad
+    with fade
+    "You keep running until you reach the forest. You ignore Arghawan’s protests as you push him through the opening of the forest and encourage him to keep going."
+    scene bg argha
+    with fade
+    show argha neutral blink
+    "And that’s when you finally find it.
+    "The clearing still looks just as beautiful as the day before, and Arghawan’s complaints slowly dies down as he takes in what he’s seeing."
+    show argha happy
+    a.c "Holy shit…"
+    j.c "It’s amazing, isn’t it? You can sleep here all you want! It’s peaceful, no distractions at all. An ideal sleeping place for a satyr such as yourself."
+    play music "audio/romance.mp3" fadein 1.0 fadeout 1.0
+    show argha sad
+    a.c "…"
+    "Arghawan stares at you, his expression unreadable. For a second, you start to wonder if you’ve done something to upset him but he suddenly grabs you, a sound that resembles a sob escaping him, and… hugs you."
+    "You stand there in shock for a moment, before you melt into the hug and slowly snake your arms around him. He sniffles and whispers something you can’t quite catch."
+    j.c "Are you… crying?"
+    "Reaching your arm out you lightly place your arm on his shoulder."
+    "Again, there was another loud sniffle."
+    j.c "Oh my god, you totally are."
+    "Arghawan lets go of you, wiping his tears, and frowns."
+    show argha mad
+    a.c "Am not!"
+    j.c "Sure, whatever you say…"
+    show argha sad
+    a.c "Um… Thank you, seriously. I… don’t know why you’re doing this, but I’m really thankful."
+    j.c "Why? I’m doing this because I care about you."
+    a.c "Jessica, you truly are one of a kind."
+    j.c "What do you mean?"
+    a.c "I mean… I’ve been in this school for a long time, I… this sounds a little dumb but I’ve been looking for the perfect chick to be my soulmate, so we can reincarnate together. You’ve probably seen me, right? Talking to all of those girls, and all."
+    show argha sad blink
+    a.c "I know how it probably looks… I haven’t learned my lesson at all, huh?"
+    show argha sad
+    a.c "It’s the opposite, actually. I don’t want to repeat my past mistakes, that’s why… I’m so dedicated to finding a soulmate."
+    show argha blush
+    a.c "Jessica, I really like you… I think you’re the kind of person I’ve been looking for."
+    "You open your mouth to respond but Arghawan just closes his eyes and rests his forehead against yours. The heat radiating from his soft breathing grazes your face and you rest calmly, feeling his warmth."
+    a.c "It’s fine, I didn’t tell you this to get an answer… I just wanted to let you know how I feel."
+    "Eventually, he pulls away from you but instead, takes your hand. He sits down by a sturdy tree, motioning for you to do the same."
+    "Reaching into his back pocket, he pulls out a small pan flute and starts to play so serenely."
+
+    #Argha-romance music start ???
+
+    scene bg black
+    with fade
+    "Although it is just him playing, you can't help but feel, when you close your eyes, a phantom orchestra nowhere to be seen yet playing wonderfully as the two of you adorned in regal costume waltz across the grand ballroom of an empty palace."
+    "You can almost feel the tickle of his hands on your sides, feeling his hands."
+    "The plush skirt of your dress sways from the left to the right. As the speed picked up, your grip on his shoulders tightens, even though he did nothing but chuckle and pull you closer."
+    "The fantasy was beautiful, yet short lived. The music soon stops, and you open your eyes.
+
+    scene bg argha
+    show argha blush
+    with fade
+
+    a.c "I… Want you to have this. Please, consider my name when you attend the bonfire."
+    show argha sad
+    menu:
+        "Yes, of course!":
+            jump arghasuccess
+        "Arghawan, I’m sorry but I’m just not ready for that kind of a commitment.":
+            jump arghafail
+
+label arghasuccess:
+    $ a.trust_ch(1)
+    show argha blush
+    "Arghawan gives you the biggest and most sincere smile, and he pulls you in for one more hug."
+    a.c "Ah, I guess then, ahem…"
+    "His blush brightens as he lets go because of your close distance."
+    a.c "This belongs to you now."
+    "He places the pan flute in your hand."
+    #Panflute.png
+    #Pickup.mp3
+    "You graciously accept and put it along with the rest of your belongings."
+    "The two of you sit in comfortable silence and eventually, you drift your eyes and fall asleep, listening to nothing but the sound of Arghawan’s breathing and the quiet chirp of the crickets surrounding you."
+    "When the vanishrooms awake from their slumber, they sense a strange presence in their secret area. They shoot out a plethora of spores and fill your senses, making you recall friend who is now only a distant memory…"
+    scene bg black
+    with fade
+
+    "Dear Jessica,
+
+    I just want to let you know that you are a great friend. Every time I spend time with you is a good time, from hearing about all your amazing cats to helping you with math.
+    You are an amazing, caring, and extremely interesting person and I can honestly say that to my knowledge you are my favourite lesbian on the planet.
+    You’re also hilarious, and a pleasure to be around and interact with. I am so glad that I have met you, and I hope you have a simply wonderful (belated) birthday! /srs /gen /p
+
+    Sincerely and with love /p,
+
+    Amelia
+
+    P.S. poly supremacy"
+    jump day4beginforest
+
+label arghafail:
+    $ a.trust_ch(-3)
+    $ a = Person(Character("Arghawan"), "Arghawan", route = True)
+    show argha sad
+    a.c "Oh, I see…"
+    j.c "It’s not anything personal! It’s just, I’m not so ready for this…
+    stop music
+    "Arghawan sighs and puts away the flute."
+    show argha sad blink
+    a.c "I’ve been ready for over a millenium, Jessica. I…I… I need to leave. Thank you, for showing me this place, but I think I’ll stick to my park bench."
+    hide argha
+    "Arghawan gets up and walks away swiftly. Before you know it, he’s gone, and you’re left alone. The forest no longer seemed lush and full of light, but rather dense and grim.
+    You decide to go to the dorm and sleep there, instead of the now-dreary forest."
+    scene bg dorm
+    with fade
+
+label keepdoris:
+    $ a.trust_ch(-1)
+    $ d.trust_ch(1)
+    j.c "Oh, nevermind, haha."
+    jump nowoods
+
+label nowoods
+    j.c "This sucks… Sorry, I thought talking to the Headmaster would solve it, but I guess not."
+    show argha neutral
+    a.c "Nah, nah, don’t worry about it. I kind of figured this would’ve happened."
+    j.c "But where are you gonna sleep now?"
+    "Arghawan smirks at you and places a hand on your shoulder, leaning in. He whispers into your ear.
+    show argha happy
+    a.c "Maybe I can just sleep with you instead."
+    "You gasp, mostly out of shock, as embarrassment rushes through your body."
+    j.c "EXCUSE ME?!"
+    a.c "Haha, relax! I didn’t mean it like that."
+    a.c "Well, unless you want me to mean it like that-"
+    j.c "No way!"
+    "Arghawan just snickers and lets go of your shoulder.
+    show argha neutral
+    a.c "Hahaha! Thanks for all your help anyways. Seriously, you’re awesome."
+    a.c "I’ve got other stuff to do though. I’ll see you tomorrow?"
+    "Arghawan waves and walks away, relaxed."
+    hide argha
+    j.c "Bye…"
+    "You go back to your dorm, still feeling a little flushed from Arghawan’s earlier comment, yet at the same time waving it off as just a dirty joke."
+    scene bg dorm
+    with fade
+    jump day3enddorm
+
+label day3enddorm
+    "At your dorm, you reach over to your night table, where the vanishrooms Doris gave you sit. You take a bite and sigh in pleasure. It’s just as good as you remember."
+    "Eventually, you tire out and go to bed, dreaming of a distant friend due to the vanishrooms…"
+    scene bg black
+    with fade
+
+    "Dear Jessica,
+
+    I just want to let you know that you are a great friend. Every time I spend time with you is a good time, from hearing about all your amazing cats to helping you with math.
+    You are an amazing, caring, and extremely interesting person and I can honestly say that to my knowledge you are my favourite lesbian on the planet.
+    You’re also hilarious, and a pleasure to be around and interact with. I am so glad that I have met you, and I hope you have a simply wonderful (belated) birthday! /srs /gen /p
+
+    Sincerely and with love /p,
+
+    Amelia
+
+    P.S. poly supremacy"
+    jump day4begindorm
+
+label day4begindorm:
+    #i guess day 4 stuff goes here?
+
+label day4beginforest:
+    #idk sarv i trust u
+
+
+
+
 
 
 
