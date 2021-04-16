@@ -50,7 +50,6 @@ label start:
     with dissolve
 
     "Hello? Hello! Can you hear me? Ah you’re awake."
-
     show brennan neutral
     with dissolve
 
@@ -142,11 +141,10 @@ label exposition:
     b.c "Alright so, I’m a very busy headmaster. I trust that you won’t get into trouble if you look around on your own.
     Class starts in a half hour, you best not be late!"
     "Trembling, you get up from the chair, still shaken up, you head towards the door and murmur a weak \"alrighty then.\""
-    play sound "audio/door.mp3"
+    play sound "audio/doorsfx.mp3"
     scene bg hall
-    with dissolve
-    #add hallway music later
-    play music "audio/ambient noise.mp3" fadeout 1.0 fadein 1.0
+    with fade
+    play music "audio/beforeclass.mp3" fadeout 1.0 fadein 1.0
     j.c "How the hell am I supposed to know what class to go to? That creepy guy didn’t even give me a schedule…"
     "You realize, while you may be some… monkey beast… you are wearing a school uniform.
     Quickly, you check your pockets and pull out a slip of paper, somehow, it appears to be untouched,
@@ -155,16 +153,14 @@ label exposition:
     stop music
 
     scene bg staircase
-    with dissolve
+    with fade
 
     "You locate the staircase, and start to walk up, but you see a panting figure."
     show cassidy neutral blink
     j.c "whoa! Are you okay?! You’re so out of breath! Is someone chasing you?"
     show cassidy mad
-
-    play music "audio/cassidy theme.mp3" fadeout 1.0 fadein 1.0
+    play music "audio/cassidy.mp3" fadeout 1.0 fadein 1.0
     "The girl glares slightly at you."
-
     c.c "Yes, I’m fine. I just.. Have difficulty walking up stairs sometimes.
     Its normal this is a normal thing for people with normal bodies to do."
 
@@ -190,29 +186,23 @@ label exposition:
 label library:
     "After an odd encounter with a wraith, you run up the stairs and look around for your math classroom.
     Nervous, you enter, and all of a sudden think; how the hell will math help with making me a better person?"
-    play sound "audio/Door.mp3"
-
+    play sound "audio/doorsfx.mp3"
     scene bg hall
-    with dissolve
-
+    with fade
     "Class goes by fast, but let’s be honest. You weren’t really listening. You decide to head over to the library, which took you a really long time to find."
-
     scene bg library
     with fade
-    play sound "audio/Door.mp3"
+    play sound "audio/doorsfx.mp3"
 
-    "You start looking around, but your attention is quickly averted to the large sobbing man sitting
-    alone among a pile of math sheets and textbooks."
-
+    "You start looking around, but your attention is quickly averted to the large sobbing man sitting alone among a pile of math sheets and textbooks."
     "You look away, not wanting to make him uncomfortable, but his sobs and whimpers fill the library, and you feel obligated to help."
-    play music "audio/argha theme.mp3" fadeout 1.0 fadein 1.0
+    play music "audio/argha.mp3" fadeout 1.0 fadein 1.0
     show argha mad
-
     a.c "FUCK! 9 x 4??? Since when did we go back to X meaning you times it! Oh god why is that little two so small and so close to the 3? Aw fuck.."
     "You slide into the seat across from the crying creature and he looks up, wiping snot from his nose."
     show argha sad blink
     a.c "hNnhn… are you *sniff*… the tutor? Bro you’re like.. Thirty two minutes late.. You were supposed to be here at 1:00…"
-    j.c "Um, well, no I’m not your tutor, and its 1:13 so it has definitely not been thirty two minutes…"
+    j.c "Um, well, no I’m not your tutor, and it's 1:13. It has definitely not been thirty two minutes…"
 
     menu:
         "Can I help you?":
@@ -259,7 +249,7 @@ label gym:
     "Arghawan interrupts you, then runs off to his next class. You check your schedule and see what class to head to next."
     stop music
     j.c "UGH are you fucking kidding me?! Gym? Again, what does any of this have to do with rehabilitation?"
-    play sound "audio/Door.mp3"
+    play sound "audio/doorsfx.mp3"
     scene bg hall
     with dissolve
     "You leave the library and head towards the gym class. Along the way you take a good look at all the strange yet very attractive people around.. How were you supposed to just choose one? Maybe one of the people you’d already met…"
@@ -271,6 +261,7 @@ label gym:
     All of a sudden you realize you’ve changed, entered the gym glass, and started playing a game of dodgeball."
     "Somehow you have survived an entire game of dodgeball until it was just you and some other person across the room from you."
     #make maggie angry
+    #wait sarv am i missing smth why is there a comment here can i do it
     show maggie happy
     m.c "I DOUBT YOU’RE A WORTHY OPPONENT, BE PREPARED TO FEEL MY WRATH"
     "She whips a dodgeball towards you, hurling towards your face. Quickly you duck. Holy shit this chick is crazy."
@@ -289,8 +280,10 @@ label gym:
             "You stop"
             m.c "You let me win the game huh? Not cool. I don’t need your handout, jackass. My name is Maggie, but I don’t encourage you to talk to me again if you’re as much of a coward as you seem."
             $ m = Person(Character("Maggie"), "Maggie")
-            hide maggie
             "Maggie coldly shoves the ball back into your hands and it hits your stomach. She walks into the girls change room."
+            hide maggie
+            stop music
+            play sound "audio/doorsfx.mp3"
             jump cafeteria
         #changed it to "play" from "win" here... I feel there is no guarantee that you will win agaionst a new foe
         "Play the game fair and square.":
@@ -312,6 +305,7 @@ label gym:
             So rough in fact that when you try to feign sportsmanship the inside you feel nothing but a burning pain.
             Holy shit why did that hurt so much."
             #sarv you forgot to jump to the cafeteria here... was this intentional?
+            play sound "audio/doorsfx.mp3"
             jump cafeteria
 
 label cafeteria:
@@ -320,9 +314,7 @@ label cafeteria:
     You groan and take your three dollar sandwich elsewhere."
 
     scene bg outside
-
-    play music "audio/ambient noise.mp3" fadeout 1.0 fadein 1.0
-
+    play music "audio/lunch.mp3" fadeout 1.0 fadein 1.0
     "Scanning the area to make sure no one sees you eat alone like a loser, you meander your way over to a bench. Plopping yourself down, you unwrap your sandwich and take a bite."
     j.c "God.. This sucks"
     "You settle the sandwich on your lap and look at it in disgust. All of a sudden, a bird sits down right in front of you."
@@ -331,7 +323,7 @@ label cafeteria:
     "You watch the bird as it gobbles up the sandwich, when all of a sudden, you hear a squeal."
     d.c "Holy shit! Holy shit holy shit!"
     show doris neutral
-    play music "audio/doris theme.mp3" fadeout 1.0 fadein 1.0
+    play music "audio/doris.mp3" fadeout 1.0 fadein 1.0
     "You stare at the stranger in amazement, as to how she was comfortable with yelling next to a stranger."
     d.c "That’s an Opal-Tit Boobyfoot! It’s so rare in these parts!"
     "Her eyes twinkle in amazement as she examines the species. She pulls out a pad of paper and a pencil to quickly sketch a picture."
@@ -348,6 +340,7 @@ label cafeteria:
             show doris sad blink
             $ d.trust_ch(-1)
             hide doris
+            stop music
             "You see small tears well up in her eyes, but before you can stop her, she’s run away to God knows where, doing God knows what."
             jump dormchoice
         "That looks incredible!":
@@ -362,13 +355,14 @@ label cafeteria:
             j.c "Um actually I think its some sort of bone-"
             hide doris
             "but by the time you look back up to respond to Doris’ question, she’s gone drawing pictures of some other creature."
+            stop music
             jump dormchoice
 label dormchoice:
     stop music
     "You sigh and pack up, going to your dorm as classes have finished after lunchtime."
+    play sound "audio/doorsfx.mp3"
     scene bg dorm
     with fade
-
     "Uncharacteristically, You decide to go to bed early, and reflect on your day. You feel that you’ve connected the most with…"
 
     menu:
@@ -401,6 +395,9 @@ label day1:
     #where day 1 actually begins
     "You wake up in your dorm, only slightly ready to begin a new day. The day prior had knocked you out well.
     Reluctantly, you get out of your cozy bed, looking around your room for the textbooks needed for your class today. When you’re all prepared, you leave the room, hoping to run into some of the new friends you’ve made."
+    play sound "audio/doorsfx.mp3"
+
+    play music "audio/beforeclass.mp3" fadeout 1.0 fadein 1.0
 
     scene bg hall
     with fade
@@ -413,10 +410,12 @@ label day1:
             jump blmstart
 
 label breakfastday1:
-    "Your stomach growls again, urging you to eat something. You give in, heading towards the Cafeteria and ready to eat some hashbrowns, when you find someone familiar scurrying around the halls."
+    play sound "audio/doorsfx/mp3"
+    "Your stomach growls again, urging you to eat something. You give in, heading towards the cafeteria and ready to eat some hashbrowns, when you find someone familiar scurrying around the halls."
     scene bg lunchroom
     with fade
-    #music?
+    stop music
+    play music "audio/argha.mp3" fadeout 1.0 fadein 1.0
     show argha sad
     a.c "Helloooooo? Mr. 5 dollar bill? Where are you?"
     "You see Arghawan on all floors crawling around wailing for his lost bill, as if it’s going to come flying back at the sound of his voice."
@@ -440,6 +439,8 @@ label breakfastday1:
             $a.trust_ch(-1)
             a.c "Aw man.. That sucks… Oh well, math class starts now anyways. You should get going."
             hide argha
+            stop music
+            play sound "audio/doorsfx.mp3"
             jump mathday1
 
 label arghabrekkie:
@@ -521,9 +522,12 @@ label day1brekkie:
     hide argha
     "Arghawan shoves the rest of the sub into his mouth, and runs off, but before he is out of eyeshot, he sends you a playful wink. You sit there, dumbfounded."
     j.c "Oh SHIT!"
+    stop music
+    play sound "doorsfx.mp3"
     jump mathday1
 
 label blmstart:
+    play sound "audio/doorsfx.mp3"
     scene bg hall
     with fade
     "You walk around the halls of the school. They’re quiet around this time, as most students are still asleep, or eating breakfast in the caf."
@@ -581,6 +585,8 @@ label blmstartend
     jump mathday1
 
 label mathday1:
+    stop music
+    play sound "doorsfx.mp3"
     "Picking yourself up, you dash to your math class. You arrive and sit down."
     scene bg classroom
     with fade
@@ -594,6 +600,7 @@ label mathday1:
     Classroom
     # this real? Class_sounds.mp3
     "From afar you can see who else but Maggie furiously jots down notes and mumbles under her breath."
+    play music "audio/maggie.mp3" fadeout 1.0 fadein 1.0
     show maggie mad
     m.c "Ray Bradbury…. Sexist piece of shit why don’t you suck my-"
     "You interrupt her before she can go any further, afraid she may implode."
@@ -623,6 +630,7 @@ label mathday1:
             m.c "Out of respect for you, and for my fine establishment, absolutely the fuck not."
             "Hey, at least she respects you."
             hide maggie
+            stop music
             jump lunchday1
 
 label maggiestart:
@@ -651,41 +659,45 @@ label maggiestart:
     "Taken aback by her comment, and slightly offended on Arghawan’s behalf, you mutter a \"fine\" and sit back into the chair, ignoring her for the rest of the class."
     "Peeking at her once, you see her face muddled with guilt. Your expression softens too, yet you sit in each other’s silence. It's not unpleasant."
     hide maggie
+    stop music
     jump lunchday1
 
 label lunchday1
     "Class ends and hoards of students head down towards the cafeteria to grab a bite to eat."
-
+    play sound "audio/doorsfx.mp3"
     scene bg lunchroom
     with fade
-    #Cafeteria_noises.mp3
+    play music "audio/cafeteriasfx.mp3" fadeout 1.0 fadein 1.0
 
     "You decide you want to sit with..."
     menu:
         "Maggie, sitting alone like a normal person.":
             m.trust_ch(1)
-            Maggie_neutral
+            show maggie neutral
             "You sit with Maggie. The awkwardness from class seems to have melt, and you share smalltalk about the class while she does some work."
             jump postlunchday1
         "Doris, sitting on the windowsill like a housecat.":
             d.trust_ch(1)
-            Doris blush blink
+            show doris blush blink
             "Doris isn’t much for talking, but the two of you enjoy sitting together, bathing in the warm orange sun permeating through the window."
             jump postlunchday1
         "Arghawan, sitting next to heaps of people with a single empty seat next to him.":
             a.trust_ch(1)
-            Arghawan happy
+            show argha happy
             "Sitting next to Arghawan and his group of friends is almost too loud and exciting. Bonus points, because he put his arm around you."
             jump postlunchday1
         "Cassidy, who isn’t actually sitting, but seems to be lying down on the dirty floor and moaning in pain, wailing \"my back, my back.\"":
             c.trust_ch(1)
-            cassidy_happy_blink
-            "You lie on the floor next to Cassidy and offer to give her one of your life-changing massages. It’s kind of weird, and a bit pointless, since she’s cursed with a bad back, but she appreciates the effort."
+             show cassidy happy blink
+            "You lie on the floor next to Cassidy and offer to give her one of your life-changing massages. It’s kind of weird, and a bit pointless since she’s cursed with a bad back, but she appreciates the effort."
             jump postlunchday1
 
 label postlunchday1:
+    play sound "audio/doorsfx.mp3"
     scene bg hallway
     "You finish off the rest of your classes with nothing interesting happening in any of them. You head towards you dorm to rest, when you run into Cassidy and Doris arguing."
+    #why isn't it just called evening? idk
+    play music "audio/eveningmusic.mp3" fadeout 1.0 fadein 1.0
     show doris mad at left
     show cassidy blink mad at right
     d.c "Cassidy, you have to eat vegetables! To get big and strong! You can’t just be eating dino nuggies for the rest of eternity, can you?"
@@ -715,7 +727,9 @@ label postlunchday1:
             doris mad blink at left
             "Doris glares at you as she puts the fork down on the plate and closes her eyes in frustration."
             doris mad at right
-            d.c "Whatever. It’s not my body anyways.
+            d.c "Whatever. It’s not my body anyways."
+            hide doris
+            play sound "audio/doorsfx.mp3"
 
 label dormday1:
     "You head back to your room and start to rest.
@@ -727,8 +741,8 @@ label dormday1:
         jump day2start
 
     else:
+        play music "audio/eveningmusic.mp3" fadeout 1.0 fadein 1.0
         "You quickly remember that you had some work to do for Maggie, and so you take out your pen and the sheet of paper and get to work."
-
         "The first problem reads: \"What is 1 X 3?\""
         $ answer3 = renpy.input("Enter an answer: ", "", allow="0123456789")
         python:
@@ -749,16 +763,16 @@ label dormday1:
              maggieqs++
 
         "Satisfied with your work, you head over to Maggie’s dorm to hand in the work."
-
+        play sound "audio/doorsfx.mp3"
         scene bg hall
         with fade
         "You nervously knock at what you assume to be her door, (it has a pentagram carved into it), and await for a response."
         show maggie neutral
+        play music "audio/maggie.mp3" fadeout 1.0 fadein 1.0
         "Slowly she opens the door, taking a peek as to who her visitor was before pulling the door open more."
-
-        DOOR CLICK SOUND
-
+        play sound "audio/doorsfx.mp3"
         "You step into her dorm, closing the door behind you."
+        play sound "audio/doorsfx.mp3"
         scene dormMaggie
         with fade
         show maggie sad
@@ -772,7 +786,7 @@ label dormday1:
             "Closest thing you’ll get to a compliment from her, you assume. You blush."
             jump maggos
 
-        #does elif work in renpy?
+        #does elif work in renpy? not taking chances -amy
         else:
             if (maggieqs==0):
                 $ m.trust_ch(1)
@@ -833,8 +847,9 @@ label maggos:
     with fade
     "Time passes and eventually you decide to part ways and go to bed."
     hide maggie
+    stop music
     with dissolve
-    play music doorsfx.mp3
+    play sound "audio/doorsfx.mp3"
     scene dorm
     with fade
     jump day2start
