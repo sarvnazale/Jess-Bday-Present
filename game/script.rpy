@@ -43,7 +43,7 @@ label start:
     $ m = Person(Character("???"), "???")
     $ love_candidates = [b, c, a, d, m]
 
-    scene blm office
+    scene bg blm office
     with dissolve
 
     "Hello? Hello! Can you hear me? Ah you’re awake."
@@ -174,7 +174,7 @@ label exposition:
     'Trembling, you get up from the chair, still shaken up, you head towards the door and murmur a weak “alrighty then.”'
 
     play sound "audio/Door.mp3"
-    scene hall
+    scene bg hall
     with dissolve
 
     #add hallway music later
@@ -190,7 +190,7 @@ label exposition:
 
     stop music
 
-    scene staircase
+    scene bg staircase
     with dissolve
 
     "You locate the staircase, and start to walk up, but you see a panting figure."
@@ -231,12 +231,12 @@ label library:
     Nervous, you enter, and all of a sudden think; how the hell will math help with making me a better person?"
     play sound "audio/Door.mp3"
 
-    scene hall
+    scene bg hall
     with dissolve
 
     "Class goes by fast, but let’s be honest. You weren’t really listening. You decide to head over to the library, which took you a really long time to find."
 
-    scene library
+    scene bg library
     with fade
     play sound "audio/Door.mp3"
 
@@ -306,12 +306,12 @@ label gym:
     j.c "UGH are you fucking kidding me?! Gym? Again, what does any of this have to do with rehabilitation?"
 
     play sound "audio/Door.mp3"
-    scene hall
+    scene bg hall
     with dissolve
 
     "You leave the library and head towards the gym class. Along the way you take a good look at all the strange yet very attractive people around.. How were you supposed to just choose one? Maybe one of the people you’d already met…"
 
-    scene gym
+    scene bg gym
     with dissolve
     m.c "HEY YOU"
 
@@ -372,7 +372,7 @@ label cafeteria:
     but by the time you reach the cafeteria, all of the tables are taken.
     You groan and take your three dollar sandwich elsewhere."
 
-    scene outside
+    scene bg outside
 
     play music "audio/ambient noise.mp3" fadeout 1.0 fadein 1.0
 
@@ -430,7 +430,7 @@ label cafeteria:
 label dormchoice:
     stop music
     "You sigh and pack up, going to your dorm as classes have finished after lunchtime."
-    scene dorm
+    scene bg dorm
     with fade
 
     "Uncharacteristically, You decide to go to bed early, and reflect on your day. You feel that you’ve connected the most with…"
@@ -460,7 +460,7 @@ label dormchoice:
 label day1:
     "Satisfied with your decision for the night, you lay your head down against the cool hatsune miku pillow and close your heavy eyes. Tomorrow is going to be crazy…"
     #will this work?
-    scene dorm
+    scene bg dorm
     with fade
     #where day 1 actually begins
     "You wake up refreshed and get ready for school, but find you still have some time before the first class starts.
@@ -474,7 +474,7 @@ label day1:
             jump blmstart
 
 label cafday1:
-    scene lunchroom
+    scene bg lunchroom
     with fade
     "You are busy eating your hashbrowns when you spot a familiar face outside in the courtyard. Arghawan!
     You hear the bell ring, telling you class will start soon, but you also notice he looks distraught.
@@ -485,7 +485,7 @@ label cafday1:
         "You decide to go investigate, because knowing Arghawan, they will probably need help. Either way, you have no doubt you'll be entertained."
     else:
         "You decide to go investigate, because perhaps Arghawan will have done something stupid and funny."
-    scene outside
+    scene bg outside
     with fade
 
     show argha sad blink
@@ -515,7 +515,7 @@ label cafday1:
         "Decide to help Arghawan.":
             j.c "Here, perhaps I can help you. Let's look for it together!"
             $ a.trust_ch(1)
-            scene outside
+            scene bg outside
             with fade
             "Despite your best efforts and a few minutes of your time, you do not end up finding the $5."
             "You instead decide to lend him $5."
@@ -542,7 +542,7 @@ label cafday1:
                     jump engclass1
 
 label blmstart:
-    scene hall
+    scene bg hall
     with fade
     "You walk down the hallway, when you see the headmaster, Brennan Lee Mulligan."
     show brennan neutral
@@ -593,13 +593,37 @@ label blmstartfail:
     jump engclass1
 
 label engclass1:
-    scene classroom
+    scene bg classroom
     with fade
-    Jessica finds maggie reading a classic in the back
-    “Man. This book sucks. Hate women more why dont u ray.” she jots notes down.
-    Jessica notices this isn’t a book their class was reading
-    Maggie is in English class, she is doing someone else’s assignment because she wants to be hella rich when she reincarnates. She is very behind on her rehabilitation because she keeps being greedy as fuck.
-    Jessica approaches maggie and asks what she’s doing, maggie explains that she does assignments for other souls because they're lazy af
+    "You take a seat in English class when the teacher announces that it's a work period. What for? Who knows."
+    "You find Maggie reading a classic book in the back of the classroom"
+    "You approach her and see her jot down some notes into the book: \"Man. This book sucks. Hate women more why dont u ray.\"
+    Then, you notice that the book she is reading is not one that you are doing in your class."
+    "You decide to approach Maggie and ask her what she is doing."
+    show maggie neutral
+    j.c "Maggie, right? I'm curious about the book you're reading. Either I haven't been paying much attention, or it's not one we're doing in this class..."
+    show maggie neutral blink
+    m.c "That's because it isn't. I'm doing other souls' assignments, because they don't want to."
+    show maggie neutral
+    j.c "That's nice of you!"
+    show maggie happy blink
+    m.c "Not for free! I'm doing them so I can be rich when I reincarnate."
+    "You wonder if perhaps her greed is holding her back from her rehabilitation and reincarnation."
+    menu:
+        "Ask her to do one of your assignments as well":
+            show maggie neutral
+            j.c "Could you do one of mine?"
+            m.c "How much are you offering?"
+            j.c "Pretty please?"
+            show maggie mad blink
+            #the eyes are too much but i think a middle finger is appropriate
+            #the sad sprites don't really fit
+            m.c "I'll take that to mean you aren't offering me anything."
+            m.trust_ch(-1)
+            "*awkward silence*"
+            m.c "Fine, I'l do your assignemt for you. For free. Just this once though, don't expect any handouts in the future..."
+            m.c "I hope you're happy; I was already swamped and this isn't helping."
+            jump bioday1
     “Oh, can you do my assignment for me too?”     -1 AFFECTION
     Maggie respond by saying yes, but exhaustedly
     Jessica: If it’s too much work I can do it myself!
@@ -610,13 +634,13 @@ label engclass1:
     When you go to your room, after the event ends, you have to answer a bunch of random questions. Whether or not, you answer the questions you are forced to answer correctly will determine the amount of affection you gain. Between +2, +1, or -1
 
 label bioday1:
-    scene hall
+    scene bg hall
     with fade
     "English class being over, you head to \“Don’t shit near near your food\” class, aka biology."
-    scene classroom
+    scene bg classroom
     with fade
     "You arrive, sitting in your seat. So much has already happened? You feel drained and naturally sleep through class."
-    scene classroom
+    scene bg classroom
     with fade
     "By the time you wake, class has ended and it is time for lunch."
 
