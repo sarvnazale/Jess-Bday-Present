@@ -1,0 +1,200 @@
+# stuff i made for day1 because i am an idiot -amy
+"You wake up refreshed and get ready for school, but find you still have some time before the first class starts.
+  You figure you have enough time to either get breakfast at the cafeteria or explore the school, but not both."
+  menu:
+      "Get food at the cafeteria":
+          "You decide that you are hungry and could go for some hashbrowns."
+          jump cafday1
+      "Explore the school":
+          "You decide to find out more about this place you have ended up in."
+          jump blmstart
+
+label cafday1:
+  scene bg lunchroom
+  with fade
+  "You are busy eating your hashbrowns when you spot a familiar face outside in the courtyard. Arghawan!
+  You hear the bell ring, telling you class will start soon, but you also notice he looks distraught.
+  He seems to be running about. Perhaps he's looking for something?"
+  #idk if this will work, but i want to see if I can edit the narration slightly depending on how much characters trust Jess
+  #let me know if this is a bad idea, Sarv.
+  if a.trust >= 0:
+      "You decide to go investigate, because knowing Arghawan, they will probably need help. Either way, you have no doubt you'll be entertained."
+  else:
+      "You decide to go investigate, because perhaps Arghawan will have done something stupid and funny."
+  scene bg outside
+  with fade
+
+  show argha sad blink
+  a.c "Help! Has anyone seen my 5 dollars? 10 dollar reward!"
+  show argha neutral
+  a.c "You! From yesterday! Could you please help me look for my 5 dollars? I need it for lunch!"
+  show argha sad
+  a.c "Even though I have been offering a $10 reward, I have had no luck so far."
+
+  menu:
+      "Laugh at Arghawan":
+          "You laugh at Arghawan's stupidity"
+          show argha mad
+          j.c "This is quite entertaining"
+          show argha mad blink
+          a.c "Thanks for nothing!"
+          $ a.trust_ch(-1)
+          show argha mad
+          a.c "You know what? I'm gonna say it. UR ASS FLAT /SRS"
+          j.c "NOOO! You know what? Here, have five dollars."
+          show argha mad blink
+          a.c "Normally i wouldn't need your pity, but right now i kinda need that money."
+          show argha mad
+          a.c "You're not getting that ten-dollar reward though, and I'm still mad at you. Now leave before I push you down the stairs."
+          hide argha
+          "You decide to take his advice and leave, since you have to go to English class soon anyway."
+          jump engclass1
+      "Decide to help Arghawan.":
+          j.c "Here, perhaps I can help you. Let's look for it together!"
+          $ a.trust_ch(1)
+          scene bg outside
+          with fade
+          "Despite your best efforts and a few minutes of your time, you do not end up finding the $5."
+          "You instead decide to lend him $5."
+          a.c "Since this isn't my 5 dollars, I'm not going to give you 10 dollars."
+          j.c "About that... You know that if you provide that reward, it's like you didn't actually find the money at all?"
+          a.c "oh. I still feel like I owe you something though..."
+          a.c "I know another way to repay you! You can decide what I should have for breakfast! This is one of the best rewards I can offer..."
+          menu:
+              "Tell him to get pizza":
+                  j.c "You should have the pizza!"
+                  $ a.trust_ch(-1)
+                  a.c "meh. Pizza is ok."
+                  #note from amy: i love pizza so much that typing that sentence was painful
+                  a.c "Thank you for everything though! See you around!"
+                  "You realize that English class is about to start, and decide that you do not want to be late."
+                  j.c "No problem! I do have to go now though. See you around!"
+                  jump engclass1
+              "Tell him to get hamburgers"
+                  j.c "You should have some hamburgers!"
+                  a.c "HAMBURGERS ARE MY FAVOURITE! YOU'RE THE BEST UR ASS FAT/SRS"
+                  $ a.trust_ch(1)
+                  "You realize that English class is about to start, and decide that you do not want to be late."
+                  j.c "SO TRUE! I have to go to English class, though this has been really fun! See you around!"
+                  jump engclass1
+
+label blmstart:
+  scene bg hall
+  with fade
+  "You walk down the hallway, when you see the headmaster, Brennan Lee Mulligan."
+  show brennan neutral
+  "Brennan spots you and initiates a conversation."
+  b.c "How are you liking the school?"
+  menu:
+      "Tell him about how awesome one of the other people you've met is.":
+          j.c "This new life has been confusing, but a friend has been making my stay here wonderful."
+          b.c "Amazing! What's their name?"
+          menu:
+              "Cassidy":
+                  j.c "Her name is Cassidy! She can seem quite cold, but she's really nice to hang out with."
+                  $ c.trust_ch(1)
+                  jump blmstartfail
+              "Arghawan":
+                  j.c "Their name is Arghawan! He is very interesting and entertaining, and I think they will be a good friend."
+                  $ a.trust_ch(1)
+                  jump blmstartfail
+              "Doris":
+                  j.c "Her name is Doris! Her drawing skills are amazing, and she knows a lot of cool things."
+                  $ d.trust_ch(1)
+                  jump blmstartfail
+              "Maggie":
+                  j.c "Her name is Maggie! She's very assertive and competitive, and I find that that is a good match for me."
+                  $ m.trust_ch(1)
+                  jump blmstartfail
+
+      "Tell him about how lonely you are, how you're not getting along with anyone, and about how he seems nice.":
+          $ brennanRoute = True
+          j.c "To be honest, i've been having a tough time adapting. Furthermore, I've been quite lonely these past few days, since I don't really feel comfortable around anyone I've met so far."
+          show brennan sad
+          j.c "Except you."
+          show brennan happy blink
+          b.c "While I'm sad that you're having a tough time adapting, I'm happy you feel comfortable around me!"
+          show brennan happy
+          b.c "Feel free to head by my office if you need anything, from help to company. I'll do what I can to make your stay around here more enjoyable."
+          j.c "Thank you so much!"
+          show brennan happy blink
+          j.c "I do have to get to english class though. Bye, Brennan Lee Mulligan!"
+          b.c "Bye!"
+          jump engclass1
+
+label blmstartfail:
+  show brennan happy blink
+  b.c "I'm glad you're getting along with someone! See you around!"
+  j.c "Bye! Thanks for the talk!"
+  "You get the sense that an option is no longer accessible. No matter. You head to English class."
+  jump engclass1
+
+label engclass1:
+  scene bg classroom
+  with fade
+  "You take a seat in English class when the teacher announces that it's a work period. What for? Who knows."
+  "You find Maggie reading a classic book in the back of the classroom"
+  "You approach her and see her jot down some notes into the book: \"Man. This book sucks. Hate women more why dont u ray.\"
+  Then, you notice that the book she is reading is not one that you are doing in your class."
+  "You decide to approach Maggie and ask her what she is doing."
+  show maggie neutral
+  j.c "Maggie, right? I'm curious about the book you're reading. Either I haven't been paying much attention, or it's not one we're doing in this class..."
+  show maggie neutral blink
+  m.c "That's because it isn't. I'm doing other souls' assignments, because they don't want to."
+  show maggie neutral
+  j.c "That's nice of you!"
+  show maggie happy blink
+  m.c "Not for free! I'm doing them so I can be rich when I reincarnate."
+  "You wonder if perhaps her greed is holding her back from her rehabilitation and reincarnation."
+  menu:
+      "Ask her to do one of your assignments as well":
+          show maggie neutral
+          j.c "Could you do one of mine?"
+          m.c "How much are you offering?"
+          j.c "Pretty please?"
+          show maggie mad blink
+          #the eyes are too much but i think a middle finger is appropriate
+          #the sad sprites don't really fit
+          m.c "I'll take that to mean you aren't offering me anything."
+          $ m.trust_ch(-1)
+          "*awkward silence*"
+          m.c "Fine, I'l do your assignemt for you. For free. Just this once though, don't expect any handouts in the future..."
+          m.c "I hope you're happy; I was already swamped and this isn't helping."
+          hide maggie
+          "Soon, the bell rings, signifying the end of English class."
+          jump bioday1
+      "Offer to help her with some of her work":
+          show maggie happy
+          j.c "Would you like me to help you with some of that homework?"
+          show maggie blush
+          m.c "That's... that's very kind of you! Here's some stuff you can do that isn't too urgent."
+          "Maggie hands you some homework."
+          $ m.trust_ch(1)
+          $ maggieHwk = True
+          show maggie neutral
+          m.c "You're not getting anything in return though."
+          show maggie happy
+          m.c "Still, thank you for the help!"
+          j.c "No problem!"
+          hide maggie
+          "You part ways, both of you happy with how that interaction went."
+          "You see that there are only a few seconds left in English class, meaning you'll have to do this work on your own time...
+          You get the sense that Maggie will be very unhappy if you do not do the work, or if you do it badly."
+          "The bell, signifying the end of your class, interrupts your thoughts."
+          jump bioday1
+
+label bioday1:
+  #not just bio, lunch as well
+  scene bg hall
+  with fade
+  "English class being over, you head to \“Don’t shit near near your food\” class, aka biology."
+  scene bg classroom
+  with fade
+  "You arrive, sitting in your seat. So much has already happened? You feel drained and naturally sleep through class."
+  scene bg classroom
+  with fade
+  "By the time you wake, class has ended and it is time for lunch. You head back to the cafeteria."
+  scene bg hall
+  with fade
+  scene bg lunchroom
+  with fade

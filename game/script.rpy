@@ -3,7 +3,7 @@ init python:
     boolean brennanRoute = False
 
     #boolean about whether Jess chose to do some of Maggie's assignments
-    boolean maggieHwk = False
+    boolean maggieRoute = False
 
     class Person:
         def __init__(self, character, name, trust = 0):
@@ -171,7 +171,7 @@ label exposition:
     b.c "Alright so, I’m a very busy headmaster. I trust that you won’t get into trouble if you look around on your own.
     Class starts in a half hour, you best not be late!"
 
-    'Trembling, you get up from the chair, still shaken up, you head towards the door and murmur a weak “alrighty then.”'
+    'Trembling, you get up from the chair, still shaken up, you head towards the door and murmur a weak \"alrighty then.\"'
 
     play sound "audio/Door.mp3"
     scene bg hall
@@ -210,7 +210,7 @@ label exposition:
     menu:
         "Do you want some water?":
             show cassidy happy
-            c.c " Thanks, but I'm not really a ‘water’ kind of girl. If you have any whisky I’ll take some. The name’s Cassidy."
+            c.c "Thanks, but I'm not really a ‘water’ kind of girl. If you have any whisky I’ll take some. The name’s Cassidy."
             $ c = Person(Character("Cassidy"), "Cassidy")
             $ c.trust_ch(1)
             show cassidy happy blink
@@ -362,7 +362,7 @@ label gym:
 
             show maggie happy
 
-            m.c " My name is Maggie, and rest assured, next time, I’ll win."
+            m.c "My name is Maggie, and rest assured, next time, I’ll win."
             $ m = Person(Character("Maggie"), "Maggie")
             $ m.trust_ch(1)
             "She pats you on the back. Rough. A little too rough.
@@ -469,211 +469,489 @@ label day1:
     scene bg dorm
     with fade
     #where day 1 actually begins
-    "You wake up refreshed and get ready for school, but find you still have some time before the first class starts.
-    You figure you have enough time to either get breakfast at the cafeteria or explore the school, but not both."
+    "You wake up in your dorm, only slightly ready to begin a new day. The day prior had knocked you out well.
+    Reluctantly, you get out of your cozy bed, looking around your room for the textbooks needed for your class today. When you’re all prepared, you leave the room, hoping to run into some of the new friends you’ve made."
+
+    scene bg hall
+    with fade
+    "As you walk down the halls, your stomach growls, reminding you that you have to eat something before you properly begin the day, but there’s also so much of the school you haven’t seen yet… what should you do?"
+
     menu:
-        "Get food at the cafeteria":
-            "You decide that you are hungry and could go for some hashbrowns."
-            jump cafday1
+        "Go to the Cafeteria for some food":
+            jump breakfastday1
         "Explore the school":
-            "You decide to find out more about this place you have ended up in."
             jump blmstart
 
-label cafday1:
+label breakfastday1:
+    "Your stomach growls again, urging you to eat something. You give in, heading towards the Cafeteria and ready to eat some hashbrowns, when you find someone familiar scurrying around the halls."
     scene bg lunchroom
     with fade
-    "You are busy eating your hashbrowns when you spot a familiar face outside in the courtyard. Arghawan!
-    You hear the bell ring, telling you class will start soon, but you also notice he looks distraught.
-    He seems to be running about. Perhaps he's looking for something?"
-    #idk if this will work, but i want to see if I can edit the narration slightly depending on how much characters trust Jess
-    #let me know if this is a bad idea, Sarv.
-    if a.trust >= 0:
-        "You decide to go investigate, because knowing Arghawan, they will probably need help. Either way, you have no doubt you'll be entertained."
-    else:
-        "You decide to go investigate, because perhaps Arghawan will have done something stupid and funny."
-    scene bg outside
-    with fade
-
-    show argha sad blink
-    a.c "Help! Has anyone seen my 5 dollars? 10 dollar reward!"
-    show argha neutral
-    a.c "You! From yesterday! Could you please help me look for my 5 dollars? I need it for lunch!"
+    #music?
     show argha sad
-    a.c "Even though I have been offering a $10 reward, I have had no luck so far."
+    a.c "Helloooooo? Mr. 5 dollar bill? Where are you?"
+    "You see Arghawan on all floors crawling around wailing for his lost bill, as if it’s going to come flying back at the sound of his voice."
+    j.c "Arghawan, what are you doing?""
+    "Arghawan lights up at the sight of you. He puts on a flirtatious charm and winks at you. Or is that just how he regularly looks?"
+    show argha happy
+    a.c "Oh, Jemica!"
+    j.c "Actually, it’s Jess-"
+    "He stops you dead in your tracks and grabs you by the shoulders.
+    a.c "Thank God you’re here, bro!"
+    show argha sad
+    a.c "Dude, I’ve been looking for my 5 dollar bill all morning… Have you seen it?"
+    j.c "...Can’t say that I have."
+    a.c "Yeah, neither has anyone else in the school. It’s kinda sus…"
 
     menu:
-        "Laugh at Arghawan":
-            "You laugh at Arghawan's stupidity"
-            show argha mad
-            j.c "This is quite entertaining"
-            show argha mad blink
-            a.c "Thanks for nothing!"
-            $ a.trust_ch(-1)
-            show argha mad
-            a.c "You know what? I'm gonna say it. UR ASS FLAT /SRS"
-            j.c "NOOO! You know what? Here, have five dollars."
-            show argha mad blink
-            a.c "Normally i wouldn't need your pity, but right now i kinda need that money."
-            show argha mad
-            a.c "You're not getting that ten-dollar reward though, and I'm still mad at you. Now leave before I push you down the stairs."
+        "Let’s look for it together.":
+            jump arghabrekkie
+        "You’re kind of a scatterbrain, huh?":
+            show argha neutral
+            $a.trust_ch(-1)
+            a.c "Aw man.. That sucks… Oh well, math class starts now anyways. You should get going."
             hide argha
-            "You decide to take his advice and leave, since you have to go to English class soon anyway."
-            jump engclass1
-        "Decide to help Arghawan.":
-            j.c "Here, perhaps I can help you. Let's look for it together!"
+            jump mathday1
+
+label arghabrekkie:
+    .trust_ch(1)
+    show argha happy
+    a.c "Seriously!? Thank you so much!"
+    "And so, the two of you walk around the school, looking for Arghawan’s missing $5 bill. However..."
+    show argha mad
+    a.c "Man, are you serious?! We looked everywhere! It’s totally gone."
+    show argha mad blink
+    a.c "Someone stole it, I bet."
+    "Arghawan sighs in frustration, and almost as if in sync, your stomachs both growled. You looked at eachother sheepishly..."
+    show argha blush
+    a.c "Sorry… I’m pretty hungry."
+    "You sigh heavily"
+    j.c "Me too…"
+    j.c "C’mon, let’s just go to the cafeteria and get some grub."
+    show argha sad
+    a.c "B-But, I’m penniless!"
+    "You smile and flash him a wink, trying to match his energy. You decide the best way to be friends is to buy his love.""
+    j.c "No worries, I got you covered."
+    show argha blush
+    a.c "Woah, dude… You’re awesome."
+    "He gushes. Man! This motherfucker cute!"
+    "The two of you walk back to the cafeteria, making small, casual conversation with each other.
+    show argha neutral
+    a.c "Hm, what should I have for breakfast today?"
+    "He eyes a menu with two options, though you can't see what they are at this distance.
+    You take a closer look at what he was eyeing. Pizza and… Subway? What the hell?"
+    j.c "What about… eggs? You know, something people actually eat for breakfast?"
+    "Arghawan shrugs."
+    show argha neutral
+    a.c "I can’t eat eggs, they make me feel queasy… I’m also not really much of a breakfast person."
+    j.c "Well, I guess you can go with…"
+
+    menu:
+        "...pizza.":
+            $ a.trust_ch(-1)
+            show argha neutral
+            a.c "Meh, I don’t really feel like it. I’m just gonna go for a sub instead."
+            jump day1brekkie
+
+        "...subway":
             $ a.trust_ch(1)
-            scene bg outside
-            with fade
-            "Despite your best efforts and a few minutes of your time, you do not end up finding the $5."
-            "You instead decide to lend him $5."
-            a.c "Since this isn't my 5 dollars, I'm not going to give you 10 dollars."
-            j.c "About that... You know that if you provide that reward, it's like you didn't actually find the money at all?"
-            a.c "oh. I still feel like I owe you something though..."
-            a.c "I know another way to repay you! You can decide what I should have for breakfast! This is one of the best rewards I can offer..."
-            menu:
-                "Tell him to get pizza":
-                    j.c "You should have the pizza!"
-                    $ a.trust_ch(-1)
-                    a.c "meh. Pizza is ok."
-                    #note from amy: i love pizza so much that typing that sentence was painful
-                    a.c "Thank you for everything though! See you around!"
-                    "You realize that English class is about to start, and decide that you do not want to be late."
-                    j.c "No problem! I do have to go now though. See you around!"
-                    jump engclass1
-                "Tell him to get hamburgers"
-                    j.c "You should have some hamburgers!"
-                    a.c "HAMBURGERS ARE MY FAVOURITE! YOU'RE THE BEST UR ASS FAT/SRS"
-                    $ a.trust_ch(1)
-                    "You realize that English class is about to start, and decide that you do not want to be late."
-                    j.c "SO TRUE! I have to go to English class, though this has been really fun! See you around!"
-                    jump engclass1
+            show argha happy
+            a.c "Totally! It’s such a Subway kind of day."
+            jump day1brekkie
+
+
+label day1brekkie:
+    "The two of you buy a lot of food. Like, too much, but after you purchase enough food for a small army, you sit at a grimy cafeteria table.
+    show argha neutral
+    "Arghawan takes a bite out of his sub and lets out a guttural moan and rolls his eyes. It makes you kind of uncomfortable.
+    a.c "Dude, I can’t thank you enough for saving my ass like that. I totally owe you one."
+    "You look at the dashing, ginger man."
+    j.c "Anyone would have done the same for you, you’re that kind of kid, ya know? Easy for people to like you. Got the whole school wrapped around your horn."
+    show argha sad blink
+    a.c "Not really…"
+    show argha sad
+    a.c "I mean, you can say that I’m popular and I have a lot of friends but… I’m not close to anyone. Nobody would do what you’ve done for me. Everyone *loves* me, but nobody *likes* me."
+    "Instantly your heart flutters with empathy and you have the sudden urge to reach out to him, but you stop yourself and look down."
+    j.c "Well, I like you! Wait,"
+    show argha happy
+    j.c "I mean, not like that. I like you but I don’t LIKE like you.. Like I like you as a friend, even more than that!""
+    "You realize what you just said."
+    j.c "AGhhhh I mean like a good friend! Like a really good friend. Am I coming across clear or hahahah…"
+    "You nervously laugh and shakily grab ahold of the drink on your table, chugging it to calm yourself down."
+    show argha happy blink
+    "Arghawan chuckles."
+    show argha sad
+    a.c "Awee so you’re saying you don’t like me?""
+    "Arghawan teases as he pouts and feigns sadness, acting like a shot puppy. You blush heavily and fold your hands in your lap, looking down to trying to hide your beet red face. *Was he always this intense?*"
+    j.c "You know what I mean, asshole."
+    "Your face cracks into a crooked smile and you look to the side."
+    show argha blush
+    a.c "You’re blushing! Aww, what’s wrong? Monkey got your tongue?""
+    "Quickly, Arghawan shoots his head to the left to check the clock mounted on the wall.
+    a.c "Oh shit! Class is starting!"
+    hide argha
+    "Arghawan shoves the rest of the sub into his mouth, and runs off, but before he is out of eyeshot, he sends you a playful wink. You sit there, dumbfounded."
+    j.c "Oh SHIT!"
+    jump mathday1
 
 label blmstart:
     scene bg hall
     with fade
-    "You walk down the hallway, when you see the headmaster, Brennan Lee Mulligan."
-    show brennan neutral
-    "Brennan spots you and initiates a conversation."
-    b.c "How are you liking the school?"
+    "You walk around the halls of the school. They’re quiet around this time, as most students are still asleep, or eating breakfast in the caf."
+    "You see a figure hovering quickly down the hallway. It’s muttering something but then stops when it sees you."
+    b.c "Oh Jessica! Hello there! How is everything?"
+    j.c "Oh, things are… okay I guess. I’m having a hard time adjusting I think."
+    show brennan sad
+    b.c "I’m so sorry to hear that. You know, the quickest way to be accustomed to a new environment is to familiarize yourself with the inhabitants. Is there anyone here you feel close to?"
+
     menu:
-        "Tell him about how awesome one of the other people you've met is.":
-            j.c "This new life has been confusing, but a friend has been making my stay here wonderful."
-            b.c "Amazing! What's their name?"
-            menu:
-                "Cassidy":
-                    j.c "Her name is Cassidy! She can seem quite cold, but she's really nice to hang out with."
-                    $ c.trust_ch(1)
-                    jump blmstartfail
-                "Arghawan":
-                    j.c "Their name is Arghawan! He is very interesting and entertaining, and I think they will be a good friend."
-                    $ a.trust_ch(1)
-                    jump blmstartfail
-                "Doris":
-                    j.c "Her name is Doris! Her drawing skills are amazing, and she knows a lot of cool things."
-                    $ d.trust_ch(1)
-                    jump blmstartfail
-                "Maggie":
-                    j.c "Her name is Maggie! She's very assertive and competitive, and I find that that is a good match for me."
-                    $ m.trust_ch(1)
-                    jump blmstartfail
-
-        "Tell him about how lonely you are, how you're not getting along with anyone, and about how he seems nice.":
-            $ brennanRoute = True
-            j.c "To be honest, i've been having a tough time adapting. Furthermore, I've been quite lonely these past few days, since I don't really feel comfortable around anyone I've met so far."
-            show brennan sad
-            j.c "Except you."
-            show brennan happy blink
-            b.c "While I'm sad that you're having a tough time adapting, I'm happy you feel comfortable around me!"
-            show brennan happy
-            b.c "Feel free to head by my office if you need anything, from help to company. I'll do what I can to make your stay around here more enjoyable."
-            j.c "Thank you so much!"
-            show brennan happy blink
-            j.c "I do have to get to english class though. Bye, Brennan Lee Mulligan!"
-            b.c "Bye!"
-            jump engclass1
-
-label blmstartfail:
-    show brennan happy blink
-    b.c "I'm glad you're getting along with someone! See you around!"
-    j.c "Bye! Thanks for the talk!"
-    "You get the sense that an option is no longer accessible. No matter. You head to English class."
-    jump engclass1
-
-label engclass1:
-    scene bg classroom
-    with fade
-    "You take a seat in English class when the teacher announces that it's a work period. What for? Who knows."
-    "You find Maggie reading a classic book in the back of the classroom"
-    "You approach her and see her jot down some notes into the book: \"Man. This book sucks. Hate women more why dont u ray.\"
-    Then, you notice that the book she is reading is not one that you are doing in your class."
-    "You decide to approach Maggie and ask her what she is doing."
-    show maggie neutral
-    j.c "Maggie, right? I'm curious about the book you're reading. Either I haven't been paying much attention, or it's not one we're doing in this class..."
-    show maggie neutral blink
-    m.c "That's because it isn't. I'm doing other souls' assignments, because they don't want to."
-    show maggie neutral
-    j.c "That's nice of you!"
-    show maggie happy blink
-    m.c "Not for free! I'm doing them so I can be rich when I reincarnate."
-    "You wonder if perhaps her greed is holding her back from her rehabilitation and reincarnation."
-    menu:
-        "Ask her to do one of your assignments as well":
-            show maggie neutral
-            j.c "Could you do one of mine?"
-            m.c "How much are you offering?"
-            j.c "Pretty please?"
-            show maggie mad blink
-            #the eyes are too much but i think a middle finger is appropriate
-            #the sad sprites don't really fit
-            m.c "I'll take that to mean you aren't offering me anything."
-            $ m.trust_ch(-1)
-            "*awkward silence*"
-            m.c "Fine, I'l do your assignemt for you. For free. Just this once though, don't expect any handouts in the future..."
-            m.c "I hope you're happy; I was already swamped and this isn't helping."
-            hide maggie
-            "Soon, the bell rings, signifying the end of English class."
-            jump bioday1
-        "Offer to help her with some of her work":
-            show maggie happy
-            j.c "Would you like me to help you with some of that homework?"
-            show maggie blush
-            m.c "That's... that's very kind of you! Here's some stuff you can do that isn't too urgent."
-            "Maggie hands you some homework."
+        "Maggie":
             $ m.trust_ch(1)
-            $ maggieHwk = True
-            show maggie neutral
-            m.c "You're not getting anything in return though."
-            show maggie happy
-            m.c "Still, thank you for the help!"
-            j.c "No problem!"
-            hide maggie
-            "You part ways, both of you happy with how that interaction went."
-            "You see that there are only a few seconds left in English class, meaning you'll have to do this work on your own time...
-            You get the sense that Maggie will be very unhappy if you do not do the work, or if you do it badly."
-            "The bell, signifying the end of your class, interrupts your thoughts."
-            jump bioday1
+            show blm happy
+            b.c "Oh I’m glad to hear that! Well keep working towards your rehabilitation. The next bonfire is coming up soon! Who knows, maybe you’ll be ready by then."
+            jump blmstartend
+        "Cassidy":
+            $ c.trust_ch(1)
+            show blm happy
+            b.c "Oh I’m glad to hear that! Well keep working towards your rehabilitation. The next bonfire is coming up soon! Who knows, maybe you’ll be ready by then."
+            jump blmstartend
+        "Arghawan":
+            $ a.trust_ch(1)
+            show blm happy
+            b.c "Oh I’m glad to hear that! Well keep working towards your rehabilitation. The next bonfire is coming up soon! Who knows, maybe you’ll be ready by then."
+            jump blmstartend
+        "Doris":
+            $ d.trust_ch(1)
+            show blm happy
+            b.c "Oh I’m glad to hear that! Well keep working towards your rehabilitation. The next bonfire is coming up soon! Who knows, maybe you’ll be ready by then."
+            jump blmstartend
+        "No one in particular.":
+            jump blmstart2
 
+label blmstart2:
+    $ b.trust_ch(1)
+    $ brennanRoute = True
+    show brennan sad blink
+    b.c "I’m so sorry to hear that Jessica."
+    "The headmaster sighs."
+    show brennan sad
+    b.c "If you ever feel lonely during lunch, feel free to pay my office a visit. While I don’t recommend it because you will lose valuable time with your peers, I wouldn’t want you to feel unwelcome."
+    "Strangely excited for this new offer, you smile and gladly accept."
+    j.c "Oh! Thank you so much! That’s really kind of you."
+    show brennan blush
+    b.c "Just my duties as headteacher!"
+    jump blmstartend
 
-    “I can do that assignment for you!” +1 AFFECTION Sidenote : BUT CAN TANK YOU BY LIKE 5 later on (at end of day, make note, coder girls)
-    When you go to your room, after the event ends, you have to answer a bunch of random questions. Whether or not, you answer the questions you are forced to answer correctly will determine the amount of affection you gain. Between +2, +1, or -1
+label blmstartend
+    show brennan neutral
+    b.c "Oh would you look at that! It’s 8:29. I must be getting back to my duties."
+    hide brennan
+    "Brennan Lee Mulligan resumes back to his hyperspeed hovering across the hallway, and you watch him fly off.
+    Your eyes widen at the realization of the time."
+    j.c "Oh shit! I gotta get the fuck outta here!"
+    jump mathday1
 
-label bioday1:
-    scene bg hall
-    with fade
-    "English class being over, you head to \“Don’t shit near near your food\” class, aka biology."
+label mathday1:
+    "Picking yourself up, you dash to your math class. You arrive and sit down."
     scene bg classroom
     with fade
-    "You arrive, sitting in your seat. So much has already happened? You feel drained and naturally sleep through class."
+    "It was, as always, the most boring shit ever, but at least you got to vibe with Arghawan a bit.
+    Next class was english. You realize that your schedule has changed a bit. Courses were rearranged and you no longer had gym, rather english, and you had biology towards the end of the day.
+    You hurry yourself out of class and say bye to Arghawan. He shoots you a wink. Cocky bastard."
+
+    #doing this again lolol
     scene bg classroom
     with fade
-    "By the time you wake, class has ended and it is time for lunch."
+    Classroom
+    Class_sounds.mp3
 
-    ""
+    "From afar you can see who else but Maggie furiously jots down notes and mumbles under her breath.
+
+    Maggie_mad
+
+    Maggie: "Ray Bradbury…. Sexist piece of shit why don’t you suck my-"
+
+    "You interrupt her before she can go any further, afraid she may implode.
+
+    j.c Heya Maggie, what are you reading?
+
+    Maggie_happy
+
+    "She looks up and her expression softens a bit. She shows you the cover cover of the book and groans.
+
+    Maggie: Possibly the worst novel one of these white guys have ever written. Its called Fahrenheit 451.
+
+    "You nod slowly in agreeance, more curious as to why she is reading the book if she hates it so much.
+
+    j.c So why are you reading it if you hate it so much?
+
+    "She looks around for the teacher and leans in. A small bit too close for your liking.
+
+    Maggie: You see, I have this… extremely lucrative business. Some of these assholes really want to get out of this whole… purgatory joint. So they pay me to do their work for them. Of course, they owe me. It can be money… favours…. Anything.
+
+    "Maggie laughs heartily.
+    Maggie_happy_blink
+
+    Maggie: And what these stupid bastards don’t even realize, is that the universe KNOWS I’m doing it for them! It’s not helping them one bit… so every bonfire they come crawling back, begging for me to do more!
+
+    "You stare blankly for a bit, realizing why she was still sitting in purgatory, tired, but working away.
+
+    j.c You don’t… want to leave?
+
+    "She freezes for a second.
+
+    Maggie: Nah, not for a while. I’m kinda comfy here, ya know? They make this place too nice for us. A lot of people just end up staying for a really long time.
+
+    menu:
+    Can I help you out with some of that?
+    Can you do one for me?
+
+    1.
+     Maggie_happy
+
+    UNLOCK MAGGIE ROUTE
+
+    Maggie: That would be awesome! I really fucking suck at math, so I could really use your help on this one.
+
+    "Jesus fucking christ how did you get stuck doing MORE MATH?!"
+
+    j.c Oh.. Math. Fun.
+
+    Maggie_happy_blink
+
+    Maggie: Glad you think so! You can bring it to my room at night so I can give it to those stupid assholes tomorrow morning.
+
+    X:She grumbles.
+
+    Maggie-angry
+
+    Maggie: Maybe they’ll finally pay me this time.
+
+    "Maggie hands you a sheet of paper, a name poorly scribbled at the top read ARGHAWAN. You sigh and smile to yourself as you shove the paper into your bag to do later tonight.
+
+    Maggie-neutral
+
+    j.c You seem tired, though, are you getting enough sleep?
+
+    Maggie_sad_blink
+
+    "Maggie sighs and continues to read. Jotting down notes as she goes along.
+
+    Maggie_sad
+
+    Maggie: I mean do I need much sleep? It’s not like I can die here anyways.
+
+    "Maggie mumbles.
+
+    "You furrow your brows, frustrated at her deflection towards your concern.
+
+    j.c We both know that's not the point of this place, it’s to become a better person.
+
+    "Maggie seems to be a bit more frustrated than before.
+
+    Maggie: I didn’t ask for your therapy or your concern. Take your interrogation to someone who’s more desperate for attention, like Arghawan.
+
+    "Taken aback by her comment, and slightly offended on Arghawan’s behalf, you mutter a \"fine\" and sit back into the chair, ignoring her for the rest of the class.
+
+    "Peeking at her once, you see her face muddled with guilt. Your expression softens too, yet you sit in each other’s silence. It's not unpleasant.
+
+    2.
+    m.trust_ch(-1)
+
+    Maggie: Are you an actual idiot? Didn’t I just explain to you what happens to those dumbasses when they ask me for help?
+
+    "Your face heats up in embarrassment as you feel the hammer of judgement BONK you on the head.
+
+    Maggie: Out of respect for you, and for my fine establishment, absolutely the fuck not.
+
+    "Hey, at least she respects you.
+
+
+
+    "Class ends and hoards of students head down towards the cafeteria to grab a bite to eat.
+
+    Lunchroom
+    Cafeteria_noises.mp3
+
+    "Who do you want to sit with?
+
+    Maggie, sitting alone like a normal person.
+    Doris, sitting on the windowsill like a housecat.
+    Arghawan, sitting next to heaps of people with a single empty seat next to him.
+    Cassidy, who isn’t actually sitting, but seems to be lying down on the dirty floor and moaning in pain, wailing "my back, my back."
+
+    1.
+    m.trust_ch(1)
+    Maggie_neutral
+    "You sit with Maggie. The awkwardness from class seems to have melt, and you share smalltalk about the class while she does some work.
+
+    2.
+    d.trust_ch(1)
+    Doris blush blink
+    "Doris isn’t much for talking, but the two of you enjoy sitting together, bathing in the warm orange sun permeating through the window.
+
+    3.
+    a.trust_ch(1)
+    Arghawan happy
+    "Sitting next to Arghawan and his group of friends is almost too loud and exciting. Bonus points, because he put his arm around you."
+
+    4.
+    c.trust_ch(1)
+    cassidy_happy_blink
+    "You lie on the floor next to Cassidy and offer to give her one of your life-changing massages. It’s kind of weird, and a bit pointless, since she’s cursed with a bad back, but she appreciates the effort.
+
+
+
+    Hallway
+
+    "You finish off the rest of your classes with nothing interesting happening in any of them. You head towards you dorm to rest, when you run into Cassidy and Doris arguing.
+
+    D: Cassidy, you have to eat vegetables! To get big and strong! You can’t just be eating dino nuggies for the rest of eternity, can you?
+
+    C: I can, and honestly neither of us will be surprised if I do. Hey! Jessica!
+
+    "Cassidy shoots her hand up and waves it to grab your attention. You walk up to them.
+
+    C: Doris here thinks that I should eat more vegetables so I can stay healthy. I’m already dead Doris! I can’t die more!
+
+    D: And CASSIDY here doesn’t understand that while it may not save her from death, It’ll make her existence here just that much easier. Cassidy, you already have a bad back, save yourself from literally every other disease as well!
+
+    OPTION:
+    Cassidy, just eat the veggies. They’ll make you feel so much better, trust me.
+    Hey Doris! Don’t crump her vibe! Let her have her nuggies, like she said, she can’t be any more dead.
+
+    1.
+    CASSIDY -1 AFFECTION | DORIS +1 AFFECTION
+    J: Doris is right Cassidy. You already have a hard time getting up the stairs. Some vegetables won’t hurt you. It’ll probably do the exact opposite.
+
+    "Cassidy grumbles as Doris force feeds her a head of broccoli. The sight is both horrific and oddly majestic.
+
+    2.
+    DORIS -1 AFFECTION | CASSIDY +1 AFFECTION
+
+    C: Yeah man! Just let me eat whatever I want! Why do you care anyways?
+
+    "Doris glares at you as she puts the fork down on the plate and rolls her eyes.
+
+    D: Whatever. It’s not my body anyways.
 
 
 
 
+    "You head back to your room and start to rest.
+
+    DAY ENDS HERE IF MAGGIE ROUTE IS LOCKED.
+
+    IF JESSICA HAS UNLOCKED THE MAGGIE ROUTE:
+
+    "You quickly remember that you had some work to do for Maggie, and take out your pen and the sheet of paper and get to work.
+
+    QUESTION ONE: what is 1x3
+    QUESTION TWO: What is (amy please insert a moderately difficult math question here)
+    QUESTION THREE: (amy please insert a harder math question here)
+
+    "Satisfied with your work, you head over to Maggie’s dorm to hand in the work.
+    BLACK SCREEN
+
+    "You nervously knock at what you assume to be her door, (it has a pentagram carved into it), and await for a response.
+
+    "Slowly she opens the door, taking a peek as to who her visitor was before pulling the door open more.
+
+    DOOR CLICK SOUND
+    Maggie Dorm
+    Maggie sad
+
+    m.c "Took you long enough. Lemme take a look
+
+    Maggie sad blink
+    If she gets at least one wrong:
+    $ m.trust_ch(2))
+    m.c "Hey, not bad for a novice. Maybe you have a career in plagiarism.
+
+    If she gets all right:
+    $ m.trust_ch(-1)
+    show maggie happy
+    m.c "Hey, this is pretty good. Better than anything I could do. Nice job.
+
+    "Closest thing you’ll get to a compliment from her, you assume. You blush.
+
+    If she gets all wrong"
+    .trust_ch(1)
+    show maggie neutral blink
+    m.c "Hahahah, man this is pretty dumb. You didn’t do so well but at least I can get a laugh out of this."
 
 
-    # This ends the game.
-    return
+
+    Maggie neutral
+    "Maggie settles the test down on her desk, and sits down. She looks you up and down.
+
+    m.c "So, what are you… some kinda monkey?
+
+    J: The monkey queen, actually.
+
+    Maggie neutral blink
+
+    "You tease, curtseying. Maggie laughs and gets up, bowing.
+
+    m.c "Your highness~
+
+    Maggie neutral
+
+    "She teases, sitting back down on her chair, and takes a sip out of her juicebox. An idea comes to mind.
+
+    J: So now since we’re.. In somewhere more private, can I ask you a question?"
+
+    m.c "Shoot.
+
+    J: We both know you’re lying about the reason why you’re still here. Why do you do assignments for people when you know it won’t get you anywhere?
+
+    Maggie sad blink
+    m.c "…
+
+    J: I mean, you laugh at the kids who come to you for help, but in the end, you’re in the exact same cycle as they are. What’s the point?
+
+    "Maggie sighs and gets up from her chair, glaring at you.
+
+    m.c "Are you serious, Monkey Queen? Just take a fucking look at me? We’re supposed to get ‘reincarnated into something that perfectly matches our essence on earth,’ I’m literally half a demon. The only reason I’m not in hell right now is because I died so stupidly.
+
+    m.c "You know, on earth, I was actually kind of a big shot. Huge fucking cult leader. Jonestown type big. Killed hundreds of people.
+
+    m.c "The only reason I’m here right now, is because I drank the wrong fucking cup of Koolaid. That's right. I died, because I drank a purple Kool Aid instead of a Koolaid jammer.
+
+    m.c "You must be as naive as you look. There’s no getting better for people like me. I’ve been stuck here and I’m going to be stuck here for way longer than you and your dumb little soulmate will be. So get out of here while you still can. Maybe my ‘evil’ is contagious.
+
+    "She sits back in her chair and rests her head in her hands.
+
+    m.c "(in italics) There’s no getting better…
+
+    "You sit yourself down on her bed, staying put.
+
+    J: I’m not leaving.
+
+    m.c "Don’t be difficult-
+
+    J: No. We’re both here. Aren’t we? The universe believes that you can get better, Maggie. You aren’t here by freak chance or coincidence, so why do you act like this?
+
+    m.c "I-
+
+    J: Don’t give me some bullshit fucking excuse. Yeah. You were a bad person. You did bad things, and you hurt good people, but you’ve been given something that so few people are given the chance to do. To have a second chance. You’re bad for killing people, but what makes you evil is taking up this spot, for having another chance, and refusing to take it. That's what’s shitty.
+
+    Maggie mad
+    "Maggie stands up, a fire burning in her eyes. You feel like she’s ready to strike you down.
+
+    Romance music start here
+    Maggie sad blink
+
+    "But instead, she breaks down crying. She wraps her arms tightly around your waist and pulls you in close, resting her head softly on your shoulder. You hesitate for a second, in absolute shock because of how uncharacteristic she was acting, believing for a second that it could be manipulation, but you cast all doubts aside and wrap your arms around her, knowing that in that moment, her walls had been shut down, and she was vulnerable.
+
+    m.c "Fuck..
+
+    X; She wipes the tears from her eyes, embarrassed that she shared such a moment with someone like- well really anybody.
+
+    Maggie blush
+
+    "Maggie sits on the ground against her bedframe and you follow shortly after. You chat silently about nothing in particular, when she absent mindedly grabs a hold of your hand and draws small and short circles on the inside of your palm. You lay your head on her shoulder and she smiles warmly at the gesture, believing there was no possible way of seeing the moment of weakness, yet you caught a glimpse, and the night falls silent.
+
+    DAY END.
+
+# This ends the game.
+return
