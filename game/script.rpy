@@ -43,7 +43,7 @@ label start:
     $ m = Person(Character("???"), "???")
     $ love_candidates = [b, c, a, d, m]
 
-    scene bg blm office
+    scene bg blmoffice
     with dissolve
 
     "Hello? Hello! Can you hear me? Ah you’re awake."
