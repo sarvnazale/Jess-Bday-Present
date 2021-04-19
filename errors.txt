@@ -2,9 +2,21 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 902: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation.
-    "Yes":
-    ^
+File "game/script.rpy", line 1286: expected statement.
+    c.trust_ch(1)
+                 ^
+
+File "game/script.rpy", line 1287: expected statement.
+    d.trust_ch(-1)
+                  ^
+
+File "game/script.rpy", line 1296: expected statement.
+    d.trust_ch(1)
+                 ^
+
+File "game/script.rpy", line 1297: expected statement.
+    c.trust_ch(-1)
+                  ^
 
 Ren'Py Version: Ren'Py 7.4.2.1292
-Fri Apr 16 10:50:14 2021
+Mon Apr 19 14:13:26 2021
