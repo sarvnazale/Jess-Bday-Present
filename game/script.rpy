@@ -1,6 +1,8 @@
 init python:
     #integer of how many of Maggie's math questions Jess gets correct
     maggieqs = 0
+    #boolean to keep track of doris betrayal
+    dorisBetray = False
 
     class Person:
         def __init__(self, character, name, trust = 0, route = False, item = False):
@@ -1432,11 +1434,12 @@ label postarg:
         "You’re gonna have to choose…"
         menu:
             "Tell Arghawan about the area.":
+                $ dorisBetray = True
                 jump arghaday3
-                $ d.route = False
             "Keep Doris' secret.":
+                #dorisBetray is false by default why set it to false again?
                 jump keepdoris
-                $ d.route = True
+
 label arghaday3:
     $ a.trust_ch(2)
     $ d.trust_ch(-1)
@@ -1666,7 +1669,7 @@ label classday4:
     show bg classroom
     "You walk into the Biology classroom and meet Doris’ eyes almost instantly, you gulp."
     #sorry if this is confusing i didn't want to make the if statements too long
-    if (not d.route):
+    if (dorisBetray):
         jump dorisarg
     else:
         jump nodorisarg
