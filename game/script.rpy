@@ -1519,7 +1519,6 @@ label arghasuccess:
     "He places the pan flute in your hand."
     $a.item = True
     show pipes at left
-    #Panflute.png
     #Pickup.mp3
     "You graciously accept and put it along with the rest of your belongings."
     "The two of you sit in comfortable silence and eventually, you drift your eyes and fall asleep, listening to nothing but the sound of Arghawan’s breathing and the quiet chirp of the crickets surrounding you."
@@ -1622,7 +1621,7 @@ label day4begindorm:
     "You walk into your music class and spot Cassidy, who seems a little less grouchier than usual."
     j.c "Hi, Cassidy. You look better than usual today."
     show cassidy neutral
-    c.c "...Thanks"
+    c.c "…Thanks"
     j.c "Did something good happen?"
     c.c "Well… I guess that depends on you."
     "Cassidy shifts in her seat nervously, she tugs on her collar a bit, as a means of fidgeting."
@@ -1697,7 +1696,7 @@ label dorisarg:
     d.c "You're a bigger idiot than I thought you were."
     j.c "Okay, well, news flash for you, I don't care. Not about you or him."
     d.c "I don't want to speak to you… I don't know for how long, just don't talk to me and you can pass the message to Arghawan to stay away from me too. Enjoy your new little area."
-    j.c "...Okay."
+    j.c "…Okay."
     show doris mad blink
     d.c "Bye."
     "Haha, nice going, bro."
@@ -1715,7 +1714,7 @@ label nodorisarg:
     scene bg classroom with fade
     show doris happy
     d.c "Okay, you can open them."
-    j.c "...Where did the flower go?"
+    j.c "…Where did the flower go?"
     d.c "It’s in your hair, silly."
     "You reach for your hair and sure enough, you could feel the presence of a delicate flower. "
     show doris happy blink
@@ -1733,7 +1732,7 @@ label nodorisarg:
             $ d.trust_ch(1)
             $ d.item = True
             jump lunchday4
-        "Sorry but...":
+        "Sorry but…":
             "Doris instantly let's go of your hand immediately, she frowns. The embarrassment was written all over her face."
             d.c "Well… you can still keep the flower, what I said before hasn't changed."
             d.c "See you later."
@@ -1795,7 +1794,7 @@ label maggiearghday4:
             show maggie happy at right
             "Maggie laughs once again and pats Arghawan’s back in an attempt to console him."
             a.c "Ow, fuck, can you stop? You’re hurting me."
-            m.c "..."
+            m.c "…"
             "Maggie shoves Arghawan again a little harder."
             "And then she does it again."
             "I’ll save you some time, because as always, it escalated into a full on fight."
@@ -1830,6 +1829,7 @@ label brennanevent:
     j.c "I’d like that very much."
     b.c "I’m glad to hear it, Jessica."
     "Brennan smiles at you and hands you a pen."
+    #wait a sec to get with brennan you don't throw anything into the bonmfire? what the hell?
     b.c "It’s nothing fancy, just something for you to throw into the bonfire."
     $ b.item = True
     show brennan blush
@@ -1863,10 +1863,10 @@ label cassidyevent:
             c.c "Okay, well, I’m not even going to pretend I understood what the fuck you just said."
             show cassidy mad
             c.c "You’re totally full of shit."
-            j.c "..."
+            j.c "…"
             c.c "Whatever, onto the next book."
             "The two of you continue to read books until the sun goes down but the atmosphere completely changed. "
-            c.c "...That sucked even more than I thought it would."
+            c.c "…That sucked even more than I thought it would."
             c.c "God, you’re just like Maggie."
             "You stay silent, as Cassidy continues to hurl insults at you as she packs up her stuff. Before you fully notice, she’s already gone."
             jump day5
@@ -1880,8 +1880,8 @@ label cassidyevent:
             "Quietly, Cassidy reaches into her back pocket and hands you a music box."
             c.c "It would… be nice if you could consider my name for the bonfire."
             j.c "Oh, Cassidy, I-"
-            $c.item = True
-            show music box at right
+            $ c.item = True
+            show musicbox at right
             show cassidy neutral
             "Just like a ghost, Cassidy vanishes into thin air. Almost as if she was never there in the first place. You laugh a little to yourself, you didn't expect anything different from her"
             "Over the horizon, the sun slowly goes down, signaling for you to go back inside. Complying, you pick up Cassidy’s things and take it back with you into your dorm."
@@ -1890,6 +1890,357 @@ label day5:
     scene bg dorm with fade
     "You flop onto your bed exhausted, and before you know it, you’re already asleep."
     # thank fuck i am done - have fun ames i hope this code still makes sense
+    # i will have fun sarv dw and ty bb /p
+    scene bg dorm with fade
+    "You wake up, the window shone brightly on your face as you wake up from the deep sleep you had the night before."
+    "You had a heavy decision to make today. You lay in bed for a while thinking of who you would choose at the bonfire today.
+    There was a lot of noise coming from outside your door, presumably the chatter of students preparing for the bonfire tonight.
+    You cringed as you heard loud sobs outside your door, probably students who had given up on finding their soulmates. Your heart flutters in a gross anticipation."
+
+    If jessica unlocks blm route, and has more than 4 relationship points with blm
+    if (b.route and (b.trust>4)):
+        jump blmletter
+    #if you're here and b.route was activated it means you ahve 4 or fewer trust w blm
+    #this means, you have failed and do not get blm ending, so i can do this
+    $ b.route = False
+    jump bonfire
+
+label blmletter:
+    "All of a sudden, a note slipped under your door. It’s lined with a thin yet bright gold, and a soft wax engraved with the coat of arms of the school.
+    You slip the covers off and hop out of bed, tiptoeing towards the door. You pick up the letter, then open the door to see if the suspect was outside."
+    "There was no one."
+    "Shakily, your hands gripped the suspicious note and you opened it, rather barbarically, as the wax was tightly sealing the opening."
+    "It read,"
+
+    scene bg black with fade
+
+    "My dear,"
+    "I suspect you know who this is if you are reading this right now."
+    "I have grown unbelievably close to you, and I fear that I can no longer hold my feelings back anymore."
+    "You see, when I had arrived at purgatory, it was hard for me to become infatuated with anybody. I spent millenia here, and could not find a single soul to call my own; the other half to me."
+    "The universe who, as you already know, is pretty big on pity, decided to have mercy on me.
+    They granted me knowledge of every single thing in this universe, about how things work, but there was one thing I could never understand. It was love."
+    "I fully believed that I was incapable of loving another, that the universe was right to give me this life, because it is the best I could do with my existence."
+    "Alas, when they hired me as headmaster, they stripped away my ability to return back to Earth, and my ability to physically express myself, which is why I appear as a different form to everyone, I am not the same person to everyone,"
+    "But I have found myself loving the person I am when I am around you. You have changed me in ways I never could have seen imaginable. When I am with you, I am not a headmaster, I am someone of value, to another person, and not just as a teacher or as authority, but as an equal."
+    "I’m writing to you in hopes that… maybe you see me the same way, maybe I am more than a friend to you, but a…"
+    "I ask a lot of you in this letter, but the only way for us to be together, is for you to give up your return to Earth and spend the rest of eternity here with me, eventually becoming a schoolteacher as well."
+    "I could never ask of you to give up your chance of rehabilitating, but consider me tonight, at the fire."
+    "Love,"
+    "Your admirer,"
+    "Brennan Lee."
+
+    scene bg dorm with fade
+
+    "You close the letter and rest for a while, thinking about what had just been written down on your note. Your gut wrenches as you feel the pressure of time tick away."
+    jump bonfire
+
+label bonfire:
+    "You collect yourself, brush your teeth and brush your hair, getting ready to seize the day and help with the events to prepare for the evening.
+
+    #in my ipinion a time skip doesn't really make sense without a black background
+    scene bg black with fade
+    "TIME SKIP"
+    scene bg dorm with fade
+
+    "Time flies by and before you know it, you’re getting dressed for the bonfire. You’re chin deep in anxiety, feeling your lungs seize up in trying to make a decision that will without a doubt effect the rest of your existence, both on Earth and in this weird limbo you’re currently living in."
+
+    scene bg hall with fade
+
+    "The people around you all dress up in what you assume to be their nicest clothes. You smile looking down at your cute dress made out of the softest material you could ever imagine."
+
+    scene bg bonfire with fade
+
+    "The bonfire glows a bright blue and fills your senses with excitement, fear, but most vividly, like the breath of a god, a cold fire wrapping itself around your soul."
+    "One by one, student after student throws an item into the bonfire. When the fire burns red people begin to clap and cheer. You assume that the fire turning red implies you’ve found your soul mate."
+    "Eventually, it becomes your turn. You gulp nervously and take a look at the items you have to throw into the fire."
+    menu:
+        "A.. demonic rock." if m.item:
+            if (m.trust>=5):
+                jump msuccess
+            else:
+                jump mfail
+        "A gay ass pan flute." if a.item:
+            if (a.trust>=5):
+                jump asuccess
+            else:
+                jump afail
+        "A crusty flower (hey it’s been a few days)." if d.item:
+            if (d.trust>=5):
+                jump dsuccess
+            else:
+                jump dfail
+        "A music box that plays only the smoothest of Jazzes." if c.item:
+            if (c.trust>=5):
+                jump csuccess
+            else:
+                jump cfail
+        "You choose… nothing.":
+            #remember the check is built into this boolean now since if it was true before and you didn't get the letter it turns false
+            if (b.route):
+                jump bsuccess
+            else:
+                jump totalfail
+
+label msuccess:
+    #Bonfire.png (already bonfire?)
+    #whoever wrote thid did this with every single route, but i'm only commenting on it here.
+    "You throw the demonic rock into the fire."
+    #my attempt to show you throwing in the item (show suddenly and fade)
+    show rock with None
+    hide rock with dissolve
+    scene bg black with fade
+    scene bg bonfireRed with fade
+    "All of a sudden, the once cold blue fire raged a burning red. The blow of an angry god now became the warmest hug."
+    show maggie neutral blink
+    "You averted your gaze to Maggie, who had her attention elsewhere. She was laughing with some friends."
+    "You cough loudly to grab her attention."
+    show maggie mad
+    "She looks at you, pissed that you interrupted your story, but her attention shifts towards the satin crimson of the bonfire."
+    "Before you know it, she’s right in front of your face."
+    show maggie neutral
+    m.c "Hahah, so monkey princess,"
+    "She grins from ear to ear and leans in uncomfortably close, holding a loose strand of your hair in between her index finger and thumb twirling around."
+    show maggie neutral blink
+    m.c "You know, you’re a real idiot for choosing me huh. Guess you couldn’t help  but falling for me, hm?"
+    show maggie neutral
+    m.c "But I can’t blame you after all, I’ve got that.. Something."
+    m.c "Natural charm, I think they call it." #charisma?
+    show maggie neutral blink
+    "She lets the stray hair fall back down on your burning face. Is it from the heat, or were you just, burning from the inside out like a normal person."
+    show maggie neutral #was blink here originally, but blink is already shown
+    "Her expression softens as she cups your face with one hand, the other holds your side. You shiver as it tickles your sides."
+    m.c "You may be stuck with me…"
+    show maggie neutral blink
+    m.c "But… I wouldn’t wish it were anyone else…"
+    #do we want fade here? dissolve? idk (same for all final romance images tbh)
+    scene bg maggiend with fade
+    m.c "Jessica, if.. If it takes me a day, a year, or a millenia to get better, please, please, be patient."
+    m.c "I would travel to hell and back if it takes me, so please."
+    m.c "Help me be better, so I can be good. A good person. A good spirit, a good soulmate for you."
+    m.c "God knows I’ll do whatever it takes."
+    jump goodend
+
+
+label mfail:
+    "You throw in the spirit rock and close your eyes, waiting for a bright red glow to come out of the fire."
+    show rock with None
+    hide rock with dissolve
+    scene bg black with fade
+    scene bg bonfire with fade
+    "Unfortunately, no such thing happens."
+    "You hear a boisterous laugh."
+    show maggie mad
+    m.c "You REALLY think I would be your soulmate? You think you can make me a better person? You think someone like YOU could rehabilitate me? Tough shit, sherlock. You’re stupider than you look."
+    scene bg black with fade
+    "Yeah. Bad move buddy, but hey. At least there’s next week."
+    jump badend
+
+label asuccess: #different form the similar label arghasuccess lol
+    "Nervously, you toss the multichromatic panflute into the bonfire."
+    show pipes with None
+    hide pipes with dissolve
+    scene bg black with fade
+    scene bg bonfireRed with fade
+    "The bonfire grows loudly and powerfully into a huge red cloud of heat. Excitedly, you look around for your soulmate, but he’s nowhere to be found-"
+    show argha blush
+    "All of a sudden, you’re grabbed and twirled into the air, loud cheering sounding off around you. Multiple other guys screaming and hyping Arghawan up; you assume they’re his homies. Your dress twirls as he spins you around. He clutches you close to your chest."
+    a.c "I’m so glad you chose me. I… I can’t wait for us to learn from each other. I could.. I could teach you rhythm games, you could teach me math."
+    "He takes your hands into his, and he pulls one to his lips and he kisses your hand. His two hands swallowing yours easily, as he clutches them close into his chest, and his eyes soften."
+    scene bg arghaend with fade
+    a.c "You make me excited to become a better person, Jessica."
+    a.c "No one has ever made me feel valued like you. No one has ever made me feel worthy like you. No one has ever made me feel complete, like you."
+    a.c "Please, never leave my side."
+    #SCREEN TURN BLACK
+    #doing this in goodend label
+    jump goodend
+
+
+label afail: #different from arghafail lel
+    "You throw the flute into the fire."
+    show pipes with None
+    hide pipes with dissolve
+    scene bg black with fade
+    scene bg bonfire with fade
+    "You grimace as you notice the colour of the fire does not change."
+    show argha sad
+    a.c "Bro, you actually threw that pan flute in?"
+    "You cringe and nod slowly."
+    show argha sad blink
+    a.c "Bro, I thought we uhhh, just saw each other as friends… I’m totally straight! I promise I like uh… breasts.. Big honking milkers… but umm…"
+    "He looks for an excuse…"
+    a.c "I guess we just weren’t made to be bro."
+    "He gets ready to leave."
+    show argha happy
+    a.c "oh but I’ll totally see you in math class tomorrow, homie."
+    "He totally goes to make out with some guy at the back of the school." #i like how the narrator says "totally" /gen
+    scene bg black with fade
+    "Oof.. well. Wrong choice, but you always have next week."
+    jump badend
+
+label dsuccess:
+    "You throw the flower into the fire, watching as it shrivels up quickly and adds to the ember."
+    show flower with None
+    hide flower with dissolve
+    #didn't say to fade to black here but i need consistency
+    scene bg black with fade
+    scene bg bonfireRed with fade
+    "The bonfire’s hue shifts and transforms into a brand new hue of a deep red, You look around and look for Doris, her face matching the same hue of red." #lol
+    #switching this neutral to neutral blink, and the following neutral blink to neutral
+    show doris neutral blink
+    d.c "Y..You chose me? Out of everyone here? Are you sure?"
+    show doris neutral
+    "She slowly walks up to you, nervously looking around as to assume perhaps you were pursuing another person."
+    d.c "There’s no way this is happening, there’s no way this is happening."
+    "She mutters and stands a considerably large distance from you, crossing her arms."
+    #making this mad blink (originally was neutral blink)
+    show doris mad blink
+    d.c "Do you mean it? Or someone else? Is this another prank? I’ve been here long enough to know all of the… all of the things that can turn the fire red! So don’t even try me." #this line is extremely depressing imo… it implies that people have thrown stuff like strontium cloride (or its purgatory equivalent) in the fire just to prank her, since how else would she know but from experience?
+    "You look around and laugh. People don’t seem to be reacting well to her freakout, but you reach forward to calm her down."
+    j.c "There’s no one else, Doris, it’s… just you."
+    show doris blush
+    "Her once tense shoulders relax in your grip, her calmness juxtaposed with your gorilla grip. Monkey queen."
+    d.c "I think…"
+    "She reaches forward and gently places her hand on yours"
+    scene bg dorisend with fade
+    d.c "I’d really like to be your soulmate!"
+    "She takes a few steps forwards and pushes you backwards, giggling."
+    "You stand, shocked for a moment before she runs off into the hidden forest, her bare feet leaving dents in the grass surrounding the heaps of people who have already moved onto the next person."
+    d.c "You know I don’t like big crowds! So catch me if you can!" #missing punctuation here so i added an exclamation mark
+    "She runs off into the forest. You chuckle before chasing right after her."
+    jump goodend
+
+label dfail:
+    "You throw the flower into the bonfire and wait for it to turn red."
+    show flower with None
+    hide flower with dissolve
+    scene bg black with fade
+    scene bg bonfire with fade
+
+    "Oof."
+    "It never does."
+    "You look around in embarrassment, seeing if Doris saw you do that."
+    "She’s nowhere around to be seen. You should have known, though. There was no reason for her to come."
+    "Oh well; you always have the next bonfire."
+    jump badend
+
+label csuccess:
+    "You throw the beautifully crafted music box into the fire and watch it burn."
+    show musicbox with None
+    hide musicbox with dissolve
+    scene bg black with fade
+    scene bg bonfireRed with fade
+    "You smile widely when you see the fire burn red. You look around to find Cassidy. You can’t find her."
+    j.c "What the hell? Where is she?"
+    show maggie neutral
+    m.c "She doesn’t usually show up to these. She’s probably reading in the forest."
+    "The tiefling butts herself into your own muttering, but you nod and leave the bonfire."
+    #MAGGIE GONE background changes do that for us :)
+    scene bg casswoods with fade
+    "You look around the forest and see a puffy blue dress peeking itself out of the sides of a wide oak tree. You can smell something in the air. Raisins."
+    "You walk up to her and cross your legs down. She looks up at you."
+    show cassidy neutral
+    c.c "How’s the bonfire going? Find your soulmate yet?"
+    show cassidy happy blink
+    "She teased, adjusting her legs from under her heavy dress. She lifts her hefty bag of raisins and offers her one. You politely decline and your cheeks warm."
+    j.c "Actually yeah… I did."
+    show cassidy neutral
+    "She stops her chewing and loops up at you through her glasses."
+    show cassidy sad
+    c.c "O-Oh. Really? Well you should consider yourself lucky. No one ever finds their soulmates at those things. I stopped going a while ago."
+    "You nod, waiting for her to ask what you know she wants to ask sooooo bad."
+    show cassidy sad blink
+    c.c "AHEM… So uh, who um… whose the lucky gal… or uh guy I mean or both you know you can uh you can choose one of either." #i like how it's gal first/gen ; i do not like the lack of enby inclusion reeeeeeee /hj /lh
+    show cassidy blush
+    "You laugh slightly at her tripping over her words. Her face glows pink."
+    j.c "Actually, you know her."
+    show cassidy sad
+    c.c "Oh?"
+    j.c "Yeah, she’s really cool. Really smart. Loves to read." #would have been funny if cassidy was like "oh is it doris?" imo but this is also great
+    show cassidy sad blink
+    c.c "They sound cool I guess."
+    "She turns bitter."
+    show cassidy sad blink
+    c.c "Why are you here with me right now? Stop being weird, go hang out with her."
+    "You stare at her in astonishment."
+    show cassidy sad
+    j.c "You’re dumb for a smart person, ya know?"
+    show cassidy mad
+    c.c "What?! Excuse me!? I-"
+    show cassidy mad blink
+    j.c "It’s you dumbass. You’re my soulmate."
+    "She takes a deep breath and stands up quickly, pretty impressive considering her track record on.. Mobility."
+    "A wind blows into the forest and her dress flows with her hair."
+    show cassidy blush blink
+    c.c "it’s not cool for you to lie to me like this."
+    j.c "I’m not lying! I swear!"
+    show cassidy neutral
+    "She looks at you, squinting. And then she bursts out in laughter."
+    show cassidy blush blink #made it blink because ppl usually close eyes when laughing no?
+    c.c "Oh man you fucked up! The universe must hate you if I’m your soulmate! Oh what a hoot!"
+    show cassidy blush #made non-blink because prev one was blink
+    "The stupid grin she has on her face never dissapears. Another gush of wind makes her hair blow forward."
+    scene bg cassidyend with fade
+    c.c "So what do you say, soulmate. Let's go find some liquor!"
+    "She laughs and runs, leaving her black shoes behind."
+    j.c "Wait! You forgot your shoes!"4
+    c.c "Jeez, when did you get so uptight?"
+    jump goodend
+
+
+
+label cfail:
+    s
+    "You toss in the music box and wait for the fire’s reaction."
+    show musicbox with None
+    hide musicbox with dissolve
+    scene bg black with fade
+    scene bg bonfire with fade
+    "Nothing happens."
+    "You sigh and feel a figure come up from behind you."
+    c.c "Man, you sure are lucky."
+    "She chucks an entire handful of raisins from her hand into her mouth. She completely misses, and they all land on you."
+    c.c "You gotta be glad you aren’t with me, buddy."
+    "She looks down at those and points at the raisins in your shirt and hair."
+    c.c "You can keep those raisins."
+    "As mysteriously as she arrived, she was gone. Like a fart in the wind."
+    scene bg black with fade
+    "OOOF. That was hard to watch. Well, you always have next week."
+    jump badend
+
+label bsuccess:
+    "You pass on your turn and watch as other students throw their items into the bonfire. You look up at Brennan lee Mulligan who looks back at you.
+    He smiles softly before his face returns to normal and he continues along with the ceremony."
+    "The night ends, and as the bonfire roars and students just hang out. Some sleeping, some singing."
+    "There isn’t much you can say, but you stand right next to Brennan, and he acknowledges your presence."
+    b.c "How is your night going?"
+    j.c "Better, now that I’m next to you."
+    scene bg blmend with fade
+    "He smiles, and looks away, putting his hand down for you to hold. His head is still focused away from you, as to not arouse suspicion."
+    "You smile and take his hand."
+    "You may be here for eternity, but it will feel like seconds with him by your side."
+    jump goodend
+
+label totalfail:
+    "You pass on your turn and watch as the others around you enjoy their time. You smile awkwardly, kind of regretting your decision. You just wasted a week of your time."
+    "Guess you gotta wait for your turn at the next bonfire."
+    scene bg black with fade
+    "VERY BAD END. What the hell? At least CHOOSE something?"
+    jump end
+
+label badend:
+    "BAD END. Good try though, and good luck next week! And props to you for trying, that takes courage." #what do y'all think abt added commentary here and with good end to match very bad end?
+    jump end
+
+label goodend:
+    #remember we had to do this?
+    scene bg black with fade
+    "GOOD END. I would try to add something here, but I think your soulmate said it all."
+    jump end
+
+label end:
+    #credits owo?
+
 
 # This ends the game.
 return
