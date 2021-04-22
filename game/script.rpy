@@ -406,6 +406,7 @@ label day1:
 
     scene bg hall
     with fade
+    play music "audio/beforeclass.mp3" fadeout 1.0 fadein 1.0
     "As you walk down the halls, your stomach growls, reminding you that you have to eat something before you properly begin the day, but there’s also so much of the school you haven’t seen yet… what should you do?"
 
     menu:
@@ -596,7 +597,8 @@ label mathday1:
     scene bg classroom
     with fade
     "It was, as always, the most boring shit ever, but at least you got to vibe with Arghawan a bit.
-    Next class was english. You realize that your schedule has changed a bit. Courses were rearranged and you no longer had gym, rather english, and you had biology towards the end of the day."
+    Next class was english. You realize that your schedule has changed a bit. Courses were rearranged and you no longer had gym, rather english,"
+    "and you had biology towards the end of the day."
 
     "You hurry yourself out of class and say bye to Arghawan. He shoots you a wink. Cocky bastard."
 
@@ -779,7 +781,7 @@ label dormday1:
 
         "You step into her dorm, closing the door behind you."
         play sound "audio/doorsfx.mp3"
-        scene bg dormMaggie
+        scene bg dormmaggie
         with fade
         show maggie sad
         m.c "Took you long enough. Lemme take a look!"
@@ -817,6 +819,8 @@ label maggos:
     j.c "We both know you’re lying about the reason why you’re still here. Why do you do assignments for people when you know it won’t get you anywhere?"
     show maggie sad blink
     m.c "…"
+    stop music
+    play music "audio/romance.mp3" fadeout 1.0 fadein 1.0
     j.c "I mean, you laugh at the kids who come to you for help, but in the end, you’re in the exact same cycle as they are. What’s the point?"
     "Maggie sighs and gets up from her chair, glaring at you."
     m.c "Are you serious, Monkey Queen? Just take a fucking look at me? We’re supposed to get \"reincarnated into something that perfectly matches our essence on earth\", and I’m literally half a demon. The only reason I’m not in hell right now is because I died so stupidly."
@@ -836,26 +840,71 @@ label maggos:
     show maggie mad
     "Maggie stands up, a fire burning in her eyes. You feel like she’s ready to strike you down."
     #Romance music start here
-    play music "audio/romance.mp3" fadeout 1.0 fadein 1.0
+
     show maggie sad blink
     "But instead, she breaks down crying. She wraps her arms tightly around your waist and pulls you in close, resting her head softly on your shoulder."
-    "You hesitate for a second, in absolute shock because of how uncharacteristic she was acting, believing for a second that it could be manipulation, but you cast all doubts aside and wrap your arms around her, knowing that in that moment, her walls had been shut down, and she was vulnerable."
+    "You hesitate for a second, in absolute shock because of how uncharacteristic she was acting, believing for a second that it could be manipulation, but you cast all doubts aside and wrap your arms around her,"
+    "knowing that in that moment, her walls had been shut down, and she was vulnerable."
     m.c "Fuck…"
     "She wipes the tears from her eyes, embarrassed that she shared such a moment with someone like- well really anybody."
     show maggie blush
     "Maggie sits on the ground against her bedframe and you follow shortly after. You chat silently about nothing in particular, when she absentmindedly grabs ahold of your hand and draws small and short circles on the inside of your palm."
     "You lay your head on her shoulder. She smiles warmly at the gesture. She believed that there was no possible way of seeing a moment of her weakness, yet you caught a glimpse. The night falls silent."
-    scene bg dormMaggie
+    #ADD MAGGIE'S ITEM
+    m.c "Fuck.."
+    "She wipes the tears from her eyes, embarrassed that she shared such a moment with someone like- well really anybody. "
+    "Before the moment falls completely silent, Maggie manages to sputter out a few words."
     show maggie neutral
-    with fade
-    "Time passes and eventually you decide to part ways and go to bed."
-    hide maggie
-    stop music
-    with dissolve
-    play sound "audio/doorsfx.mp3"
-    scene bg dorm
-    with fade
-    jump day2start
+    m.c "I have.. Something I want to give you…"
+    "She grumbles the last bit, as she digs through her belongings."
+    m.c "I.. uh… I’ve never been able to… connect with someone like this before.. "
+    show maggie mad
+    m.c "Fuck this is humiliating."
+    "Her hand shakes slightly as she presents to you an object. It’s a rock"
+    show rock at right
+    j.c "Uhh… what um.. Is this."
+    show maggie angry
+    m.c "Fuck what did that asshole headmaster explain to you?"
+    "She calms herself down slightly before explaining what it is she is doing."
+    show maggie neutral
+    m.c "So basically, at the bonfire, you umm.. We all take turns throwing shit into the fire- Well okay it’s more than just throwing shit."
+    m.c "You don’t throw in just anything. You throw in an item that your soulmate gave you. The one person that you select. "
+    "She begins to avert her gaze, as the atmosphere grows thick with discomfort. You decide to take the lead."
+    j.c "So you’re offering this rock to me?"
+    m.c " Well it’s like, this really awesome possessed rock? It has like a thousand souls of the damned in it, but I use it as like, a paperweight."
+    show maggie happy
+    m.c "So, I guess what I’m asking here, is… you’re the first person I’ve ever been able to talk to. About any of my life."
+    show maggie happy blink
+    m.c "As stupid as it sounds, I guess, you make me want to rehabilitate… so what do you say? Wanna reincarnate and then take over the world?"
+    menu:
+        "Say nothing and take the rock.":
+            "While few words were said, the simple gesture was enough for her to be assured in your response."
+            show maggie blush
+            "Maggie sits on the ground against her bedframe and you follow shortly after."
+            "You chat silently about nothing in particular, when she absent mindedly grabs a hold of your hand and draws small and short circles on the inside of your palm."
+            "You lay your head on her shoulder and she smiles warmly at the gesture,"
+            "believing there was no possible way of seeing the moment of weakness, yet you caught a glimpse, and the night falls silent."
+            $ m.item = True
+            $ m.trust_ch(1)
+            hide maggie
+            stop music
+            with dissolve
+            play sound "audio/doorsfx.mp3"
+            scene bg dorm
+            with fade
+            jump day2start
+        "Oh… I think you’ve misinterpreted this…":
+            stop music
+            show maggie mad
+            "I misread the situation? I cried in your arms! Confessed my crimes to you! You know what? I don’t need this. Fuck off."
+            "You head back to your room feeling guilty"
+            $ m.trust_ch(-1)
+            hide maggie
+            with dissolve
+            play sound "audio/doorsfx.mp3"
+            scene bg dorm
+            with fade
+            jump day2start
 
 label day2start:
     #day 2 stuff here
@@ -1047,7 +1096,7 @@ label musicendd2:
         "Brennan Lee Mulligan…?" if b.route:
             "Slowly and shyly you peek into Brennan Lee Mulligan’s office."
             $ b.trust_ch(1)
-            show brennnan happy
+            show brennan happy
             jump maggieargha
 
 label maggieargha:
@@ -1111,6 +1160,7 @@ label dorisdate:
     "Carefully, Doris reaches to pick some up and place them in her basket. She invites you to do the same."
     "After a few minutes, the mushrooms start to vanish again. Doris smiles warmly and examines her harvest."
     d.c "So many this time around… They seem to like you."
+    play music "audio/romance.mp3" fadeout 1.0 fadein 1.0
     show doris blush blink
     "this time, it’s the both of you blushing. You both sit, you’re leaning against a tree hugging one leg while the other one lays straight, and she sits still, quite far from you."
     j.c "Why are you sitting so far away?"
@@ -1140,6 +1190,7 @@ label dorisdate:
     You push a loose strand of hair behind her ear. Now her eyes are set straight onto yours.
     She pulls away abruptly, probably because she noticed how little distance there was between the two of you."
     "Though, she yawned and rested her head gently on your lap. You didn’t mind though, because for once that night, she seemed to be at ease. Her typically shaky smile was in a serene line, lips parted softly as she drowned into the night, and transported herself into a land of dreams."
+    stop music
     scene bg dorm
     with dissolve
 
@@ -1526,13 +1577,15 @@ label arghasuccess:
     scene bg black
     with fade
 
-    "Dear Jessica,
+    "Dear Jessica,"
 
-    I just want to let you know that you are a great friend. Every time I spend time with you is a good time, from hearing about all your amazing cats to helping you with math.
-    You are an amazing, caring, and extremely interesting person and I can honestly say that to my knowledge you are my favourite lesbian on the planet.
-    You’re also hilarious, and a pleasure to be around and interact with. I am so glad that I have met you, and I hope you have a simply wonderful (belated) birthday! /srs /gen /p
+    "I just want to let you know that you are a great friend. Every time I spend time with you is a good time, from hearing about all your amazing cats to helping you with math."
 
-    Sincerely and with love /p,
+    "You are an amazing, caring, and extremely interesting person and I can honestly say that to my knowledge you are my favourite lesbian on the planet."
+
+    "You’re also hilarious, and a pleasure to be around and interact with. I am so glad that I have met you, and I hope you have a simply wonderful (belated) birthday! /srs /gen /p"
+
+    "Sincerely and with love /p,
 
     Amelia
 
@@ -1593,13 +1646,15 @@ label day3enddorm:
     scene bg black
     with fade
 
-    "Dear Jessica,
+    "Dear Jessica,"
 
-    I just want to let you know that you are a great friend. Every time I spend time with you is a good time, from hearing about all your amazing cats to helping you with math.
-    You are an amazing, caring, and extremely interesting person and I can honestly say that to my knowledge you are my favourite lesbian on the planet.
-    You’re also hilarious, and a pleasure to be around and interact with. I am so glad that I have met you, and I hope you have a simply wonderful (belated) birthday! /srs /gen /p
+    "I just want to let you know that you are a great friend. Every time I spend time with you is a good time, from hearing about all your amazing cats to helping you with math."
 
-    Sincerely and with love /p,
+    "You are an amazing, caring, and extremely interesting person and I can honestly say that to my knowledge you are my favourite lesbian on the planet."
+
+    "You’re also hilarious, and a pleasure to be around and interact with. I am so glad that I have met you, and I hope you have a simply wonderful (belated) birthday! /srs /gen /p"
+
+    "Sincerely and with love /p,
 
     Amelia
 
@@ -1707,6 +1762,8 @@ label nodorisarg:
     show doris neutral
     d.c "Jessica, I know a biology classroom is the least romantic place to do this but… here."
     "You look down at what Doris is offering you and you gasp pleasantly, it was a beautiful flower."
+    play music "audio/romance.mp3" fadeout 1.0 fadein 1.0
+
     show flower at right
     "Just as you reach your hands out to take it, Doris moves the flower out of your reach."
     d.c "Stay still for a minute. Oh and, close your eyes."
@@ -1729,10 +1786,12 @@ label nodorisarg:
             "Doris squeezes your hand, and you could only chuckle back. The two of you sit there, in an endearing silence before the teacher walks in."
             " Doris let’s go of your hand, but not without a quick kiss which makes the butterflies in your stomach go crazy."
             "You quickly walk back to your desk, smiling all the way there."
+            stop music
             $ d.trust_ch(1)
             $ d.item = True
             jump lunchday4
         "Sorry but…":
+            stop music
             "Doris instantly let's go of your hand immediately, she frowns. The embarrassment was written all over her face."
             d.c "Well… you can still keep the flower, what I said before hasn't changed."
             d.c "See you later."
@@ -1761,6 +1820,7 @@ label lunchday4:
             jump maggiearghday4
 label maggiearghday4:
     " The rest of your classes blur by, and right when you’re about to make it to your dorm, you notice Arghawan and Maggie arguing again."
+    play music "audio/lunch.mp3" fadeout 1.0 fadein 1.0
     show argha mad at left
     show maggie happy at right
     a.c "Are you saying I wouldn't beat you in a fight?"
@@ -1784,6 +1844,7 @@ label maggiearghday4:
             m.c "Oh yeah? What are you gonna do about it?"
             "Wordlessly, Arghawan throws a hard punch at Maggie who slams against the wall. She cracks her bones before throwing another attack at Arghawan."
             "Anyways, they’re fighting again. "
+            stop music
             jump restoftheday
         "You’re so gay it hurts me, Arghawan.":
             $a.trust_ch(-1)
@@ -1798,6 +1859,7 @@ label maggiearghday4:
             "Maggie shoves Arghawan again a little harder."
             "And then she does it again."
             "I’ll save you some time, because as always, it escalated into a full on fight."
+            stop music
             jump restoftheday
 
 label restoftheday:
@@ -1809,7 +1871,7 @@ label restoftheday:
         jump cassidyevent
     else:
         jump day5
-
+#REWRITE SECTION TO TAKE OUT PEN:
 label brennanevent:
     scene bg blmoffice
     "You quickly make your way to Brennan’s office, where he’s sitting at his office desk."
@@ -1825,18 +1887,20 @@ label brennanevent:
     b.c "Yes… That's what I believed as well."
     show brennan happy
     b.c "Not to worry, I’ve actually taken quite a liking to you"
+    play music "audio/romance.mp3" fadeout 1.0 fadein 1.0
     b.c "You could just stay here with me. You won’t have to do classes forever of course, I could arrange something for you but… if you’d like, we could have lunch together any time you’d like"
     j.c "I’d like that very much."
     b.c "I’m glad to hear it, Jessica."
     "Brennan smiles at you and hands you a pen."
     #wait a sec to get with brennan you don't throw anything into the bonmfire? what the hell?
     b.c "It’s nothing fancy, just something for you to throw into the bonfire."
-    $ b.item = True
+    $ b.item = True #setting this true for consistency, getting the letter counts as an "item"
     show brennan blush
     b.c "I’m no soulmate but I’d like to think I’m a suitable companion. I’m looking forward to spending the rest of eternity with you, Jessica."
     "You blush, your heart racing faster. You quietly take the pen and tuck it into your pocket, alongside the note."
     b.c "Well, I’ll see you tomorrow at the bonfire then?"
     "He winks at you as you nod, flustered. You wave goodbye as you quickly exit the office, pleading your heart to stop beating so quickly."
+    stop music
     if c.route:
         jump cassidyevent
     else:
@@ -1888,18 +1952,24 @@ label cassidyevent:
             jump day5
 label day5:
     scene bg dorm with fade
-    "You flop onto your bed exhausted, and before you know it, you’re already asleep."
+    "You flop onto your bed exhausted. As you close your eyes, you hear a voice in your head...."
+    "Sarvnaz" "Hi Jessica! Happy bdayy! I hope you enjoy your present, it's the second best thing we could have come up with (the first being duelling mr webster to death)."
+    "Sarvnaz" "I hope 17 goes better than 16 and we get to hang out ~irl~ again. Here's a highlight of fun, somewhat cursed things we've done together that bring me joy:"
+    "watching the supernatural finale, and then watching the racist truck episode, arguing with joe over the logistics of the monkey theory,"
+    "buying tutus for your dogs, watching you and zoe spill a $10 chatime drink 15 seconds after buying it and getting a refill, all the times we hung out last summer, the two weeks where we watched all of atla, and much more :D Thanks for being an amazing friend and person, ily! <3"
+    "Before you know it, you’re already asleep."
     # thank fuck i am done - have fun ames i hope this code still makes sense
     # i will have fun sarv dw and ty bb /p
     scene bg dorm with fade
     "You wake up, the window shone brightly on your face as you wake up from the deep sleep you had the night before."
     "You had a heavy decision to make today. You lay in bed for a while thinking of who you would choose at the bonfire today.
-    There was a lot of noise coming from outside your door, presumably the chatter of students preparing for the bonfire tonight.
-    You cringed as you heard loud sobs outside your door, probably students who had given up on finding their soulmates. Your heart flutters in a gross anticipation."
+    There was a lot of noise coming from outside your door, presumably the chatter of students preparing for the bonfire tonight."
+    "You cringed as you heard loud sobs outside your door, probably students who had given up on finding their soulmates. Your heart flutters in a gross anticipation."
 
-    If jessica unlocks blm route, and has more than 4 relationship points with blm
+    #If jessica unlocks blm route, and has more than 4 relationship points with blm
     if (b.route and (b.trust>4)):
         jump blmletter
+        $ b.item = True
     #if you're here and b.route was activated it means you ahve 4 or fewer trust w blm
     #this means, you have failed and do not get blm ending, so i can do this
     $ b.route = False
@@ -1936,21 +2006,22 @@ label blmletter:
     jump bonfire
 
 label bonfire:
-    "You collect yourself, brush your teeth and brush your hair, getting ready to seize the day and help with the events to prepare for the evening.
+    "You collect yourself, brush your teeth and brush your hair, getting ready to seize the day and help with the events to prepare for the evening."
 
     #in my ipinion a time skip doesn't really make sense without a black background
     scene bg black with fade
     "TIME SKIP"
     scene bg dorm with fade
 
-    "Time flies by and before you know it, you’re getting dressed for the bonfire. You’re chin deep in anxiety, feeling your lungs seize up in trying to make a decision that will without a doubt effect the rest of your existence, both on Earth and in this weird limbo you’re currently living in."
+    "Time flies by and before you know it, you’re getting dressed for the bonfire."
+    " You’re chin deep in anxiety, feeling your lungs seize up in trying to make a decision that will without a doubt effect the rest of your existence, both on Earth and in this weird limbo you’re currently living in."
 
     scene bg hall with fade
 
     "The people around you all dress up in what you assume to be their nicest clothes. You smile looking down at your cute dress made out of the softest material you could ever imagine."
 
     scene bg bonfire with fade
-
+    play music "audio/eveningmusic.mp3" fadeout 1.0 fadein 1.0
     "The bonfire glows a bright blue and fills your senses with excitement, fear, but most vividly, like the breath of a god, a cold fire wrapping itself around your soul."
     "One by one, student after student throws an item into the bonfire. When the fire burns red people begin to clap and cheer. You assume that the fire turning red implies you’ve found your soul mate."
     "Eventually, it becomes your turn. You gulp nervously and take a look at the items you have to throw into the fire."
@@ -1975,10 +2046,11 @@ label bonfire:
                 jump csuccess
             else:
                 jump cfail
+
         "You choose… nothing.":
             #remember the check is built into this boolean now since if it was true before and you didn't get the letter it turns false
-            if (b.route):
-                jump bsuccess
+            if (b.item):
+               jump bsuccess
             else:
                 jump totalfail
 
@@ -1986,11 +2058,11 @@ label msuccess:
     #Bonfire.png (already bonfire?)
     #whoever wrote thid did this with every single route, but i'm only commenting on it here.
     "You throw the demonic rock into the fire."
-    #my attempt to show you throwing in the item (show suddenly and fade)
+    #my attempt to show you throwing in the item (show suddenly and fade) #this looks great owo
     show rock with None
     hide rock with dissolve
     scene bg black with fade
-    scene bg bonfireRed with fade
+    scene bg bonfirered with fade
     "All of a sudden, the once cold blue fire raged a burning red. The blow of an angry god now became the warmest hug."
     show maggie neutral blink
     "You averted your gaze to Maggie, who had her attention elsewhere. She was laughing with some friends."
@@ -2041,7 +2113,7 @@ label asuccess: #different form the similar label arghasuccess lol
     show pipes with None
     hide pipes with dissolve
     scene bg black with fade
-    scene bg bonfireRed with fade
+    scene bg bonfirered with fade
     "The bonfire grows loudly and powerfully into a huge red cloud of heat. Excitedly, you look around for your soulmate, but he’s nowhere to be found-"
     show argha blush
     "All of a sudden, you’re grabbed and twirled into the air, loud cheering sounding off around you. Multiple other guys screaming and hyping Arghawan up; you assume they’re his homies. Your dress twirls as he spins you around. He clutches you close to your chest."
@@ -2084,7 +2156,7 @@ label dsuccess:
     hide flower with dissolve
     #didn't say to fade to black here but i need consistency
     scene bg black with fade
-    scene bg bonfireRed with fade
+    scene bg bonfirered with fade
     "The bonfire’s hue shifts and transforms into a brand new hue of a deep red, You look around and look for Doris, her face matching the same hue of red." #lol
     #switching this neutral to neutral blink, and the following neutral blink to neutral
     show doris neutral blink
@@ -2129,7 +2201,7 @@ label csuccess:
     show musicbox with None
     hide musicbox with dissolve
     scene bg black with fade
-    scene bg bonfireRed with fade
+    scene bg bonfirered with fade
     "You smile widely when you see the fire burn red. You look around to find Cassidy. You can’t find her."
     j.c "What the hell? Where is she?"
     show maggie neutral
@@ -2183,14 +2255,11 @@ label csuccess:
     scene bg cassidyend with fade
     c.c "So what do you say, soulmate. Let's go find some liquor!"
     "She laughs and runs, leaving her black shoes behind."
-    j.c "Wait! You forgot your shoes!"4
+    j.c "Wait! You forgot your shoes!"
     c.c "Jeez, when did you get so uptight?"
     jump goodend
 
-
-
 label cfail:
-    s
     "You toss in the music box and wait for the fire’s reaction."
     show musicbox with None
     hide musicbox with dissolve
@@ -2239,8 +2308,17 @@ label goodend:
     jump end
 
 label end:
-    #credits owo?
-
+    scene bg black with fade
+    #credits owo? - good idea!
+    #is this good?
+    "Creative director, Boss - Maggie"
+    "Storyboarding - Maggie, Argha, Cassidy"
+    "Writing - Maggie and Arghawan"
+    "Art - Doris and Joe"
+    "Coding - HackerGals TM (Amy, Sarv, Ellie)"
+    "Music - Cassidy, Argha"
+    "General chaos - the entire discrod server dedicated to your bday"
+    "Happy bday Jessica!"
 
 # This ends the game.
 return
