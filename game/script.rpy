@@ -263,7 +263,7 @@ label gym:
     a.c "Oh shit homie! I gotta run! Class is almost starting. I’ll catch you tomorrow!"
     "Arghawan interrupts you, then runs off to his next class. You check your schedule and see what class to head to next."
     stop music
-    j.c "UGH are you fucking kidding me?! Gym? Again, what does any of this have to do with rehabilitation?"
+    j.c "UGH are you fucking kidding me?! Gym? What? How does any of this have to do with rehabilitation?"
     play sound "audio/doorsfx.mp3"
     scene bg hall
     with dissolve
@@ -277,8 +277,10 @@ label gym:
     "Somehow you have survived an entire game of dodgeball until it was just you and some other person across the room from you."
     #make maggie angry
     #wait sarv am i missing smth why is there a comment here can i do it
-    show maggie happy
+    #fixed but didnt want to delete glorious comments 
+    show maggie angry
     m.c "I DOUBT YOU’RE A WORTHY OPPONENT, BE PREPARED TO FEEL MY WRATH"
+    show maggie angry blink
     "She whips a dodgeball towards you, hurling towards your face. Quickly you duck. Holy shit this chick is crazy."
     m.c "WHATS WRONG? TOO CHICKEN TO THROW THE BALL?"
     "You decide between winning the game or just letting her have it. Maybe its a chance for you to make some friends."
@@ -312,8 +314,9 @@ label gym:
             "you stop in your tracks."
             m.c "… Good game out there. Glad to see you aren’t a pussy like the rest of these chumps."
             "The girl who you know now to be a tiefling jerks her head at a bunch of kids to freak them out."
-            show maggie happy
+            show maggie happy blink
             m.c "My name is Maggie, and rest assured, next time, I’ll win."
+            show maggie happy
             $ m = Person(Character("Maggie"), "Maggie")
             $ m.trust_ch(1)
             "She pats you on the back. Rough. A little too rough.
@@ -324,7 +327,7 @@ label gym:
             jump cafeteria
 
 label cafeteria:
-    "After an afternoon of terrible, terrible classes, you decide to grab a bite to eat in the cafeteria,
+    "After an afternoon of terrible, terrible classes that have nothing to do with making you a better person, you decide to grab a bite to eat in the cafeteria,
     but by the time you reach the cafeteria, all of the tables are taken.
     You groan and take your three dollar sandwich elsewhere."
 
@@ -378,6 +381,7 @@ label dormchoice:
     stop music
     "You sigh and pack up, going to your dorm as classes have finished after lunchtime."
     play sound "audio/doorsfx.mp3"
+    play music "audio/eveningmusic.mp3"
     scene bg dorm
     with fade
     "Uncharacteristically, You decide to go to bed early, and reflect on your day. You feel that you’ve connected the most with…"
@@ -392,7 +396,7 @@ label dormchoice:
             $ a.trust_ch(1)
             jump day1
         "Maggie":
-            "Maggie is nothing short of fiery and aggressive, but something about her just makes you want to get to know her better."
+            "Maggie is nothing short of fiery and aggressive, but that fire is just so warm... wouldn't really say inviting.."
             $ m.trust_ch(1)
             jump day1
         "Doris":
@@ -411,6 +415,8 @@ label day1:
     with fade
     #just gonna set argha's boolean to true don't mind me
     $ a = Person(Character("Arghawan"), "Arghawan", route = True)
+
+    music stop
     #where day 1 actually begins
     "You wake up in your dorm, only slightly ready to begin a new day. The day prior had knocked you out well."
     "Reluctantly, you get out of your cozy bed, looking around your room for the textbooks needed for your class today. When you’re all prepared, you leave the room, hoping to run into some of the new friends you’ve made."
@@ -1551,19 +1557,25 @@ label arghaday3:
     "Reaching into his back pocket, he pulls out a small pan flute and starts to play so serenely."
 
     #Argha-romance music start ???
+    #yes
 
     scene bg black
     with fade
+    play "audio/romance.mp3"
     "Although it is just him playing, you can't help but feel, when you close your eyes, a phantom orchestra nowhere to be seen yet playing wonderfully as the two of you adorned in regal costume waltz across the grand ballroom of an empty palace."
-    "You can almost feel the tickle of his hands on your sides, feeling his hands."
+    "You can almost feel the tickle of his hands on your sides, feeling his hands. You hum alongside the rhythm in your mind, too shy to do so in real life."
     "The plush skirt of your dress sways from the left to the right. As the speed picked up, your grip on his shoulders tightens, even though he did nothing but chuckle and pull you closer."
+    "You wonder briefly if he can see the same thing, maybe he's imagining something different?"
+    "Perhaps he's thinking of a picnic. A gingham blanket laid out, a red checkered pattern stands out against the fresh green of the grass."
+    "What would he prefer, desserts, or something savoury? It's far easier imagining him with a small cream puff in his hands, looking at it with a sense of bewilderment,
+    "You would chuckle as you wipe the cream that fell on his nose, and he would blush heavily and yell at you for stealing...
     "The fantasy was beautiful, yet short lived. The music soon stops, and you open your eyes."
 
     scene bg argha
     show argha blush
     with fade
-
-    a.c "I… Want you to have this. Please, consider my name when you attend the bonfire."
+    "You suddenly open your eyes and notice his face and how close it is to yours."
+    a.c "I… Want you to have this. Please, consider me when you attend the bonfire."
     show argha sad
     menu:
         "Yes, of course!":
@@ -1679,7 +1691,7 @@ label day4begindorm:
     "Regardless, you get ready for the new day, in a bit of a hurry. "
     if b.route:
         "Under the door, you notice a small note. Curious, you pick it up and gasp when you read the content of the note."
-        "It says 'Jessica, I have something rather important I’d like to discuss with you. Please meet me as soon as you have time available.'"
+        "'Jessica, I have something rather important I’d like to discuss with you. Please meet me as soon as you have time available.'"
         "You tuck the note into your pocket, as much as you’d like to see what Brennan needed from you, you’d have to attend your classes first."
     scene bg classroom
     with dissolve
@@ -1689,13 +1701,13 @@ label day4begindorm:
     show cassidy neutral
     c.c "…Thanks"
     j.c "Did something good happen?"
-    c.c "Well… I guess that depends on you."
+    c.c "Well… I guess that depends on what happens next."
     "Cassidy shifts in her seat nervously, she tugs on her collar a bit, as a means of fidgeting."
     show cassidy sad
     c.c "I’m going to be reading in the park later today…"
     "She falls silent for a second, before she coughs into her hands."
     show cassidy sad
-    c.c "And it would be a pleasure if you could join me."
+    c.c "And it would be a pleasure... I mean... I would really like it if you could join me."
     j.c "Oh…"
     menu:
         "I’d love to join you.":
@@ -1707,11 +1719,11 @@ label day4begindorm:
             $ c.trust_ch(1)
             "Cassidy shifts her attention back to the book she was reading, but she has a small smile on her face."
             jump classday4
-        "Not today.":
+        "Sorry, I have... something else to do today.":
             show cassidy sad
             $c.trust_ch(-1)
             c.c "That’s fine, I get it, I guess."
-            "Cassidy looks back to her book, ignoring you."
+            "Cassidy averts her gaze and looks back to her book, ignoring you."
             show cassidy mad
             c.c "And just so you know, I’m not upset or anything, so don't you dare get the wrong idea."
             jump classday4
@@ -1726,7 +1738,7 @@ label classday4:
     show maggie sad
     "However, you kept getting the nagging feeling that somebody was watching you. The next time you felt it, you instantly looked up and caught Maggie staring at you from behind her shoulder"
     show maggie blush
-    "She blushes, makes an indecipherable face, then turns back to her work."
+    "She blushes, makes an indecipherably angry face, then turns back to her work. The two of you simultaneously let out a chuckle, stopping the lesson briefly for the teacher to yell at you."
     "You laugh quietly to yourself and carry on."
     "Eventually, English class ends and you go to your last class of the day, Biology."
     scene bg hall
@@ -1746,9 +1758,10 @@ label dorisarg:
     d.c "Jessica."
     j.c "Hi, Doris."
     show doris mad
-    d.c "Don’t you ‘hi’ me, how could you do this to me?!"
-    "You shift your eyesight to the floor, kicking it a bit. It felt as if you were disappointing your own mother."
-    d.c "How… Why?"
+    d.c "Wow. How could you say that to me like you did nothing?"
+    d.c "Don’t you have an ounce of guilt? For what you did to me? I trusted you!
+    "You shift your eyesight to the floor, kicking at it a bit. It felt as if you were disappointing your own mother."
+    d.c "Oh so now you wanna stop talkong, hm? What, got no more secrets to spill? No more gossip to shed out?"
     "You look at her, and feel the guilt crush you once again."
     d.c "I showed you that place because I… I trusted you!"
     show doris sad
@@ -1844,6 +1857,8 @@ label maggiearghday4:
         "Well, personally, I think Arghawan could totally kick your ass.":
             $a.trust_ch(1)
             $m.trust_ch(-1)
+            show argha blush at left
+            show maggie mad at right
             "Arghawan flushes a little but puffs his chest out regardless, standing proud."
             show argha happy at left
             a.c "See? The people have spoken."
@@ -1883,21 +1898,23 @@ label restoftheday:
     else:
         jump day5
 #REWRITE SECTION TO TAKE OUT PEN:
+#keeping pen changing endign
 label brennanevent:
+    play "audio/eveningmusic.mp3"
     scene bg blmoffice
     "You quickly make your way to Brennan’s office, where he’s sitting at his office desk."
     show brennan neutral
     b.c "Ah, Jessica, glad you could make it."
     b.c "I’ll cut to the chase."
     show brennan happy
-    b.c "Won't you stay here with me?"
+    b.c "There's something serious I have to ask of you. Will you... stay with me here?"
     j.c "What?"
     show brennan sad
     b.c "In purgatory. I’ve seen the way you interact with others. Forgive me for saying this, but you don't seem to get along with anyone. Would you really be happy reincarnating?"
-    j.c "I… I don't think so."
+    j.c "I… I don't think so now that you mention it."
     b.c "Yes… That's what I believed as well."
     show brennan happy
-    b.c "Not to worry, I’ve actually taken quite a liking to you"
+    b.c "Not to worry, I’ve err.. taken quite a liking to you"
     play music "audio/romance.mp3" fadeout 1.0 fadein 1.0
     b.c "You could just stay here with me. You won’t have to do classes forever of course, I could arrange something for you but… if you’d like, we could have lunch together any time you’d like"
     j.c "I’d like that very much."
@@ -1946,9 +1963,10 @@ label cassidyevent:
             "You stay silent, as Cassidy continues to hurl insults at you as she packs up her stuff. Before you fully notice, she’s already gone."
             jump day5
         "This book was awesome. Have you read his other book where those Nazi twins fall in love?":
-            c.c "Right? Right?!"
+            c.c "Right? Right?! SO GOOD!"
             c.c "Maggie told me that it was gross and wrong but I just knew you would understand, Jessica."
             show cassidy blush
+            "She sighs happily."
             c.c "Jessica, I’ve never connected with anyone in this entire school the way I have with you."
             c.c "Honestly, it makes me kind of scared. I've always been used to being in my own bubble for years, with no one ever understanding my struggles or problems but you changed all of that."
             c.c "This feeling is unfamiliar but… I want to know more of it."
@@ -1998,9 +2016,11 @@ label blmletter:
     "My dear,"
     "I suspect you know who this is if you are reading this right now."
     "I have grown unbelievably close to you, and I fear that I can no longer hold my feelings back anymore."
+    "I am aware we have already spoken on this, but I believe I owe you an explanation. a real one. Alas, I am a coward"
+    "And I am afraid to meet you face to face in fear of your rejection."
     "You see, when I had arrived at purgatory, it was hard for me to become infatuated with anybody. I spent millenia here, and could not find a single soul to call my own; the other half to me."
     "The universe who, as you already know, is pretty big on pity, decided to have mercy on me.
-    They granted me knowledge of every single thing in this universe, about how things work, but there was one thing I could never understand. It was love."
+    "They granted me knowledge of every single thing in this universe, about how things work, but there was one thing I could never understand. It was love."
     "I fully believed that I was incapable of loving another, that the universe was right to give me this life, because it is the best I could do with my existence."
     "Alas, when they hired me as headmaster, they stripped away my ability to return back to Earth, and my ability to physically express myself, which is why I appear as a different form to everyone, I am not the same person to everyone,"
     "But I have found myself loving the person I am when I am around you. You have changed me in ways I never could have seen imaginable. When I am with you, I am not a headmaster, I am someone of value, to another person, and not just as a teacher or as authority, but as an equal."
@@ -2057,7 +2077,6 @@ label bonfire:
                 jump csuccess
             else:
                 jump cfail
-
         "You choose… nothing.":
             #remember the check is built into this boolean now since if it was true before and you didn't get the letter it turns false
             if (b.item):
@@ -2289,12 +2308,29 @@ label cfail:
     jump badend
 
 label bsuccess:
-    "You pass on your turn and watch as other students throw their items into the bonfire. You look up at Brennan lee Mulligan who looks back at you.
-    He smiles softly before his face returns to normal and he continues along with the ceremony."
+    "You think for a moment and pass on your turn and watch as other students throw their items into the bonfire. You look up at Brennan lee Mulligan who looks back at you.
+    He smiles sadly before his face returns to normal and he continues along with the ceremony."
     "The night ends, and as the bonfire roars and students just hang out. Some sleeping, some singing."
     "There isn’t much you can say, but you stand right next to Brennan, and he acknowledges your presence."
+    show brennan sad
     b.c "How is your night going?"
     j.c "Better, now that I’m next to you."
+    show brennan sad blink
+    b.c "But ... i thought you had denied my offering?"
+    "He seems to be worried, but you chuckled slighty."
+    j.c "Well I read your letter,"
+    show brennan neutral
+    b.c "Yes?"
+    j.c "You said how, the universe had selected you to remain soulmateless, to remain here in this beautiful world to educate others, in exchange for everlasting life and knowledge?."
+    "He looks at you, confused."
+    show brennan mad blink
+    j.c "Well how would the universe feel if I threw something of yours into the bonfire? Would they not punish you?"
+    "He stops for a moment."
+    show brennan blush
+    b.c "Yes, hahah, I see how you came up with that."
+    "You laugh."
+    show brennan blush blink
+    j.c "For an everknowing being, you sure can be dull sometimes."
     scene bg blmend with fade
     "He smiles, and looks away, putting his hand down for you to hold. His head is still focused away from you, as to not arouse suspicion."
     "You smile and take his hand."
@@ -2305,7 +2341,7 @@ label totalfail:
     "You pass on your turn and watch as the others around you enjoy their time. You smile awkwardly, kind of regretting your decision. You just wasted a week of your time."
     "Guess you gotta wait for your turn at the next bonfire."
     scene bg black with fade
-    "VERY BAD END. What the hell? At least CHOOSE something?"
+    "VERY BAD END. What the hell? At least choose SOMETHING?"
     jump end
 
 label badend:
@@ -2327,7 +2363,7 @@ label end:
     "Writing - Maggie and Arghawan"
     "Art - Doris and Joe"
     "Coding - HackerGals TM (Amy, Sarv, Ellie)"
-    "Music - Cassidy, Argha"
+    "Music - Cassidy, Argha, Maggie"
     "General chaos - the entire discrod server dedicated to your bday"
     "Happy bday Jessica!"
 
