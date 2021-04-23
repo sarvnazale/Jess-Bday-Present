@@ -68,7 +68,7 @@ label start:
     Welcome to that place."
     b.c "Also, The reason I appear like this, is because
     I assume the figure of the person you trusted most in your past life.
-    for you, I figure that would be… 
+    for you, I figure that would be… "
     "He pauses and takes a look at your personal file."
     b.c "Brennan Lee Mulligan on a... Kaonashi’s body…"
     j.c "O…Oh… Okay… So I’m in hell."
@@ -89,10 +89,9 @@ menu:
 
 label soul:
 
-    b.c "Similarly to how I become the person who you are the most comfortable with,
-    You also assume a sprite as well. You resemble what your SOUL appears to be."
+    b.c "Similarly to how I become the person who you are the most comfortable with, You also assume a sprite as well. You resemble what your SOUL appears to be."
     "He seems to be confused as to what you are as well. He inquisitively takes another look at your personal file."
-    b.c "You are… oof.. well, a monkey queen. Present in many different kinds of mythology.
+    b.c "You are… oof.. well, a monkey queen. Present in many different kinds of mythology."
     b.c "You’ll find some other mythological creatures, maybe some Satyrs, nymphs, what nots, but not everyone here is mythological."
     b.c "Wraiths.. demons... tieflings... things you've never even heard of before."
     if option1:
@@ -128,7 +127,7 @@ label death:
     b.c "Usually this is a romantic soulmate, but this school has been known
     to see the platonic soul mate or two. Anyways, When you discover who your soulmate is,"
     b.c "you have to help each other rehabilitate, so you are respawned at the exact same time.
-    They will probably give you an item, maybe a hair clip or something, but it should be something meaningful. Something symbolic. 
+    They will probably give you an item, maybe a hair clip or something, but it should be something meaningful. Something symbolic."
     b.c "If, or well I guess, when, you throw it into the fire, and the fire changes colour…"
     show brennan blush
     b.c "…voila. You’ve met your match."
@@ -174,7 +173,7 @@ label exposition:
     menu:
         "Do you want some water?":
             show cassidy happy
-            c.c "Thanks, but I'm not really a ‘water’ kind of girl. If you have any whisky though...
+            c.c "Thanks, but I'm not really a ‘water’ kind of girl. If you have any whisky though..."
             show cassidy happy blink
             "You shake your head no."
             show cassidy happy
