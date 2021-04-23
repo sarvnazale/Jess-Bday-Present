@@ -277,10 +277,10 @@ label gym:
     "Somehow you have survived an entire game of dodgeball until it was just you and some other person across the room from you."
     #make maggie angry
     #wait sarv am i missing smth why is there a comment here can i do it
-    #fixed but didnt want to delete glorious comments 
+    #fixed but didnt want to delete glorious comments
     show maggie angry
     m.c "I DOUBT YOU’RE A WORTHY OPPONENT, BE PREPARED TO FEEL MY WRATH"
-    show maggie angry blink
+    show maggie mad blink
     "She whips a dodgeball towards you, hurling towards your face. Quickly you duck. Holy shit this chick is crazy."
     m.c "WHATS WRONG? TOO CHICKEN TO THROW THE BALL?"
     "You decide between winning the game or just letting her have it. Maybe its a chance for you to make some friends."
@@ -416,7 +416,7 @@ label day1:
     #just gonna set argha's boolean to true don't mind me
     $ a = Person(Character("Arghawan"), "Arghawan", route = True)
 
-    music stop
+    stop music
     #where day 1 actually begins
     "You wake up in your dorm, only slightly ready to begin a new day. The day prior had knocked you out well."
     "Reluctantly, you get out of your cozy bed, looking around your room for the textbooks needed for your class today. When you’re all prepared, you leave the room, hoping to run into some of the new friends you’ve made."
@@ -1561,14 +1561,14 @@ label arghaday3:
 
     scene bg black
     with fade
-    play "audio/romance.mp3"
+    play music "audio/eveningmusic.mp3" fadeout 1.0 fadein 1.0
     "Although it is just him playing, you can't help but feel, when you close your eyes, a phantom orchestra nowhere to be seen yet playing wonderfully as the two of you adorned in regal costume waltz across the grand ballroom of an empty palace."
     "You can almost feel the tickle of his hands on your sides, feeling his hands. You hum alongside the rhythm in your mind, too shy to do so in real life."
     "The plush skirt of your dress sways from the left to the right. As the speed picked up, your grip on his shoulders tightens, even though he did nothing but chuckle and pull you closer."
     "You wonder briefly if he can see the same thing, maybe he's imagining something different?"
     "Perhaps he's thinking of a picnic. A gingham blanket laid out, a red checkered pattern stands out against the fresh green of the grass."
-    "What would he prefer, desserts, or something savoury? It's far easier imagining him with a small cream puff in his hands, looking at it with a sense of bewilderment,
-    "You would chuckle as you wipe the cream that fell on his nose, and he would blush heavily and yell at you for stealing...
+    "What would he prefer, desserts, or something savoury? It's far easier imagining him with a small cream puff in his hands, looking at it with a sense of bewilderment,"
+    "You would chuckle as you wipe the cream that fell on his nose, and he would blush heavily and yell at you for stealing..."
     "The fantasy was beautiful, yet short lived. The music soon stops, and you open your eyes."
 
     scene bg argha
@@ -1759,7 +1759,7 @@ label dorisarg:
     j.c "Hi, Doris."
     show doris mad
     d.c "Wow. How could you say that to me like you did nothing?"
-    d.c "Don’t you have an ounce of guilt? For what you did to me? I trusted you!
+    d.c "Don’t you have an ounce of guilt? For what you did to me? I trusted you!"
     "You shift your eyesight to the floor, kicking at it a bit. It felt as if you were disappointing your own mother."
     d.c "Oh so now you wanna stop talkong, hm? What, got no more secrets to spill? No more gossip to shed out?"
     "You look at her, and feel the guilt crush you once again."
@@ -1900,7 +1900,7 @@ label restoftheday:
 #REWRITE SECTION TO TAKE OUT PEN:
 #keeping pen changing endign
 label brennanevent:
-    play "audio/eveningmusic.mp3"
+    play music "audio/eveningmusic.mp3"
     scene bg blmoffice
     "You quickly make your way to Brennan’s office, where he’s sitting at his office desk."
     show brennan neutral
@@ -1997,8 +1997,8 @@ label day5:
 
     #If jessica unlocks blm route, and has more than 4 relationship points with blm
     if (b.route and (b.trust>4)):
-        jump blmletter
         $ b.item = True
+        jump blmletter
     #if you're here and b.route was activated it means you ahve 4 or fewer trust w blm
     #this means, you have failed and do not get blm ending, so i can do this
     $ b.route = False
@@ -2019,7 +2019,7 @@ label blmletter:
     "I am aware we have already spoken on this, but I believe I owe you an explanation. a real one. Alas, I am a coward"
     "And I am afraid to meet you face to face in fear of your rejection."
     "You see, when I had arrived at purgatory, it was hard for me to become infatuated with anybody. I spent millenia here, and could not find a single soul to call my own; the other half to me."
-    "The universe who, as you already know, is pretty big on pity, decided to have mercy on me.
+    "The universe who, as you already know, is pretty big on pity, decided to have mercy on me."
     "They granted me knowledge of every single thing in this universe, about how things work, but there was one thing I could never understand. It was love."
     "I fully believed that I was incapable of loving another, that the universe was right to give me this life, because it is the best I could do with my existence."
     "Alas, when they hired me as headmaster, they stripped away my ability to return back to Earth, and my ability to physically express myself, which is why I appear as a different form to everyone, I am not the same person to everyone,"

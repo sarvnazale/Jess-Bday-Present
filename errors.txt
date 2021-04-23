@@ -2,13 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 2186: end of line expected.
-    j.c "Wait! You forgot your shoes!"4
-                                      ^
-
-File "game/script.rpy", line 2193: expected statement.
-    s
-     ^
+File "game/script.rpy", line 1903: play requires a channel
+    play "audio/eveningmusic.mp3"
+         ^
 
 Ren'Py Version: Ren'Py 7.4.2.1292
-Thu Apr 22 14:00:44 2021
+Fri Apr 23 15:25:10 2021
