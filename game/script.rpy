@@ -68,14 +68,17 @@ label start:
     Welcome to that place."
     b.c "Also, The reason I appear like this, is because
     I assume the figure of the person you trusted most in your past life.
-    I assume for you that would be… Brennan Lee Mulligan on a Kaonashi’s body…"
+    for you, I figure that would be… 
+    "He pauses and takes a look at your personal file."
+    b.c "Brennan Lee Mulligan on a... Kaonashi’s body…"
     j.c "O…Oh… Okay… So I’m in hell."
-    b.c "Ah well, no you are not, that… doesn’t exist."
+    b.c "Ah well, no you are not, that… doesn’t exist, I'm sorry was my explanation not clear or..?"
+    "You shake your head and bite your nails. This is insane. You realize your knuckes are covered in fur... You also realize you are covered entirely in fur."
 
 default option1 = False
 default option2 = False
 menu:
-    "Why do i look like this?":
+    "Why do I look like this?":
         $ option1 = True
         jump soul
 
@@ -87,9 +90,11 @@ menu:
 label soul:
 
     b.c "Similarly to how I become the person who you are the most comfortable with,
-    You also assume a sprite. You resemble what your SOUL appears to be."
-    b.c "You are… well… a monkey queen. Present in many different kinds of mythology.
-    You’ll find some other mythological creatures, maybe some Satyrs, nymphs, what nots."
+    You also assume a sprite as well. You resemble what your SOUL appears to be."
+    "He seems to be confused as to what you are as well. He inquisitively takes another look at your personal file."
+    b.c "You are… oof.. well, a monkey queen. Present in many different kinds of mythology.
+    b.c "You’ll find some other mythological creatures, maybe some Satyrs, nymphs, what nots, but not everyone here is mythological."
+    b.c "Wraiths.. demons... tieflings... things you've never even heard of before."
     if option1:
         menu:
             "What do you mean purgatory? Why am I not in heaven? Or uhh…":
@@ -101,9 +106,9 @@ label soul:
 label death:
 
     b.c "Well… you see, most people don’t like my answer to this.
-    People who get sent to purgatory are… well they died the most pathetic deaths."
+    People who get sent to purgatory have, to put it bluntly, died the most pathetic deaths."
     j.c "I died a pathetic death?"
-    b.c "Ah… yes… quite so…"
+    b.c "Ah yes! quite so…"
     "The headmaster opens a drawer and looks through a file. He grimaces."
     b.c "Oh dear…"
     j.c "What is it?"
@@ -123,7 +128,8 @@ label death:
     b.c "Usually this is a romantic soulmate, but this school has been known
     to see the platonic soul mate or two. Anyways, When you discover who your soulmate is,"
     b.c "you have to help each other rehabilitate, so you are respawned at the exact same time.
-    They will probably give you an item, maybe a hair clip or something. If you throw it into the fire, and the fire changes colour…"
+    They will probably give you an item, maybe a hair clip or something, but it should be something meaningful. Something symbolic. 
+    b.c "If, or well I guess, when, you throw it into the fire, and the fire changes colour…"
     show brennan blush
     b.c "…voila. You’ve met your match."
     show brennan neutral
@@ -146,32 +152,37 @@ label exposition:
     play music "audio/beforeclass.mp3" fadeout 1.0 fadein 1.0
     j.c "How the hell am I supposed to know what class to go to? That creepy guy didn’t even give me a schedule…"
     "You realize, while you may be some… monkey beast… you are wearing a school uniform.
-    Quickly, you check your pockets and pull out a slip of paper, somehow, it appears to be untouched,
-    even though it was just shoved in your pocket."
+    Quickly, you check your pockets and pull out a slip of paper. It appears to be untouched
+    even though it was just crumpled in your pocket."
     j.c "Period 1… Math class. Second floor, all right."
     stop music
-
+    play sound "audio/doorsfx.mp3"
     scene bg staircase
     with fade
 
     "You locate the staircase, and start to walk up, but you see a panting figure."
     show cassidy neutral blink
-    j.c "whoa! Are you okay?! You’re so out of breath! Is someone chasing you?"
+    j.c "Whoa! Are you okay?! You’re so out of breath! Is someone chasing you?"
     show cassidy mad
 
     play music "audio/cassidy.mp3" fadeout 1.0 fadein 1.0
     "The girl glares slightly at you."
     c.c "Yes, I’m fine. I just… Have difficulty walking up stairs sometimes.
     Its normal this is a normal thing for people with normal bodies to do."
+    "She stretches backwards and you see her bend like some sort of trapeze artist. She groans loudly."
 
     menu:
         "Do you want some water?":
             show cassidy happy
-            c.c "Thanks, but I'm not really a ‘water’ kind of girl. If you have any whisky I’ll take some. The name’s Cassidy."
+            c.c "Thanks, but I'm not really a ‘water’ kind of girl. If you have any whisky though...
+            show cassidy happy blink
+            "You shake your head no."
+            show cassidy happy
+            c.c "Well, the name’s Cassidy."
             $ c = Person(Character("Cassidy"), "Cassidy")
             $ c.trust_ch(1)
             show cassidy happy blink
-            "Unfortunately for the two of you, neither of you have any whisky on hand, but you feel content that you may have made your first friend."
+            "Unfortunately for the two of you, neither of you have any sort of liqour on hand, but you feel content that you may have made your first friend."
             stop music
             jump library
         "It's… just a flight of stairs… This shouldn’t be hard for you.":
@@ -184,7 +195,7 @@ label exposition:
             jump library
 
 label library:
-    "After an odd encounter with a wraith, you run up the stairs and look around for your math classroom.
+    "After an odd encounter with a victorian wraith, you run up the stairs and look around for your math classroom.
     Nervous, you enter, and all of a sudden think; how the hell will math help with making me a better person?"
     play sound "audio/doorsfx.mp3"
 
@@ -196,9 +207,7 @@ label library:
     play sound "audio/doorsfx.mp3"
 
     "You start looking around, but your attention is quickly averted to the large sobbing man sitting
-    alone among a pile of math sheets and textbooks."
-
-    "You start looking around, but your attention is quickly averted to the large sobbing man sitting alone among a pile of math sheets and textbooks."
+    alone among a pile of math sheets and textbooks. You recognize him from your math class."
     "You look away, not wanting to make him uncomfortable, but his sobs and whimpers fill the library, and you feel obligated to help."
     play music "audio/argha.mp3" fadeout 1.0 fadein 1.0
     show argha mad
@@ -231,8 +240,10 @@ label library:
                 else:
                     a.c "Bro… this doesn’t look right… Are you sure it's not 3? Damn and I have a test today… this better be right and my judgement is failing me! Or we’re both in deep shit…"
                     show argha sad
+                    "You were in his class. He definitely did not have a test that day."
                     a.c "Not to be rude, but i think you should seriously reevaluate your dream of being an educator."
-                    "You look frazzled."
+                    show argha sad blink
+                    "You look at him, frazzled."
                     j.c "When did I ever say-"
                     $ a = Person(Character("Arghawan"), "Arghawan")
                     $ a.trust_ch(-1)
@@ -241,6 +252,7 @@ label library:
             else:
                 show argha sad
                 a.c "Are you sure about that? I may be dumb, but I know at least that much…"
+                a.c "Well, it's nice to meet someone stupider than me. My name is Arghawan"
                 $ a = Person(Character("Arghawan"), "Arghawan")
                 jump gym
 
