@@ -278,7 +278,7 @@ label gym:
     #make maggie angry
     #wait sarv am i missing smth why is there a comment here can i do it
     #fixed but didnt want to delete glorious comments
-    show maggie angry
+    show maggie mad
     m.c "I DOUBT YOU’RE A WORTHY OPPONENT, BE PREPARED TO FEEL MY WRATH"
     show maggie mad blink
     "She whips a dodgeball towards you, hurling towards your face. Quickly you duck. Holy shit this chick is crazy."
@@ -880,7 +880,7 @@ label maggos:
     "Her hand shakes slightly as she presents to you an object. It’s a rock"
     show rock at right
     j.c "Uhh… what um.. Is this."
-    show maggie angry
+    show maggie mad
     m.c "Fuck what did that asshole headmaster explain to you?"
     "She calms herself down slightly before explaining what it is she is doing."
     show maggie neutral
