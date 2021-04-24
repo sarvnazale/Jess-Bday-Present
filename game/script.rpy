@@ -2116,7 +2116,7 @@ label msuccess:
     show maggie neutral blink
     m.c "But… I wouldn’t wish it were anyone else…"
     #do we want fade here? dissolve? idk (same for all final romance images tbh)
-    scene bg maggiend with fade
+    scene bg maggieend with fade
     m.c "Jessica, if.. If it takes me a day, a year, or a millenia to get better, please, please, be patient."
     m.c "I would travel to hell and back if it takes me, so please."
     m.c "Help me be better, so I can be good. A good person. A good spirit, a good soulmate for you."
