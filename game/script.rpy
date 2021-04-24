@@ -772,19 +772,19 @@ label dormday1:
         $ answer3 = renpy.input("Enter an answer: ", "", allow="0123456789")
         python:
          if (answer3==3):
-             maggieqs += 1
+             maggieqs = maggieqs + 1
 
         "The second problem reads: \"If x^2 - 7x + 10 = 0, what is one possible value of x?\""
         $ answer4 = renpy.input("Enter an answer: ", "", allow="0123456789")
         python:
          if (answer4==2 or answer4==5):
-             maggieqs += 1
+             maggieqs = maggieqs + 1
         "The final problem reads: \"What is the value of the numerator of cos A, if the value of tan A is 4/3 and we assume cos A is positive?\"
         You feel that you have seen this exact problem before…"
         $ answer5 = renpy.input("Enter an answer: ", "", allow="0123456789")
         python:
          if (answer5==3):
-             maggieqs += 1
+             maggieqs = maggieqs + 1
         "Satisfied with your work, you head over to Maggie’s dorm to hand in the work."
         play sound "audio/doorsfx.mp3"
         scene bg hall
